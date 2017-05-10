@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace moviexpert\Events;
 
 abstract class Event
 {
