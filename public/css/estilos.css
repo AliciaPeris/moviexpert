@@ -1,0 +1,29 @@
+.margin5{
+  margin:5px;
+}
+.margin10{
+  margin:10px;
+}
+.margin25{
+  margin:25px;
+}
+.marginL100{
+  margin-left: 100px;
+}
+.width100{
+  width: 100%;
+}
+.fondoCabecera{
+  background: #330000;
+}
+.fondoMenu{
+  background: #D64937;
+}
+.textoMenu{
+  color:white!important;
+  font-size: 18px;
+  font-weight: bold;
+}
+.textoMenu:hover{
+  color:#D64937!important;
+}

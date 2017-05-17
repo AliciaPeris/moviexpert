@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('admin', 'HomeadminController@index');
 Route::resource('adminpelicula','AdminpeliculaController');
 Route::resource('admingenero','AdmingeneroController');
 Route::resource('adminconcurso','AdminconcursoController');
