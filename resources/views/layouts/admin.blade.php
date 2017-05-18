@@ -14,37 +14,31 @@
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
-            <div class="navbar-header container width100 fondoCabecera">
-              <div class="navbar-left marginL100">
-                <a class="navbar-brand" href="/admin"><img src="imagenes/logo.png"></img></a>
+            <div class="navbar-header container col-xs-12 fondoCabecera heigth100">
+              <div class="col-xs-7 col-xs-offset-2 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
+                <a class="navbar-brand" href="/admin"><img class="width100" src="imagenes/logo.png"></img></a>
               </div>
-              <div class="navbar-right margin25">
-                <ul class="nav navbar-nav">
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle textoMenu" data-toggle="dropdown" role="button"><strong>Administrador</strong><span class="caret"></span></a>
-                    <ul class="dropdown-menu fondoMenu">
-                      <li><a class="textoMenu" href="#">Cerrar Sesion</a></li>
-                      <li><a class="textoMenu" href="#">Visitar Pagina</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <div class="navbar-right margin25">
-                <form class="navbar-form ">
+              <div class="margintop25 hidden-xs col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
+                <form class="navbar-form">
                   <div class="form-group">
                     <input type="text" class="form-control" placeholder="Texto a buscar">
                   </div>
                   <button type="submit" class="btn fondoMenu">Buscar</button>
                   </form>
               </div>
+              <div class="hidden-sm hidden-md hidden-lg col-xs-1 col-xs-offset-1 margintop25 ">
+                <a href="" class="textoMenu glyphicon glyphicon-menu-hamburger"></a>
+              </div>
             </div>
             <div class="width100 fondoMenu">
               <ul class="nav nav-pills container">
-                <li class="margin5"><a class="textoMenu" href="/admin">Inicio</a></li>
-                <li class="margin5"><a class="textoMenu" href="#">Peliculas</a></li>
-                <li class="margin5"><a class="textoMenu" href="#">Concursos</a></li>
-                <li class="margin5"><a class="textoMenu" href="#">Chats</a></li>
-                <li class="margin5"><a class="textoMenu" href="#">Usuarios</a></li>
+                <li class=""><a class="textoMenu" href="/admin">Inicio</a></li>
+                <li class=""><a class="textoMenu" href="/adminpelicula">Peliculas</a></li>
+                <li class=""><a class="textoMenu" href="/adminconcurso">Concursos</a></li>
+                <li class=""><a class="textoMenu" href="/adminchat">Chats</a></li>
+                <li class=""><a class="textoMenu" href="/adminusuarios">Usuarios</a></li>
+                <li class=""><a class="textoMenu" href="/">Frontend</a></li>
+                <li class=""><a class="textoMenu" href="#">Cerrar Sesion</a></li>
               </ul>
             </div>
      </nav>

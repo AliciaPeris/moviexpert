@@ -4,14 +4,20 @@
 .margin10{
   margin:10px;
 }
-.margin25{
-  margin:25px;
-}
-.marginL100{
-  margin-left: 100px;
+.margintop25{
+  margin-top:25px;
 }
 .width100{
   width: 100%;
+}
+.heigth100{
+  height: 100px;
+}
+.width50{
+  width: 50%;
+}
+.width25{
+  width: 25%;
 }
 .fondoCabecera{
   background: #330000;
@@ -19,11 +25,37 @@
 .fondoMenu{
   background: #D64937;
 }
+.boton{
+  text-decoration: none;
+  background: #D64937;
+  color: white;
+  font-weight: bold;
+}
+.boton:hover{
+  text-decoration: none;
+  background: #330000;
+  color: white!important;
+}
 .textoMenu{
+  text-decoration: none;
   color:white!important;
   font-size: 18px;
   font-weight: bold;
 }
 .textoMenu:hover{
+  text-decoration: none;
   color:#D64937!important;
+}
+#logo{
+  margin-left: 50px;
+}
+@media(max-width: 600px){
+  #logo{
+    width: 90%;
+    margin-left: 5px;
+    margin-bottom: 10px;
+  }
+  .heigth100{
+    height: 75px;
+  }
 }
