@@ -25,6 +25,12 @@
 .fondoMenu{
   background: #D64937;
 }
+.textoSalmon{
+  color: #D64937;
+}
+.textoMarron{
+  color: #330000;
+}
 .boton{
   text-decoration: none;
   background: #D64937;
