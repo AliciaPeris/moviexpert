@@ -11,7 +11,8 @@ class UserController extends Controller
 {
     //
     public function index(){
-
+         $users=\moviexpert\User::All();
+          return view('user.index',compact('users'));
     }
     public function create(){
           return view('user.create');
