@@ -19,3 +19,4 @@ Route::resource('adminpelicula','AdminpeliculaController');
 Route::resource('admingenero','AdmingeneroController');
 Route::resource('adminconcurso','AdminconcursoController');
 Route::resource('adminchat','AdminchatController');
+Route::resource('adminusuarios','UserController');
