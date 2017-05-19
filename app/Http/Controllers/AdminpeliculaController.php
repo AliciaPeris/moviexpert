@@ -8,7 +8,6 @@ use moviexpert\Http\Requests;
 
 class AdminpeliculaController extends Controller
 {
-    //
     public function index(){
 
     }
