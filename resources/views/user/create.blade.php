@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 	@section('content')
-  {!!Form::open()!!}
+  {!!Form::open(['route'=>'adminusuarios.store','method'=>'POST'])!!}
   <h1 class="textoMarron text-center">Formulario de registro de usuario</h1>
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
       <div class="input-group input-group-lg margin10">
@@ -39,7 +39,11 @@
         <span class="glyphicon glyphicon-new-window"> Hombre&nbsp</span>{!!Form::radio('genero', 'Hombre', true)!!}
         <span class="glyphicon glyphicon-rub"> Mujer&nbsp </span>{!!Form::radio('genero', 'Mujer')!!}
       </div>
-      {!!Form::submit('Registrar Usuario',['class'=>'btn boton'])!!}
+			<div class="form-group margin10"><p>Tipo de Usuario</p>
+				<span> Administrador&nbsp</span>{!!Form::radio('tipousuario', 'admin')!!}
+				<span> Normal&nbsp </span>{!!Form::radio('tipousuario', 'normal', true)!!}
+			</div>
+      {!!Form::submit('Registrar',['class'=>'btn boton'])!!}
       {!!Form::close()!!}
   </div>
 @endsection

@@ -14,10 +14,22 @@ class UserController extends Controller
 
     }
     public function create(){
-          return view('adminuser.create');
+          return view('user.create');
     }
-    public function store(){
-
+    public function store(Request $request){
+        \moviexpert\User::create([
+          'email'=> $request['email'],
+          'password'=> bcrypt($request['password']),
+          'nombre'=> $request['nombre'],
+          'apellidos'=> $request['apellidos'],
+          'direccion'=> $request['direccion'],
+          'localidad'=> $request['localidad'],
+          'genero'=> $request['genero'],
+          'fechanacimiento'=> $request['fechanacimiento'],
+          'foto'=> $request['imagen'],
+          'tipousuario'=> $request['tipousuario'],
+        ]);
+        return "usuario registrado";
     }
     public function show($id){
 
