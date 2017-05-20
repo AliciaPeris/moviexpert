@@ -11,14 +11,20 @@ class UserController extends Controller
 {
     //
     public function index(){
+      /*Creamos una variable para almacenar todos los datos de la base de datos*/
          $users=\moviexpert\User::All();
+         /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
           return view('user.index',compact('users'));
     }
     public function create(){
+      /*Retirnanmos a la vista create*/
           return view('user.create');
     }
     public function store(Request $request){
+      /*Esta funcion se ejecuta al pulsar el boton registrar del create y lo que haces dar de alta a un nuevo usuario
+      en la base de datos*/
         \moviexpert\User::create([
+          /*Nombre campo base datos => nombre del campo del formulario*/
           'email'=> $request['email'],
           'password'=> bcrypt($request['password']),
           'nombre'=> $request['nombre'],
@@ -30,7 +36,8 @@ class UserController extends Controller
           'foto'=> $request['imagen'],
           'tipousuario'=> $request['tipousuario'],
         ]);
-        return "usuario registrado";
+        /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
+        return redirect('/adminusuarios')->with('message','store');
     }
     public function show($id){
 

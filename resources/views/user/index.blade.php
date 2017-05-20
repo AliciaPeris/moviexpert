@@ -1,5 +1,13 @@
 @extends('layouts.admin')
 	@section('content')
+	<?php $message=Session::get('message')?>
+	@if($message=='store')
+	<div class="alert alert-success alert-dismissible" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>Usuario Registrado</strong>
+	</div>
+	@endif
+
 <h1 class="text-center">Listado Usuarios</h1><br>
 	<table class="table table-hover text-center table-bordered">
 		<thead class="fondoMenu">
