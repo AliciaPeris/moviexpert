@@ -52,10 +52,9 @@ class AdminpeliculaController extends Controller
 
     }
     public function destroy($id){
-      public function destroy($id){
+
           \moviexpert\Adminpelicula::destroy($id);
           Session::flash('message','Película eliminada correctamente');
           return redirect::to('/adminpelicula');
-      }
     }
 }
