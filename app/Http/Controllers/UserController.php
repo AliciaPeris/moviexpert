@@ -3,10 +3,12 @@
 namespace moviexpert\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
-
+use Session;
+use Redirect;
+use Illuminate\Routing\Route;
+use moviexpert\User;
 class UserController extends Controller
 {
     //
@@ -49,6 +51,8 @@ class UserController extends Controller
 
     }
     public function destroy($id){
-
+        \moviexpert\User::destroy($id);
+        Session::flash('message','Usuario Eliminado Correctamente');
+        return redirect::to('/adminusuarios');
     }
 }

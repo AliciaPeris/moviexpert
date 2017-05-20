@@ -7,7 +7,7 @@
 	  <strong>Usuario Registrado</strong>
 	</div>
 	@endif
-
+<div class="container-fluid">
 <h1 class="text-center">Listado Usuarios</h1><br>
 	<table class="table table-hover text-center table-bordered">
 		<thead class="fondoMenu">
@@ -44,4 +44,5 @@
       </tbody>
       @endforeach
     </table>
+	</div>
   @endsection
