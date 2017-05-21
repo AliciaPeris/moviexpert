@@ -33,7 +33,7 @@
       </div>
       <div class="input-group input-group margin10">
         <span class="input-group-addon glyphicon glyphicon-picture"></span>
-          {!!Form::file('imagen',['class'=>'form-control'])!!}
+          {!!Form::file('trailer',['class'=>'form-control'])!!}
       </div>
       <div class="form-group input-group margin10">
         <span class="input-group-addon glyphicon glyphicon-picture"></span>
@@ -41,7 +41,7 @@
       </div>
       <div class="form-group input-group margin10">
         <span class="input-group-addon glyphicon glyphicon-home"></span>
-          {!!Form::text('genero',null,['class'=>'form-control','placeholder'=>'Ingrese el genero'])!!}'
+          {!!Form::text('genero',null,['class'=>'form-control','placeholder'=>'Ingrese el genero'])!!}
       </div>
 
       {!!Form::submit('Registrar',['class'=>'btn boton'])!!}

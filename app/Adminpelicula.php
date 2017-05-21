@@ -11,4 +11,8 @@ class Adminpelicula extends Model
     protected $fillable = [
         'titulo', 'anio', 'pais','director','guion','reparto','sinopsis','trailer','cartelera','genero',
     ];
+    public function genero()
+   {
+       return $this->belongsTo(\App\Http\Admingenero::class);
+   }
 }
