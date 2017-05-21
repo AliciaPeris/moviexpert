@@ -45,9 +45,15 @@ class UserController extends Controller
 
     }
     public function edit($id){
-
+        $users = User::find($id);
+        return view('user.edit',['user'=>$users]);
     }
-    public function update($id){
+    public function update(Request $request,$id){
+        $user = User::find($id);
+        $user->fill($request->all());
+        $user->save();
+        Session::flash('message','Usuario Actualizado Correctamente');
+        return Redirect::to('/adminusuarios');
 
     }
     public function destroy($id){

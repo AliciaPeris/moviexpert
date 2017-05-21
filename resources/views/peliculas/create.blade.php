@@ -31,13 +31,17 @@
         <span class="input-group-addon glyphicon glyphicon-calendar"></span>
           {!!Form::text('sinopsis', null,['class'=>'form-control','placeholder'=>'Ingrese la sinopsis'])!!}
       </div>
-      <div class="input-group input-group-lg margin10">
+      <div class="input-group input-group margin10">
         <span class="input-group-addon glyphicon glyphicon-picture"></span>
           {!!Form::file('imagen',['class'=>'form-control'])!!}
       </div>
-      <div class="form-group margin10">
+      <div class="form-group input-group margin10">
         <span class="input-group-addon glyphicon glyphicon-picture"></span>
           {!!Form::file('imagen',['class'=>'form-control'])!!}
+      </div>
+      <div class="form-group input-group margin10">
+        <span class="input-group-addon glyphicon glyphicon-home"></span>
+          {!!Form::text('genero',null,['class'=>'form-control','placeholder'=>'Ingrese el genero'])!!}'
       </div>
 
       {!!Form::submit('Registrar',['class'=>'btn boton'])!!}
