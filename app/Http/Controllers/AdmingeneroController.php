@@ -21,10 +21,17 @@ class AdmingeneroController extends Controller
 
     }
     public function create(){
-
+      /*Retornanmos a la vista create*/
+          return view('generos.create');
     }
-    public function store(){
+    public function store(Request $request){
+      \moviexpert\Admingenero::create([
+        /*Nombre campo base datos => nombre del campo del formulario*/
+        'genero'=> $request['genero'],
 
+      ]);
+      /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
+      return redirect('/admingenero')->with('message','store');
     }
     public function show($id){
 
