@@ -36,6 +36,8 @@ class AdmingeneroController extends Controller
 
     }
     public function destroy($id){
-
-    }
+      \moviexpert\Admingenero::destroy($id);
+      Session::flash('message','Género Eliminado Correctamente');
+      return redirect::to('/admingenero');
+  }
 }
