@@ -37,10 +37,15 @@ class AdmingeneroController extends Controller
 
     }
     public function edit($id){
-
+      $generos = Admingenero::find($id);
+      return view('generos.edit',['genero'=>$generos]);
     }
-    public function update($id){
-
+    public function update(Request $request,$id){
+      $generos = Admingenero::find($id);
+      $generos->fill($request->all());
+      $generos->save();
+      Session::flash('message','Género Actualizado Correctamente');
+      return Redirect::to('/admingenero');
     }
     public function destroy($id){
       \moviexpert\Admingenero::destroy($id);
