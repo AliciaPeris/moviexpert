@@ -51,6 +51,12 @@
         </td>
       </tbody>
       @endforeach
+      <tfoot>
+        <tr>
+          <td colspan="12">
+            {!!link_to_route('adminpelicula.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
+        </tr>
+      </tfoot>
     </table>
   </div>
   @endsection
