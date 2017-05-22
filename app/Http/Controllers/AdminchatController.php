@@ -10,13 +10,28 @@ class AdminchatController extends Controller
 {
     //
     public function index(){
-
+      /*Creamos una variable para almacenar todos los datos de la base de datos*/
+         $chats=\moviexpert\Adminchat::All();
+         /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
+          return view('chats.index',compact('chats'));
     }
     public function create(){
-
+      /*Retornanmos a la vista create*/
+          return view('chats.create');
     }
     public function store(){
-
+      \moviexpert\Adminchat::create([
+       /*Nombre campo base datos => nombre del campo del formulario*/
+       'nombre'=> $request['nombre'],
+       'descripcion'=>$request['descripcion'],
+       'numguionistas'=> $request['numguionistas'],
+       'numactores'=> $request['numactores'],
+       'numdirectores'=> $request['numdirectores'],
+       'numcamaras'=> $request['numcamaras'],
+       'creadorchat'=> $request['creadorchat'],
+     ]);
+     /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
+     return redirect('/adminconcurso')->with('message','store');
     }
     public function show($id){
 

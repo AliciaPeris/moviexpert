@@ -34,10 +34,10 @@
       </td>
     </tbody>
     @endforeach
-    <tfoot class="fondoMenu">
+    <tfoot>
       <tr>
         <td colspan="6">
-          {!!link_to_route('adminconcurso.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn btn-default col-xs-12'])!!}</td>
+          {!!link_to_route('adminconcurso.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
       </tr>
     </tfoot>
     </table>
