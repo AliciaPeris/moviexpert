@@ -19,7 +19,7 @@ class AdminchatController extends Controller
       /*Retornanmos a la vista create*/
           return view('chats.create');
     }
-    public function store(){
+    public function store(Request $request){
       \moviexpert\Adminchat::create([
        /*Nombre campo base datos => nombre del campo del formulario*/
        'nombre'=> $request['nombre'],
@@ -31,7 +31,7 @@ class AdminchatController extends Controller
        'creadorchat'=> $request['creadorchat'],
      ]);
      /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
-     return redirect('/adminconcurso')->with('message','store');
+     return redirect('/adminchat')->with('message','store');
     }
     public function show($id){
 
