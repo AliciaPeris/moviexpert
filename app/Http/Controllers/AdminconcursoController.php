@@ -16,10 +16,21 @@ class AdminconcursoController extends Controller
           return view('concursos.index',compact('concursos'));
     }
     public function create(){
-
+      /*Retornanmos a la vista create*/
+          return view('concursos.create');
     }
-    public function store(){
 
+    public function store(Request $request){
+       \moviexpert\Adminconcurso::create([
+        /*Nombre campo base datos => nombre del campo del formulario*/
+        'nombre'=> $request['nombre'],
+    //    'descripcion'=>$request['descripcion'],
+        'fechainicioinscripcion'=> $request['fechainicioinscripcion'],
+        'fechafininscripcion'=> $request['fechafininscripcion'],
+        'fechafinconcurso'=> $request['fechafinconcurso'],
+      ]);
+      /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
+      return redirect('/adminconcurso')->with('message','store');
     }
     public function show($id){
 
