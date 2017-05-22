@@ -45,7 +45,7 @@
       @endforeach
 			<tfoot>
 				<tr>
-					<td colspan="6">
+					<td colspan="11">
 						{!!link_to_route('adminusuarios.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
 				</tr>
 			</tfoot>

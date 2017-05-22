@@ -9,7 +9,7 @@
 	</div>
 	@endif
   <div class="container-fluid">
-  <h1 class="text-center">Géneros</h1><br>
+  <h1 class="text-center">Concursos</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
           <th class="text-center textoBlanco">ID</th>
@@ -26,7 +26,8 @@
         <td>{{$concursos->descripcion}}</td>
         <td>{{$concursos->fechainicioinscripcion}}</td>
         <td>{{$concursos->fechafinconcurso}}</td>
-        {!!link_to_route('adminconcurso.edit', $title = "Editar", $parameters = $generos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
+				<td class="fila">
+        {!!link_to_route('adminconcurso.edit', $title = "Editar", $parameters = $concursos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
         {!!Form::open(['route'=>['adminconcurso.destroy',$concursos->id],'method'=>'DELETE'])!!}
         {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
         {!!Form::close()!!}
@@ -36,7 +37,7 @@
     <tfoot class="fondoMenu">
       <tr>
         <td colspan="6">
-          {!!link_to_route('adminconcurso.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn btn-default'])!!}</td>
+          {!!link_to_route('adminconcurso.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn btn-default col-xs-12'])!!}</td>
       </tr>
     </tfoot>
     </table>

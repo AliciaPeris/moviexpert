@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 	@section('content')
-  {!!Form::open(['route'=>'adminconcurso.store','method'=>'POST'])!!}
-  <h1 class="textoMarron text-center">Introducir concurso</h1>
+  {!!Form::model($concurso,['route'=>['adminconcurso.update',$concurso->id],'method'=>'PUT'])!!}
+  <h1 class="textoMarron text-center">Editar concurso</h1>
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>

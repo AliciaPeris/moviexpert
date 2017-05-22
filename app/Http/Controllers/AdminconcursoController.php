@@ -3,8 +3,12 @@
 namespace moviexpert\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use moviexpert\Http\Requests;
+use moviexpert\Http\Controllers\Controller;
+use Session;
+use Redirect;
+use Illuminate\Routing\Route;
+use moviexpert\Adminconcurso;
 
 class AdminconcursoController extends Controller
 {
@@ -24,7 +28,7 @@ class AdminconcursoController extends Controller
        \moviexpert\Adminconcurso::create([
         /*Nombre campo base datos => nombre del campo del formulario*/
         'nombre'=> $request['nombre'],
-    //    'descripcion'=>$request['descripcion'],
+        'descripcion'=>$request['descripcion'],
         'fechainicioinscripcion'=> $request['fechainicioinscripcion'],
         'fechafininscripcion'=> $request['fechafininscripcion'],
         'fechafinconcurso'=> $request['fechafinconcurso'],
@@ -36,12 +40,20 @@ class AdminconcursoController extends Controller
 
     }
     public function edit($id){
-
+      $concursos = Adminconcurso::find($id);
+      return view('concursos.edit',['concurso'=>$concursos]);
     }
-    public function update($id){
-
+    public function update(Request $request,$id){
+      $concursos = Adminconcurso::find($id);
+      $concursos->fill($request->all());
+      $concursos->save();
+      Session::flash('message','concursos Actualizado Correctamente');
+      return Redirect::to('/adminconcurso');
     }
     public function destroy($id){
+      \moviexpert\Adminconcurso::destroy($id);
+      Session::flash('message','Concurso Eliminado Correctamente');
+      return redirect::to('/adminconcurso');
 
     }
 }
