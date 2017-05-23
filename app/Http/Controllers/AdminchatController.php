@@ -43,6 +43,8 @@ class AdminchatController extends Controller
 
     }
     public function destroy($id){
-
+      \moviexpert\Adminchat::destroy($id);
+      Session::flash('message','Chat Eliminado Correctamente');
+      return redirect::to('/adminchat');
     }
 }
