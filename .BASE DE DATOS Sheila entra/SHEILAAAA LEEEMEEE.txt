@@ -1,6 +1,0 @@
-
-Te dejo la base de datos que estado creado tablas con las migraciones cuando he creado los modelos
-importa el fichero a phpmyadmin.
-
-Si haces algun cambio en la base de datos exportala y copiala en esta carpeta para que se suba con el
-proyecto, no la sustituyas guardalas como moviexpert2.
