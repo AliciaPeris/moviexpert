@@ -2,7 +2,7 @@
 
 namespace moviexpert;
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\Model;
+
 
 class Admingenero extends Model
 {
@@ -15,7 +15,5 @@ class Admingenero extends Model
    {
        return $this->hasMany('\App\Adminpelicula');
    }
-
- ];
 
 }

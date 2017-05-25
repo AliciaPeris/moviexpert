@@ -34,6 +34,7 @@
               <ul class="nav nav-pills container">
                 <li class=""><a class="textoMenu" href="/admin">Inicio</a></li>
                 <li class=""><a class="textoMenu" href="/adminpelicula">Peliculas</a></li>
+                <li class=""><a class="textoMenu" href="/admingenero">Géneros</a></li>
                 <li class=""><a class="textoMenu" href="/adminconcurso">Concursos</a></li>
                 <li class=""><a class="textoMenu" href="/adminchat">Chats</a></li>
                 <li class=""><a class="textoMenu" href="/adminusuarios">Usuarios</a></li>
