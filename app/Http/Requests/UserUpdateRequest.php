@@ -23,8 +23,15 @@ class UserUpdateRequest extends Request
      */
     public function rules()
     {
-        return [
-            //
-        ];
+      return [
+          'password' => 'required',
+          'nombre' => 'required',
+          'apellidos' => 'required',
+          'direccion' => 'required',
+          'localidad' => 'required',
+          'genero' => 'required',
+          'fechanacimiento' => 'required',
+          'tipousuario' => 'required',
+      ];
     }
 }

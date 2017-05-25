@@ -6,7 +6,7 @@
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        {!!Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingrese el email'])!!}
+        {!!Form::text('email',null,['class'=>'form-control ','placeholder'=>'Ingrese el email','readonly'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-certificate"></span>

@@ -5,6 +5,7 @@ namespace moviexpert\Http\Controllers;
 use Illuminate\Http\Request;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Requests\UserCreateRequest;
+use moviexpert\Http\Requests\UserUpdateRequest;
 use moviexpert\Http\Controllers\Controller;
 use Session;
 use Redirect;
@@ -49,7 +50,7 @@ class UserController extends Controller
         $users = User::find($id);
         return view('user.edit',['user'=>$users]);
     }
-    public function update(Request $request,$id){
+    public function update(UserUpdateRequest $request,$id){
         $user = User::find($id);
         $user->fill($request->all());
         $user->save();
