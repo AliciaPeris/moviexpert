@@ -47,15 +47,18 @@ class AdminpeliculaController extends Controller
 
     }
     public function edit($id){
+
       $peliculas = Adminpelicula::find($id);
-      return view('peliculas.edit',['pelicula'=>$peliculas]);
+
+        return view('peliculas.edit',compact("generos"))->with('pelicula', $peliculas);
     }
-    public function update($id){
-      $peliculas = Adminpelicula::find($id);
+    public function update(Request $request, $id){
+      $peliculas= Adminpelicula::find($id);
       $peliculas->fill($request->all());
       $peliculas->save();
       Session::flash('message','Película Actualizada Correctamente');
       return Redirect::to('/adminpelicula');
+
     }
     public function destroy($id){
 
