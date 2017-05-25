@@ -39,24 +39,19 @@
         <td>{{$peliculas->cartelera}}</td>
 				<td>{{$peliculas->genero}}</td>
         <td class="fila">
-          {!!link_to_route('adminpeliculas.edit', $title = "Editar", $parameters = $peliculas->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
-          {!!Form::open(['route'=>['adminpeliculas.destroy',$pelicula->id],'method'=>'DELETE'])!!}
-					<div class='btn-group'>
-                    <a href="{!! route('peliculas.show', [$peliculas->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('peliculas.edit', [$peliculas->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                </div>
-          {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
-          {!!Form::close()!!}
-        </td>
-      </tbody>
-      @endforeach
-      <tfoot>
-        <tr>
-          <td colspan="12">
-            {!!link_to_route('adminpelicula.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
-  @endsection
+					{!!link_to_route('adminpelicula.edit', $title = "Editar", $parameters = $peliculas->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
+	        {!!Form::open(['route'=>['adminpelicula.destroy',$peliculas->id],'method'=>'DELETE'])!!}
+	        {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
+	        {!!Form::close()!!}
+	      </td>
+	    </tbody>
+	    @endforeach
+	    <tfoot>
+	      <tr>
+	        <td colspan="12">
+	          {!!link_to_route('adminpelicula.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
+	      </tr>
+	    </tfoot>
+	    </table>
+	    </div>
+	    @endsection

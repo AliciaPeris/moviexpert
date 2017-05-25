@@ -13,6 +13,6 @@ class Adminpelicula extends Model
     ];
     public function genero()
    {
-       return $this->belongsTo(\App\Http\Admingenero::class);
+       return $this->belongsTo('\App\Admingenero');
    }
 }

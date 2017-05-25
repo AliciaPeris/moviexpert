@@ -16,6 +16,7 @@ class CreateAdmingenerosTable extends Migration
             $table->increments('id');
             $table->string('genero');
             $table->timestamps();
+            $table->foreign('genero')->references('id')->on('adminpelicula')->onDelete('cascade');
         });
     }
 
