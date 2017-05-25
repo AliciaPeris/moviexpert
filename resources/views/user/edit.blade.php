@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 	@section('content')
-
+		@include('alerts.errorformulario')
 	{!!Form::model($user,['route'=>['adminusuarios.update',$user->id],'method'=>'PUT'])!!}
   <h1 class="textoMarron text-center">Editar un usuario </h1>
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">

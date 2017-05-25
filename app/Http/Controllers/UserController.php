@@ -4,6 +4,7 @@ namespace moviexpert\Http\Controllers;
 
 use Illuminate\Http\Request;
 use moviexpert\Http\Requests;
+use moviexpert\Http\Requests\UserCreateRequest;
 use moviexpert\Http\Controllers\Controller;
 use Session;
 use Redirect;
@@ -22,7 +23,7 @@ class UserController extends Controller
       /*Retirnanmos a la vista create*/
           return view('user.create');
     }
-    public function store(Request $request){
+    public function store(UserCreateRequest $request){
       /*Esta funcion se ejecuta al pulsar el boton registrar del create y lo que haces dar de alta a un nuevo usuario
       en la base de datos*/
         \moviexpert\User::create([
