@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Backend</title>
+    <title>MoviExpert</title>
     {!!Html::style('css/bootstrap.min.css')!!}
     {!!Html::style('css/metisMenu.min.css')!!}
     {!!Html::style('css/estilos.css')!!}
@@ -32,13 +31,10 @@
             </div>
             <div class="width100 fondoMenu">
               <ul class="nav nav-pills container">
-                <li class=""><a class="textoMenu" href="/admin">Inicio</a></li>
-                <li class=""><a class="textoMenu" href="/adminpelicula">Peliculas</a></li>
-                <li class=""><a class="textoMenu" href="/admingenero">Géneros</a></li>
-                <li class=""><a class="textoMenu" href="/adminconcurso">Concursos</a></li>
-                <li class=""><a class="textoMenu" href="/adminchat">Chats</a></li>
-                <li class=""><a class="textoMenu" href="/adminusuarios">Usuarios</a></li>
-                <li class=""><a class="textoMenu" href="/">Frontend</a></li>
+                <li class=""><a class="textoMenu" href="">Inicio</a></li>
+                <li class=""><a class="textoMenu" href="">Peliculas</a></li>
+                <li class=""><a class="textoMenu" href="">Concursos</a></li>
+                <li class=""><a class="textoMenu" href="">Chats</a></li>
                 <li class=""><a class="textoMenu" href="#">Cerrar Sesion</a></li>
               </ul>
             </div>
