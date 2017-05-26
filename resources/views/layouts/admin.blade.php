@@ -27,10 +27,10 @@
                   </form>
               </div>
               <div class="hidden-sm hidden-md hidden-lg col-xs-1 col-xs-offset-1 margintop25 ">
-                <a href="" class="textoMenu glyphicon glyphicon-menu-hamburger"></a>
+                <button id="btnmenuadmin" class="textoMenu glyphicon glyphicon-menu-hamburger fondoCabecera"></button>
               </div>
             </div>
-            <div class="width100 fondoMenu">
+            <div id="menuadmin" class="width100 fondoMenu">
               <ul class="nav nav-pills container">
                 <li class=""><a class="textoMenu" href="/admin">Inicio</a></li>
                 <li class=""><a class="textoMenu" href="/adminpelicula">Peliculas</a></li>
@@ -58,5 +58,6 @@
     {!!Html::script('js/bootstrap.min.js')!!}
     {!!Html::script('js/metisMenu.min.js')!!}
     {!!Html::script('js/sb-admin-2.js')!!}
+    {!!Html::script('js/script.js')!!}
 </body>
 </html>
