@@ -11,12 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*Rutas Backend*/
 Route::get('admin', 'HomeadminController@index');
 Route::resource('adminpelicula','AdminpeliculaController');
 Route::resource('admingenero','AdmingeneroController');
 Route::resource('adminconcurso','AdminconcursoController');
 Route::resource('adminchat','AdminchatController');
 Route::resource('adminusuarios','UserController');
+
+/*Rutas Frontend*/
+Route::resource('/','FrontendController');
+Route::get('peliculas','FrontendController@peliculas');
+Route::get('concursos','FrontendController@concursos');
+Route::get('chat','FrontendController@chat');

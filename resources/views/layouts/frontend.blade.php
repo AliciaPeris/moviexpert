@@ -31,10 +31,10 @@
             </div>
             <div class="width100 fondoMenu">
               <ul class="nav nav-pills container">
-                <li class=""><a class="textoMenu" href="">Inicio</a></li>
-                <li class=""><a class="textoMenu" href="">Peliculas</a></li>
-                <li class=""><a class="textoMenu" href="">Concursos</a></li>
-                <li class=""><a class="textoMenu" href="">Chats</a></li>
+                <li class=""><a class="textoMenu" href="/">Inicio</a></li>
+                <li class=""><a class="textoMenu" href="/peliculas">Peliculas</a></li>
+                <li class=""><a class="textoMenu" href="/concursos">Concursos</a></li>
+                <li class=""><a class="textoMenu" href="/chat">Chats</a></li>
                 <li class=""><a class="textoMenu" href="#">Cerrar Sesion</a></li>
               </ul>
             </div>
