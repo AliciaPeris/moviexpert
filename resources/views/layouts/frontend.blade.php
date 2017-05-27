@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MoviExpert</title>
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+
+    <!-- Styles -->
+    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
     {!!Html::style('css/bootstrap.min.css')!!}
     {!!Html::style('css/metisMenu.min.css')!!}
     {!!Html::style('css/estilos.css')!!}
@@ -30,45 +35,31 @@
               </div>
             </div>
             <div id="menuadmin" class="fondoMenu container col-lg-12">
-              <ul class="nav nav-pills col-lg-10">
+              <ul class="nav navbar-nav navbar-left">
                 <li class=""><a class="textoMenu" href="/">Inicio</a></li>
                 <li class=""><a class="textoMenu" href="/peliculas">Peliculas</a></li>
                 <li class=""><a class="textoMenu" href="/concursos">Concursos</a></li>
                 <li class=""><a class="textoMenu" href="/chat">Chats</a></li>
               </ul>
-              <ul class="nav nav-pills col-lg-2">
-                <li class=""><a class="textoMenu hide" href="#">Cerrar Sesion</a></li>
-                <li class=""><a type="button" class="textoMenu" data-toggle="modal" data-target="#favoritesModal">Login</a></li>
+              <ul class="nav navbar-nav navbar-right">
+                  <!-- Authentication Links -->
+                  @if (Auth::guest())
+                      <li><a class="textoMenu" href="{{ url('/login') }}">Inicio Sesión</a></li>
+                      <li><a class="textoMenu" href="{{ url('/register') }}">Registro</a></li>
+                  @else
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle btn textoMenu" data-toggle="dropdown" role="button" aria-expanded="false">
+                              {{ Auth::user()->email }} <span class="caret"></span>
+                          </a>
+
+                          <ul class="dropdown-menu" role="menu">
+                              <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar Sesión</a></li>
+                          </ul>
+                      </li>
+                  @endif
               </ul>
             </div>
      </nav>
-     <div class="modal fade" id="favoritesModal" tabindex="-1" role="dialog" aria-labelledby="favoritesModalLabel">
-       <div class="modal-dialog" role="document">
-         <div class="modal-content">
-           <div class="modal-header">
-             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">&times;</span></button>
-             <h1 class="modal-title">Inicio de Sesión</h1>
-           </div>
-           <div class="modal-body">
-             <div class="input-group input-group-lg margin10">
-               <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-               {!!Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingrese el email'])!!}
-             </div>
-             <div class="input-group input-group-lg margin10">
-               <span class="input-group-addon glyphicon glyphicon-certificate"></span>
-               {!!Form::password('password',['class'=>'form-control','placeholder'=>'Ingrese la contraseña'])!!}
-             </div>
-           </div>
-           <div class="modal-footer">
-             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-             <span class="pull-right">
-               <button type="button" class="btn boton">Iniciar Sesión</button>
-             </span>
-           </div>
-         </div>
-       </div>
-     </div>
         <div id="page-wrapper">
             @yield('content')
         </div>

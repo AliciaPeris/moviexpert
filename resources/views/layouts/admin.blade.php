@@ -12,6 +12,7 @@
     {!!Html::style('css/font-awesome.min.css')!!}
 </head>
 <body>
+  @if (!Auth::guest()&& Auth::user()->tipousuario=='admin')
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="navbar-header container col-xs-12 fondoCabecera heigth100">
@@ -31,7 +32,7 @@
               </div>
             </div>
             <div id="menuadmin" class="fondoMenu container col-lg-12">
-              <ul class="nav nav-pills col-lg-10">
+              <ul class="nav navbar-nav navbar-left">
                 <li class=""><a class="textoMenu" href="/admin">Inicio</a></li>
                 <li class=""><a class="textoMenu" href="/adminpelicula">Peliculas</a></li>
                 <li class=""><a class="textoMenu" href="/admingenero">Géneros</a></li>
@@ -40,8 +41,16 @@
                 <li class=""><a class="textoMenu" href="/adminusuarios">Usuarios</a></li>
                 <li class=""><a class="textoMenu" href="/">Frontend</a></li>
               </ul>
-              <ul class="nav nav-pills col-lg-2">
-                <li class=""><a class="textoMenu" href="#">Cerrar Sesion</a></li>
+              <ul class="nav navbar-nav navbar-right">
+                  <!-- Authentication Links -->
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle btn textoMenu" data-toggle="dropdown" role="button" aria-expanded="false">
+                              {{ Auth::user()->email }} <span class="caret"></span>
+                          </a>
+                          <ul class="dropdown-menu" role="menu">
+                              <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                          </ul>
+                      </li>
               </ul>
             </div>
      </nav>
@@ -56,6 +65,13 @@
         </div>
         </div>
     </div>
+    @endif
+    @if(!Auth::guest()&& Auth::user()->tipousuario=='normal')
+      <div class="jumbotron"><center>
+        <div class="col-xs-12"><img class="col-xs-4 col-xs-offset-4" src="/imagenes/piratas.png"></img></div>
+      <a href="{!!URL::to('/')!!}" class="btn btn-danger margintop25"><h3>No tienes privilegios para acceder al backend</h3></a>
+      </center></div>
+    @endif
     {!!Html::script('js/jquery.min.js')!!}
     {!!Html::script('js/bootstrap.min.js')!!}
     {!!Html::script('js/metisMenu.min.js')!!}

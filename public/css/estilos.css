@@ -67,6 +67,7 @@ h1{
 }
 .textoMenu:hover{
   text-decoration: none;
+  background: white!important;
   color:#D64937!important;
 }
 #logo{

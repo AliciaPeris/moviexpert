@@ -24,3 +24,7 @@ Route::resource('/','FrontendController');
 Route::get('peliculas','FrontendController@peliculas');
 Route::get('concursos','FrontendController@concursos');
 Route::get('chat','FrontendController@chat');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
