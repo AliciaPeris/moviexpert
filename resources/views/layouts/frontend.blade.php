@@ -29,17 +29,46 @@
               <button id="btnmenuadmin" class="textoMenu glyphicon glyphicon-menu-hamburger fondoCabecera"></button>
               </div>
             </div>
-            <div id="menuadmin" class="width100 fondoMenu">
-              <ul class="nav nav-pills container">
+            <div id="menuadmin" class="fondoMenu container col-lg-12">
+              <ul class="nav nav-pills col-lg-10">
                 <li class=""><a class="textoMenu" href="/">Inicio</a></li>
                 <li class=""><a class="textoMenu" href="/peliculas">Peliculas</a></li>
                 <li class=""><a class="textoMenu" href="/concursos">Concursos</a></li>
                 <li class=""><a class="textoMenu" href="/chat">Chats</a></li>
-                <li class=""><a class="textoMenu" href="#">Cerrar Sesion</a></li>
+              </ul>
+              <ul class="nav nav-pills col-lg-2">
+                <li class=""><a class="textoMenu hide" href="#">Cerrar Sesion</a></li>
+                <li class=""><a type="button" class="textoMenu" data-toggle="modal" data-target="#favoritesModal">Login</a></li>
               </ul>
             </div>
      </nav>
-
+     <div class="modal fade" id="favoritesModal" tabindex="-1" role="dialog" aria-labelledby="favoritesModalLabel">
+       <div class="modal-dialog" role="document">
+         <div class="modal-content">
+           <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span></button>
+             <h1 class="modal-title">Inicio de Sesión</h1>
+           </div>
+           <div class="modal-body">
+             <div class="input-group input-group-lg margin10">
+               <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+               {!!Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingrese el email'])!!}
+             </div>
+             <div class="input-group input-group-lg margin10">
+               <span class="input-group-addon glyphicon glyphicon-certificate"></span>
+               {!!Form::password('password',['class'=>'form-control','placeholder'=>'Ingrese la contraseña'])!!}
+             </div>
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+             <span class="pull-right">
+               <button type="button" class="btn boton">Iniciar Sesión</button>
+             </span>
+           </div>
+         </div>
+       </div>
+     </div>
         <div id="page-wrapper">
             @yield('content')
         </div>

@@ -30,8 +30,8 @@
                 <button id="btnmenuadmin" class="textoMenu glyphicon glyphicon-menu-hamburger fondoCabecera"></button>
               </div>
             </div>
-            <div id="menuadmin" class="width100 fondoMenu">
-              <ul class="nav nav-pills container">
+            <div id="menuadmin" class="fondoMenu container col-lg-12">
+              <ul class="nav nav-pills col-lg-10">
                 <li class=""><a class="textoMenu" href="/admin">Inicio</a></li>
                 <li class=""><a class="textoMenu" href="/adminpelicula">Peliculas</a></li>
                 <li class=""><a class="textoMenu" href="/admingenero">Géneros</a></li>
@@ -39,6 +39,8 @@
                 <li class=""><a class="textoMenu" href="/adminchat">Chats</a></li>
                 <li class=""><a class="textoMenu" href="/adminusuarios">Usuarios</a></li>
                 <li class=""><a class="textoMenu" href="/">Frontend</a></li>
+              </ul>
+              <ul class="nav nav-pills col-lg-2">
                 <li class=""><a class="textoMenu" href="#">Cerrar Sesion</a></li>
               </ul>
             </div>
