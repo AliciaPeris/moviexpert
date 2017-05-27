@@ -31,7 +31,7 @@
                 <button id="btnmenuadmin" class="textoMenu glyphicon glyphicon-menu-hamburger fondoCabecera"></button>
               </div>
             </div>
-            <div id="menuadmin" class="fondoMenu container col-lg-12">
+            <div id="menuadmin" class="fondoMenu container col-xs-12">
               <ul class="nav navbar-nav navbar-left">
                 <li class=""><a class="textoMenu" href="/admin">Inicio</a></li>
                 <li class=""><a class="textoMenu" href="/adminpelicula">Peliculas</a></li>

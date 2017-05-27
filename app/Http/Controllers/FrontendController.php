@@ -20,7 +20,8 @@ class FrontendController extends Controller
     return view("frontend.peliculas");
   }
   public function concursos(){
-    return view("frontend.concursos");
+    $concursos=\moviexpert\AdminConcurso::All();
+    return view("frontend.concursos",compact('concursos'));
   }
   public function chat(){
     return view("frontend.chat");

@@ -22,6 +22,9 @@
 .fondoCabecera{
   background: #330000;
 }
+.fondoItem{
+  background: #f5b3b3;
+}
 .fondoMenu{
   background: #D64937;
 }
