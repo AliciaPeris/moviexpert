@@ -9,8 +9,9 @@
 			<div class="col-xs-10 col-xs-offset-1 margintop25">
 				<p class="col-xs-12">{{$concurso->descripcion}}</p>
 			</div>
-			<a class="btn boton2 margin10" href="{{ url('/concursos') }}">Incripción</a>
-		</div>
+			<?php $ruta="/concursos/participanconcurso/".$concurso->id; ?>
+			<a class="btn boton2 margin10" href="{{ url($ruta) }}">Incripción</a>
+				</div>
 		@endforeach
 	</div>
 
