@@ -23,7 +23,14 @@ class ConcursoCreateRequest extends Request
      */
     public function rules()
     {
-        return [
+      return [
+          'nombre' => 'required',
+          'descripcion' => 'required',
+          'fechainicioinscripcion' => 'required',
+          'fechafininscripcion' => 'required',
+          'fechafinconcurso' => 'required',
+
+
             //
         ];
     }
