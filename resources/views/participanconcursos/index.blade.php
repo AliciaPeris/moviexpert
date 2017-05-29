@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 	@section('content')
-
   <?php $message=Session::get('message')?>
 	@if($message=='store')
 	<div class="alert alert-success alert-dismissible" role="alert">
@@ -9,28 +8,28 @@
 	</div>
 	@endif
   <div class="container-fluid">
-  <h1 class="text-center">Concursos</h1><br>
+  <h1 class="text-center">Incripcion a Concursos</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
           <th class="text-center textoBlanco">ID</th>
-          <th class="text-center textoBlanco">Nombre</th>
-          <th class="text-center textoBlanco">Descripción</th>
-          <th class="text-center textoBlanco">Fecha Inicio</th>
-          <th class="text-center textoBlanco">Fecha Fin</th>
-          <th class="text-center textoBlanco">Fecha fin Concurso</th>
+          <th class="text-center textoBlanco">ID Concurso</th>
+          <th class="text-center textoBlanco">ID Usuario</th>
+          <th class="text-center textoBlanco">Titulo</th>
+          <th class="text-center textoBlanco">Descripcion</th>
+          <th class="text-center textoBlanco">Corto</th>
 					<th class="text-center textoBlanco">Acciones</th>
         </thead>
-        @foreach($concursos as $concursos)
+        @foreach($participanconcurso as $concursos)
         <tbody>
         <td>{{$concursos->id}}</td>
-        <td>{{$concursos->nombre}}</td>
+        <td>{{$concursos->idconcurso}}</td>
+        <td>{{$concursos->idusuario}}</td>
+        <td>{{$concursos->titulo}}</td>
         <td>{{$concursos->descripcion}}</td>
-        <td>{{$concursos->fechainicioinscripcion}}</td>
-				<td>{{$concursos->fechafininscripcion}}</td>
-        <td>{{$concursos->fechafinconcurso}}</td>
+				<td>{{$concursos->corto}}</td>
 				<td class="fila">
-        {!!link_to_route('adminconcurso.edit', $title = "Editar", $parameters = $concursos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
-        {!!Form::open(['route'=>['adminconcurso.destroy',$concursos->id],'method'=>'DELETE'])!!}
+        {!!link_to_route('adminparticipanconcurso.edit', $title = "Editar", $parameters = $concursos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
+        {!!Form::open(['route'=>['adminparticipanconcurso.destroy',$concursos->id],'method'=>'DELETE'])!!}
         {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
         {!!Form::close()!!}
       </td>
@@ -39,7 +38,7 @@
     <tfoot>
       <tr>
         <td colspan="7">
-          {!!link_to_route('adminconcurso.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
+          {!!link_to_route('adminparticipanconcurso.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
       </tr>
     </tfoot>
     </table>

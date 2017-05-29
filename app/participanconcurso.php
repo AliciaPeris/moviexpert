@@ -14,5 +14,6 @@ class participanconcurso extends Model
         'otrosparticipantes',
         'titulo',
         'descripcion',
+        'corto',
     ];
 }

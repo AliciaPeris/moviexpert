@@ -18,6 +18,7 @@ Route::resource('admingenero','AdmingeneroController');
 Route::resource('adminconcurso','AdminconcursoController');
 Route::resource('adminchat','AdminchatController');
 Route::resource('adminusuarios','UserController');
+Route::resource('adminparticipanconcurso','AdminparticipanconcursoController');
 
 /*Rutas Frontend*/
 Route::resource('/','FrontendController');

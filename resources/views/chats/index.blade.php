@@ -20,6 +20,7 @@
           <th class="text-center textoBlanco">Número de directores</th>
           <th class="text-center textoBlanco">Número de cámaras</th>
           <th class="text-center textoBlanco">Creador del chat</th>
+					<th class="text-center textoBlanco">Acciones</th>
         </thead>
         @foreach($chats as $chats)
         <tbody>

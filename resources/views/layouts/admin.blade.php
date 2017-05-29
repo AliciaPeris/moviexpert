@@ -36,7 +36,16 @@
                 <li class=""><a class="textoMenu" href="/admin">Inicio</a></li>
                 <li class=""><a class="textoMenu" href="/adminpelicula">Peliculas</a></li>
                 <li class=""><a class="textoMenu" href="/admingenero">Géneros</a></li>
-                <li class=""><a class="textoMenu" href="/adminconcurso">Concursos</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle btn textoMenu" data-toggle="dropdown" role="button" aria-expanded="false">
+                        Concursos<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="{{ url('/adminconcurso') }}"><i class=""></i>Lista Concursos</a></li>
+                        <li><a href="{{ url('/adminparticipanconcurso') }}"><i class=""></i>Inscripciones</a></li>
+                    </ul>
+                </li>
+
                 <li class=""><a class="textoMenu" href="/adminchat">Chats</a></li>
                 <li class=""><a class="textoMenu" href="/adminusuarios">Usuarios</a></li>
                 <li class=""><a class="textoMenu" href="/">Frontend</a></li>
