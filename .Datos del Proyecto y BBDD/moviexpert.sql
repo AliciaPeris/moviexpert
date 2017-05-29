@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2017 a las 22:50:17
+-- Tiempo de generación: 29-05-2017 a las 17:27:26
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `moviexpert`
 --
-CREATE DATABASE IF NOT EXISTS `moviexpert` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `moviexpert`;
 
 -- --------------------------------------------------------
 
@@ -66,13 +64,20 @@ CREATE TABLE IF NOT EXISTS `adminconcursos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Truncar tablas antes de insertar `adminconcursos`
 --
 
 TRUNCATE TABLE `adminconcursos`;
+--
+-- Volcado de datos para la tabla `adminconcursos`
+--
+
+INSERT INTO `adminconcursos` (`id`, `nombre`, `descripcion`, `fechainicioinscripcion`, `fechafininscripcion`, `fechafinconcurso`, `created_at`, `updated_at`) VALUES
+(3, 'Naturaleza', 'Los cortos deberán ser originales e inéditos y no deberán haber recibido previamente ningún premio o accésit en otro certamen o concurso nacional y/o internacional. Deberán ser un cortometraje en español de una duración mínima de 3 minutos y máxima de 6 minutos. La temática general de los cortos será la Naturaleza: su belleza, biodiversidad y conservación; su papel como hábitat natural nuestro y del resto de especies; nuestro vínculo con ella y el impacto que ocasionamos como sociedad; la naturaleza como fuente de inspiración y las emociones que nos genera… La organización se reserva el derecho de admisión de la participación de los cortos que no contemplen el tema central propuesto.', '2017-05-29', '2017-06-25', '2017-08-17', '2017-05-29 15:26:50', '2017-05-29 15:26:50');
+
 -- --------------------------------------------------------
 
 --
@@ -86,13 +91,21 @@ CREATE TABLE IF NOT EXISTS `admingeneros` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Truncar tablas antes de insertar `admingeneros`
 --
 
 TRUNCATE TABLE `admingeneros`;
+--
+-- Volcado de datos para la tabla `admingeneros`
+--
+
+INSERT INTO `admingeneros` (`id`, `genero`, `created_at`, `updated_at`) VALUES
+(1, 'Terror', '2017-05-25 17:27:59', '2017-05-25 17:27:59'),
+(2, 'Accion', '2017-05-25 17:28:17', '2017-05-25 17:28:17');
+
 -- --------------------------------------------------------
 
 --
@@ -116,13 +129,20 @@ CREATE TABLE IF NOT EXISTS `adminpeliculas` (
   `genero` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `adminpeliculas_genero_foreign` (`genero`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Truncar tablas antes de insertar `adminpeliculas`
 --
 
 TRUNCATE TABLE `adminpeliculas`;
+--
+-- Volcado de datos para la tabla `adminpeliculas`
+--
+
+INSERT INTO `adminpeliculas` (`id`, `titulo`, `anio`, `pais`, `director`, `guion`, `reparto`, `sinopsis`, `trailer`, `cartelera`, `created_at`, `updated_at`, `genero`) VALUES
+(5, 'Abuelos al poder', 2012, 'Estados Unidos', 'Andy Fickman', 'Billy Crystal, Lisa Addario', 'Billy Crystal,  Bette Midler,  Marisa Tomei,  Tom Everett Scott,  Bailee Madison, Joshua Rush,  Kyle Harrison Breitkopf,  Jennifer Crystal Foley,  Rhoda Griffis, Gedde Watanabe,  Tony Hawk,  Cade Jones,  Mavrick Moreno,  Steve Levy', 'Artie y Diane aceptan cuidar de sus tres nietos mientras los padres de estos salen de viaje por motivos de trabajo. Pero cuando los métodos educativos más modernos entran en colisión con los de la vieja escuela, los problemas comienzan a surgir', 'abuelosalpoder.jpg', 'abuelosalpoder.jpg', '2017-05-29 14:16:16', '2017-05-29 14:16:16', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -151,8 +171,36 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2017_05_11_214703_create_adminpeliculas_table', 2),
 ('2017_05_11_214727_create_adminconcursos_table', 2),
 ('2014_10_12_000001_create_users_table', 3),
-('2017_05_11_214727_create_adminchats_table', 4);
+('2017_05_11_214727_create_adminchats_table', 4),
+('2017_05_29_154650_create_participanconcursos_table', 5),
+('2017_05_29_154732_create_votosconcursos_table', 5);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `participanconcursos`
+--
+
+DROP TABLE IF EXISTS `participanconcursos`;
+CREATE TABLE IF NOT EXISTS `participanconcursos` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idconcurso` int(10) unsigned NOT NULL,
+  `idusuario` int(10) unsigned NOT NULL,
+  `otrosparticipantes` text COLLATE utf8_unicode_ci NOT NULL,
+  `titulo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`,`idconcurso`,`idusuario`),
+  KEY `participanconcursos_idconcurso_foreign` (`idconcurso`),
+  KEY `participanconcursos_idusuario_foreign` (`idusuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Truncar tablas antes de insertar `participanconcursos`
+--
+
+TRUNCATE TABLE `participanconcursos`;
 -- --------------------------------------------------------
 
 --
@@ -195,15 +243,47 @@ CREATE TABLE IF NOT EXISTS `users` (
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`,`email`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
 
 --
 -- Truncar tablas antes de insertar `users`
 --
 
 TRUNCATE TABLE `users`;
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`, `nombre`, `apellidos`, `direccion`, `localidad`, `genero`, `fechanacimiento`, `foto`, `tipousuario`, `remember_token`, `created_at`, `updated_at`) VALUES
+(11, 'admin@admin.com', '$2y$10$WeKndm/ircmIedEF9.2Fce7q.DqwN4TCcleKYp451roOYiz4pQQWm', 'admin', 'admin', 'admin', 'admin', 'admin', '0000-00-00', '', 'admin', 'EI0sOafzCk65qvcEryfNxKGa1CHjhmUrbYG9eXRrwUHabXv4ZDOtQeAU3ZKK', '2017-05-27 14:48:50', '2017-05-27 15:52:39');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `votosconcursos`
+--
+
+DROP TABLE IF EXISTS `votosconcursos`;
+CREATE TABLE IF NOT EXISTS `votosconcursos` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idcortoconcurso` int(10) unsigned NOT NULL,
+  `idusuario` int(10) unsigned NOT NULL,
+  `voto` int(11) NOT NULL,
+  `fechavoto` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`,`idcortoconcurso`,`idusuario`),
+  KEY `votosconcursos_idcortoconcurso_foreign` (`idcortoconcurso`),
+  KEY `votosconcursos_idusuario_foreign` (`idusuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Truncar tablas antes de insertar `votosconcursos`
+--
+
+TRUNCATE TABLE `votosconcursos`;
 --
 -- Restricciones para tablas volcadas
 --
@@ -219,6 +299,20 @@ ALTER TABLE `adminchats`
 --
 ALTER TABLE `adminpeliculas`
   ADD CONSTRAINT `adminpeliculas_genero_foreign` FOREIGN KEY (`genero`) REFERENCES `admingeneros` (`id`);
+
+--
+-- Filtros para la tabla `participanconcursos`
+--
+ALTER TABLE `participanconcursos`
+  ADD CONSTRAINT `participanconcursos_idconcurso_foreign` FOREIGN KEY (`idconcurso`) REFERENCES `adminconcursos` (`id`),
+  ADD CONSTRAINT `participanconcursos_idusuario_foreign` FOREIGN KEY (`idusuario`) REFERENCES `users` (`id`);
+
+--
+-- Filtros para la tabla `votosconcursos`
+--
+ALTER TABLE `votosconcursos`
+  ADD CONSTRAINT `votosconcursos_idcortoconcurso_foreign` FOREIGN KEY (`idcortoconcurso`) REFERENCES `participanconcursos` (`id`),
+  ADD CONSTRAINT `votosconcursos_idusuario_foreign` FOREIGN KEY (`idusuario`) REFERENCES `users` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

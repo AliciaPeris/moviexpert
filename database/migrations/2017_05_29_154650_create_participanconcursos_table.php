@@ -14,6 +14,13 @@ class CreateParticipanconcursosTable extends Migration
     {
         Schema::create('participanconcursos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('idconcurso')->unsigned();
+            $table->foreign('idconcurso')->references('id')->on('adminconcursos');
+            $table->integer('idusuario')->unsigned();
+            $table->foreign('idusuario')->references('id')->on('users');
+            $table->text('otrosparticipantes');
+            $table->string('titulo');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }
