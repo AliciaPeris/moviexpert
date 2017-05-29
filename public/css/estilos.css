@@ -73,6 +73,10 @@ h1{
   background: white!important;
   color:#D64937!important;
 }
+.borde{
+    border: 1px solid #330000!important;
+    border-radius: 2;
+}
 #logo{
   margin-left: 50px;
 }

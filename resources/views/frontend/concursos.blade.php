@@ -6,7 +6,9 @@
 			<h1 class="col-xs-12 text-center">{{$concurso->nombre}}</h1>
 			<p class="textoMarron"><strong class="col-xs-12 col-sm-6">Plazo Inscripción: {{$concurso->fechainicioinscripcion}} al {{$concurso->fechafininscripcion}}</strong>
 			<strong class="col-sm-6 col-xs-12 text-right"> El concurso finaliza: {{$concurso->fechafinconcurso}}</strong></p>
-			<p class="col-xs-12 margintop25">{{$concurso->descripcion}}</p>
+			<div class="col-xs-10 col-xs-offset-1 margintop25">
+				<p class="col-xs-12">{{$concurso->descripcion}}</p>
+			</div>
 			<a class="btn boton2 margin10" href="{{ url('/concursos') }}">Incripción</a>
 		</div>
 		@endforeach
