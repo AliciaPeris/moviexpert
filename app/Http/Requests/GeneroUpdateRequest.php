@@ -24,6 +24,8 @@ class GeneroUpdateRequest extends Request
     public function rules()
     {
         return [
+          'genero' => 'genero',
+          
             //
         ];
     }
