@@ -26,6 +26,7 @@ Route::get('peliculas','FrontendController@peliculas');
 Route::get('concursos','FrontendController@concursos');
 Route::get('chat','FrontendController@chat');
 Route::resource('inscripcionconcurso', "InscripcionconcursoController");
+Route::get('inscripcionconcurso/create/{id}', "InscripcionconcursoController@create");
 /*
 Route::get('concursos/participanconcurso/{id}','FrontendController@participanconcurso');
 Route::post('concursos/participanconcurso/{id}/altaparticipacion','FrontendController@altaparticipacion');

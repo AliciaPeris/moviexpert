@@ -7,6 +7,8 @@
 					$fin=$concurso->fechafininscripcion;
 					$finconcurso=$concurso->fechafinconcurso;
 					$now=new \Carbon\Carbon();
+					$id=$concurso->id;
+					Session::set('codConcurso', $id);
 	?>
 		<div class="col-xs-12 fondoItem container-fluid margintop25">
 			<h1 class="col-xs-12 text-center">{{$concurso->nombre}}</h1>
@@ -21,7 +23,7 @@
 			</div>
 
 			@if($ini<$now && $fin>$now)
-				{!!link_to_route('inscripcionconcurso.create', $title = "Incripción Concurso",$parameters= $concurso->id , $attributes = ['class'=>'btn boton col-xs-3 margin10'])!!}
+				{!!link_to_route('inscripcionconcurso.create', $title = "Incripción Concurso",$parameters=$concurso->id , $attributes = ['class'=>'btn boton col-xs-3 margin10'])!!}
 				{!!link_to_route('inscripcionconcurso.show', $title = "Ver Participantes",$parameters= $concurso->id , $attributes = ['class'=>'btn boton col-xs-3 margin10'])!!}
 
 			@endif

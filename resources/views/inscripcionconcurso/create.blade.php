@@ -17,7 +17,7 @@
 			</div>
 			<div class="input-group input-group-lg margin10">
 			<span class="input-group-addon glyphicon glyphicon-envelope">Participante Principal</span>
-			<?php $user=Auth::user()->email; ?>
+			<?php $user=Auth::user()->id; ?>
 			{!!Form::text('idusuario',$user,['class'=>'form-control ','placeholder'=>'','readonly'])!!}
 			</div>
 			<div class="input-group input-group-lg margin10">

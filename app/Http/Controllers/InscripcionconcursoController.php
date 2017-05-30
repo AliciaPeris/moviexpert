@@ -7,18 +7,20 @@ use Illuminate\Http\Request;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 use DB;
+use Session;
 
 
 class InscripcionconcursoController extends Controller
 {
     //
     public function index(){
+
     }
     public function create(){
-      $id=3;
       /*Retornanmos a la vista create*/
-          $concursos = \moviexpert\AdminConcurso::find($id);
-          return view('inscripcionconcurso.create',['concurso'=>$concursos]);
+      $id=Session::get('codConcurso');
+      $concursos = \moviexpert\AdminConcurso::find($id);
+      return view('inscripcionconcurso.create',['concurso'=>$concursos]);
     }
 
     public function store(Request $request){
