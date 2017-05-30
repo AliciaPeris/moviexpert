@@ -24,7 +24,13 @@ class ChatCreateRequest extends Request
     public function rules()
     {
         return [
-            //
+          'nombre' => 'required',
+          'descripcion' => 'required',
+          'numguionistas' => 'required',
+          'numactores' => 'required',
+          'numdirectores' => 'required',
+          'numcamaras' => 'required',
+          
         ];
     }
 }

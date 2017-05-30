@@ -24,6 +24,7 @@ class GeneroCreateRequest extends Request
     public function rules()
     {
         return [
+          'genero' => 'genero',
             //
         ];
     }

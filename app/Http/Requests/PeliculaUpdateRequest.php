@@ -24,6 +24,15 @@ class PeliculaUpdateRequest extends Request
     public function rules()
     {
         return [
+          'titulo' => 'required',
+          'anio' => 'required',
+          'pais' => 'required',
+          'director' => 'required',
+          'guion' => 'required',
+          'reparto' => 'required',
+          'sinopsis' => 'required',
+          'trailer' => 'required',
+          
             //
         ];
     }
