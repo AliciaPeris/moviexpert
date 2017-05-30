@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 	@section('content')
-
+  {!!Form::open(['route'=>'inscripcionconcurso.store','method'=>'POST'])!!}
 	<div class="col-xs-12 fondoItem container-fluid margintopbottom25">
 		<h1 class="col-xs-12 text-center">{{$concurso->nombre}}</h1>
 		<p class="textoMarron"><strong class="col-xs-12 col-sm-6">Plazo Inscripción: {{$concurso->fechainicioinscripcion}} al {{$concurso->fechafininscripcion}}</strong>
@@ -36,7 +36,7 @@
 				<span class="input-group-addon glyphicon glyphicon-envelope"></span>
 				{!!Form::text('corto',null,['class'=>'form-control','placeholder'=>'Ruta del Corto'])!!}
 			</div>
-			{!!Form::submit('Participar',['class'=>'btn boton margin10'])!!}
+			{!!Form::submit('Participar Concurso',['class'=>'btn boton margin10'])!!}
 	</div>
-
+{!!Form::close()!!}
 @endsection

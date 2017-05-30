@@ -25,9 +25,11 @@ Route::resource('/','FrontendController');
 Route::get('peliculas','FrontendController@peliculas');
 Route::get('concursos','FrontendController@concursos');
 Route::get('chat','FrontendController@chat');
+Route::resource('inscripcionconcurso', "InscripcionconcursoController");
+/*
 Route::get('concursos/participanconcurso/{id}','FrontendController@participanconcurso');
-Route::post('altaparticipante','FrontendController@altaparticipante');
-
+Route::post('concursos/participanconcurso/{id}/altaparticipacion','FrontendController@altaparticipacion');
+*/
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
