@@ -63,7 +63,7 @@
         <div id="page-wrapper">
             @yield('content')
         </div>
-        <div class="col-xs-12 fondoCabecera">
+        <div class="col-xs-12 fondoCabecera margintop25">
           <div class="container margintop25">
             <p class="text-center"><a class="textoBlanco" href="">Preguntas más frecuentes</a> | <a class="textoBlanco" href="">Política de privacidad y Condiciones de uso</a></p>
             <p class="text-center"><strong>© 2017 MoviExpert | All Rights Reserved - Todos los derechos reservados</strong></p>

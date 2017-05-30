@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
+use DB;
+
 
 class InscripcionconcursoController extends Controller
 {
@@ -33,9 +35,16 @@ class InscripcionconcursoController extends Controller
       return redirect('/concursos');
     }
     public function show($id){
-
+      $concursos=$concursos = \moviexpert\AdminConcurso::find($id);
+      $inscripcion = DB::table('participanconcursos')
+            ->join('adminconcursos', 'adminconcursos.id', '=', 'participanconcursos.idconcurso')
+            ->select('participanconcursos.*')
+            ->where('participanconcursos.idconcurso',$id)
+            ->get();
+            return view('inscripcionconcurso.show',compact('concursos','inscripcion'));
     }
     public function edit($id){
+
     }
     public function update(Request $request,$id){
 
