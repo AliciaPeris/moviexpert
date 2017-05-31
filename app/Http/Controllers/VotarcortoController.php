@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
+use DB;
+use Session;
 
 class VotarcortoController extends Controller
 {
@@ -22,5 +24,14 @@ class VotarcortoController extends Controller
      ]);
       /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
       return redirect('/concursos');
+    }
+    public static function usuariovoto($idcortoconcurso,$idusuario){
+      $numvotos= DB::table('votosconcursos')
+            ->where([
+                    ['idusuario', '=', $idusuario],
+                    ['idcortoconcurso', '=', $idcortoconcurso],
+                ])
+            ->count();
+      return $numvotos;
     }
 }

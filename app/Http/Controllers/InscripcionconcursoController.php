@@ -44,7 +44,7 @@ class InscripcionconcursoController extends Controller
             ->where('participanconcursos.idconcurso',$id)
             ->get();
       $numvotos= DB::table('votosconcursos')
-            ->select(DB::raw('sum(voto) as votos, idcortoconcurso'))
+            ->select(DB::raw('sum(voto) as votos, idcortoconcurso, idusuario'))
             ->groupby('idcortoconcurso')
             ->get();
             return view('inscripcionconcurso.show',compact('concursos','inscripcion','numvotos'));
