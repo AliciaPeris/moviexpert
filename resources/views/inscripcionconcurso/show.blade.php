@@ -34,7 +34,14 @@
     </div>
   </div>
   <div class="col-xs-3 fondoItem margintop25">
-    <p>Total Votos: {{$numvotos}}</p>
+    @foreach($numvotos as $vot)
+    <?php $idpart=$ins->id;
+          $idvot=$vot->idcortoconcurso;
+          ?>
+    @if($idpart==$idvot)
+      <p>Total Votos: {{$vot->votos}}</p>
+      @endif
+    @endforeach
     <p class="margintop25">Vota este corto</p>
 <div class="stars">
 
