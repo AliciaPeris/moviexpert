@@ -1,5 +1,7 @@
+<?php use moviexpert\Http\Controllers\VotarcortoController;?>
 @extends('layouts.frontend')
 	@section('content')
+
 	<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 		<div class="col-xs-12 fondoCabecera container-fluid margintop25">
 			<h1 class="col-xs-12 text-center textoSalmon">{{$concursos->nombre}}</h1>
@@ -34,18 +36,26 @@
     </div>
   </div>
   <div class="col-xs-3 fondoItem margintop25">
-    <p>Total Votos: {{$numvotos}}</p>
-    <p class="margintop25">Vota este corto</p>
-<div class="stars">
-
-
-  <a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
-	<a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
-	<a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
-	<a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
-	<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
-
-</div></div>
+    @foreach($numvotos as $vot)
+    <?php $idpart=$ins->id;
+          $idvot=$vot->idcortoconcurso;
+          ?>
+    @if($idpart==$idvot)
+    <?php $usuarioavotado=VotarcortoController::usuariovoto($idvot,$user);?>
+      <p>Total Votos: {{$vot->votos}}</p>
+      @if($usuarioavotado==0)
+        <p class="margintop25">Vota este corto</p>
+        <div class="stars">
+          <a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+        	<a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+        	<a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+        	<a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+        	<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+        </div>
+      @endif
+      @endif
+    @endforeach
+    </div>
 
   </div>
   @endforeach

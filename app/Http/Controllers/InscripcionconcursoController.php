@@ -37,17 +37,16 @@ class InscripcionconcursoController extends Controller
       return redirect('/concursos');
     }
     public function show($id){
-      $
       $concursos=$concursos = \moviexpert\AdminConcurso::find($id);
       $inscripcion = DB::table('participanconcursos')
             ->join('adminconcursos', 'adminconcursos.id', '=', 'participanconcursos.idconcurso')
-            ->select('participanconcursos.*')
+            ->select('participanconcursos.*' )
             ->where('participanconcursos.idconcurso',$id)
             ->get();
       $numvotos= DB::table('votosconcursos')
-            ->where('idcortoconcurso', '=', $id)
-            ->count();
-
+            ->select(DB::raw('sum(voto) as votos, idcortoconcurso, idusuario'))
+            ->groupby('idcortoconcurso')
+            ->get();
             return view('inscripcionconcurso.show',compact('concursos','inscripcion','numvotos'));
     }
     public function edit($id){
