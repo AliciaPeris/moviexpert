@@ -18,9 +18,9 @@ class FrontendController extends Controller
     $concursos = \moviexpert\AdminConcurso::find($id);
     return view('frontend.participanconcurso',['concurso'=>$concursos]);
   }
-  public function peliculas(){
-    $peliculas=\moviexpert\AdminPelicula::All();
-    return view("frontend.peliculas",compact('peliculas'));
+  public function ficha($id){
+    $pelicula=\moviexpert\AdminPelicula::find($id);
+    return view("frontend.ficha",compact('pelicula'));
   }
   public function concursos(){
     $concursos=\moviexpert\AdminConcurso::All();
