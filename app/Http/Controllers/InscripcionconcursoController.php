@@ -18,7 +18,6 @@ class InscripcionconcursoController extends Controller
     }
     public function create(){
       /*Retornanmos a la vista create*/
-      $id=Session::get('codConcurso');
       $concursos = \moviexpert\AdminConcurso::find($id);
       return view('inscripcionconcurso.create',['concurso'=>$concursos]);
     }
@@ -43,11 +42,16 @@ class InscripcionconcursoController extends Controller
             ->select('participanconcursos.*' )
             ->where('participanconcursos.idconcurso',$id)
             ->get();
-      $numvotos= DB::table('votosconcursos')
-            ->select(DB::raw('sum(voto) as votos, idcortoconcurso, idusuario'))
-            ->groupby('idcortoconcurso')
-            ->get();
-            return view('inscripcionconcurso.show',compact('concursos','inscripcion','numvotos'));
+            return view('inscripcionconcurso.show',compact('concursos','inscripcion'));
+    }
+    public static function existeusuario($idusuario,$idconcurso){
+      $numvotos= DB::table('participanconcursos')
+      ->where([
+              ['idusuario', '=', $idusuario],
+              ['idconcurso', '=', $idconcurso],
+          ])
+      ->count();
+      return $numvotos;
     }
     public function edit($id){
 

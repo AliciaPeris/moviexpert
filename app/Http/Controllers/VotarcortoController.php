@@ -34,4 +34,10 @@ class VotarcortoController extends Controller
             ->count();
       return $numvotos;
     }
+    public static function votoscorto($idcortoconcurso){
+      $numvotos= DB::table('votosconcursos')
+            ->where('idcortoconcurso', '=', $idcortoconcurso)
+            ->sum('voto');
+      return $numvotos;
+    }
 }

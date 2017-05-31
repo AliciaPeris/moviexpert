@@ -36,13 +36,13 @@
     </div>
   </div>
   <div class="col-xs-3 fondoItem margintop25">
-    @foreach($numvotos as $vot)
-    <?php $idpart=$ins->id;
-          $idvot=$vot->idcortoconcurso;
-          ?>
-    @if($idpart==$idvot)
-    <?php $usuarioavotado=VotarcortoController::usuariovoto($idvot,$user);?>
-      <p>Total Votos: {{$vot->votos}}</p>
+    <?php
+          $idpart=$ins->id;
+          //Llamamos a la funcion usuriovoto que esta definida en el controlador y lo unico que hace es pedit datos a la base de datos y retornalos
+          $usuarioavotado=VotarcortoController::usuariovoto($idpart,$user);
+          $votos=VotarcortoController::votoscorto($idpart);
+    ?>
+      <p>Total Votos: <?php echo $votos;?></p>
       @if($usuarioavotado==0)
         <p class="margintop25">Vota este corto</p>
         <div class="stars">
@@ -53,8 +53,6 @@
         	<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
         </div>
       @endif
-      @endif
-    @endforeach
     </div>
 
   </div>

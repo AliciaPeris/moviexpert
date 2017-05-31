@@ -25,8 +25,9 @@ class FrontendController extends Controller
   }
   public function participanconcurso($id){
     $concursos = \moviexpert\AdminConcurso::find($id);
-    return view('frontend.participanconcurso',['concurso'=>$concursos]);
+    return view('inscripcionconcurso.create',['concurso'=>$concursos]);
   }
+
 
   public function chat(){
     return view("frontend.chat");
