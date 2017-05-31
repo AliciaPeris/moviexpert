@@ -12,10 +12,18 @@
   </div>
   <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 @foreach($inscripcion as $ins)
+<?php
 
+        $now=new \Carbon\Carbon();
+        $id=$ins->id;
+        $user=Auth::user()->id;
+        Session::set('codConcurso', $id);
+?>
   <div class="col-xs-12 fondoItem container-fluid margintop25">
+
     <h1 class="col-xs-12 text-center">{{$ins->titulo}}</h1>
-    <div class="col-xs-10 col-xs-offset-1 margintop25">
+    <div class="col-xs-8 fondoItem container-fluid margintop25">
+    <div class="col-xs-9 col-xs-offset-1 margintop25">
       <p class="col-xs-12">Usuario: {{$ins->idusuario}}</p>
     </div>
     <div class="col-xs-10 col-xs-offset-1 margintop25">
@@ -27,6 +35,17 @@
     <div class="col-xs-10 col-xs-offset-1 margintop25">
       <p class="col-xs-12">Ruta Corto: {{$ins->corto}}</p>
     </div>
+  </div>
+  <div class="col-xs-3 fondoItem margintop25">
+    <p>Total Puntos: </p>
+    <p class="margintop25">Vota este corto</p>
+<div class="stars">
+	<a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+	<a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+	<a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+	<a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+	<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+</div></div>
   </div>
   @endforeach
 </div>
