@@ -10,13 +10,14 @@ use Redirect;
 use Illuminate\Routing\Route;
 use moviexpert\Admingenero;
 
+
 class AdmingeneroController extends Controller
 {
     //
     public function index(){
-      /*Creamos una variable para almacenar todos los datos de la base de datos*/
+      /*Creamos una variable para almacenar todos los datos de la base de datos*                                                                                                                                  /
          $generos=\moviexpert\Admingenero::All();
-         /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
+         /*Retornamos a la vista user carpeta index vista y le pasamos la variab                                                                                                                                  le con los datos*/
           return view('generos.index',compact('generos'));
 
     }
