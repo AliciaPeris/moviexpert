@@ -22,7 +22,7 @@ Route::resource('adminparticipanconcurso','AdminparticipanconcursoController');
 
 /*Rutas Frontend*/
 Route::resource('/','FrontendController');
-Route::get('peliculas','FrontendController@peliculas');
+Route::get('ficha/{id}','FrontendController@ficha');
 Route::get('concursos','FrontendController@concursos');
 Route::get('chat','FrontendController@chat');
 Route::resource('inscripcionconcurso', "InscripcionconcursoController");

@@ -9,6 +9,10 @@ use Session;
 use Redirect;
 use Illuminate\Routing\Route;
 use moviexpert\Adminpelicula;
+use moviexpert\Admingenero;
+use Store;
+
+
 
 class AdminpeliculaController extends Controller
 {
@@ -20,7 +24,8 @@ class AdminpeliculaController extends Controller
     }
     public function create(){
       /*Retornanmos a la vista create*/
-          return view('peliculas.create');
+      $generos=\moviexpert\Admingenero::lists('genero','id');
+      return view('peliculas.create',compact("generos"));
 
     }
     public function store(Request $request){
@@ -39,8 +44,10 @@ class AdminpeliculaController extends Controller
 
 
       ]);
+      $request->file('imagen')->store('imagenes','public');
+      dd($request->file('imagen'));
       /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
-      return redirect('/adminpelicula')->with('message','store');
+      //return redirect('/adminpelicula')->with('message','store');
     }
 
     public function show($id){
@@ -49,8 +56,8 @@ class AdminpeliculaController extends Controller
     public function edit($id){
 
       $peliculas = Adminpelicula::find($id);
-
-        return view('peliculas.edit',compact("generos"))->with('pelicula', $peliculas);
+      $generos=\moviexpert\Admingenero::lists('genero','id');
+      return view('peliculas.edit',compact("generos"))->with('pelicula', $peliculas);
     }
     public function update(Request $request, $id){
       $peliculas= Adminpelicula::find($id);
@@ -58,6 +65,7 @@ class AdminpeliculaController extends Controller
       $peliculas->save();
       Session::flash('message','Película Actualizada Correctamente');
       return Redirect::to('/adminpelicula');
+
 
     }
     public function destroy($id){
