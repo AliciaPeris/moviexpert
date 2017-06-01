@@ -1,5 +1,9 @@
+<?php use moviexpert\Http\Controllers\FrontendController;
+$peliculas=FrontendController::estrenos();
+?>
 @extends('layouts.frontend')
 @section('content')
+
 <div id="cuadrado" class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 	<div class="col-xs-12 col-md-9">
 		<div class="encabezados">LISTADO DE PELÍCULAS</div>
