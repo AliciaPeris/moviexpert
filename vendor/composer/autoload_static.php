@@ -273,6 +273,8 @@ class ComposerStaticInit3419ca7b116929e939d207e130abbb17
         'CreateAdminconcursosTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_11_214727_create_adminconcursos_table.php',
         'CreateAdmingenerosTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_11_214702_create_admingeneros_table.php',
         'CreateAdminpeliculasTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_11_214703_create_adminpeliculas_table.php',
+        'CreateMensajechatsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_01_192832_create_mensajechats_table.php',
+        'CreateMiembrochatsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_01_192819_create_miembrochats_table.php',
         'CreateParticipanconcursosTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_29_154650_create_participanconcursos_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000001_create_users_table.php',

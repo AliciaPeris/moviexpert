@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2017 a las 17:27:26
+-- Tiempo de generación: 01-06-2017 a las 19:43:38
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `adminchats` (
   `creadorchat` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `adminchats_creadorchat_foreign` (`creadorchat`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Truncar tablas antes de insertar `adminchats`
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `adminconcursos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Truncar tablas antes de insertar `adminconcursos`
@@ -76,7 +76,8 @@ TRUNCATE TABLE `adminconcursos`;
 --
 
 INSERT INTO `adminconcursos` (`id`, `nombre`, `descripcion`, `fechainicioinscripcion`, `fechafininscripcion`, `fechafinconcurso`, `created_at`, `updated_at`) VALUES
-(3, 'Naturaleza', 'Los cortos deberán ser originales e inéditos y no deberán haber recibido previamente ningún premio o accésit en otro certamen o concurso nacional y/o internacional. Deberán ser un cortometraje en español de una duración mínima de 3 minutos y máxima de 6 minutos. La temática general de los cortos será la Naturaleza: su belleza, biodiversidad y conservación; su papel como hábitat natural nuestro y del resto de especies; nuestro vínculo con ella y el impacto que ocasionamos como sociedad; la naturaleza como fuente de inspiración y las emociones que nos genera… La organización se reserva el derecho de admisión de la participación de los cortos que no contemplen el tema central propuesto.', '2017-05-29', '2017-06-25', '2017-08-17', '2017-05-29 15:26:50', '2017-05-29 15:26:50');
+(3, 'Naturaleza', 'Los cortos deberán ser originales e inéditos y no deberán haber recibido previamente ningún premio o accésit en otro certamen o concurso nacional y/o internacional. Deberán ser un cortometraje en español de una duración mínima de 3 minutos y máxima de 6 minutos. La temática general de los cortos será la Naturaleza: su belleza, biodiversidad y conservación; su papel como hábitat natural nuestro y del resto de especies; nuestro vínculo con ella y el impacto que ocasionamos como sociedad; la naturaleza como fuente de inspiración y las emociones que nos genera… La organización se reserva el derecho de admisión de la participación de los cortos que no contemplen el tema central propuesto.', '2017-05-29', '2017-06-25', '2017-08-17', '2017-05-29 15:26:50', '2017-05-29 15:26:50'),
+(4, 'Electronica', 'Todo en ambito que se refiere a la tecnologia ', '2017-05-09', '2017-05-29', '2017-08-26', '2017-05-30 17:40:21', '2017-05-30 17:40:21');
 
 -- --------------------------------------------------------
 
@@ -146,6 +147,50 @@ INSERT INTO `adminpeliculas` (`id`, `titulo`, `anio`, `pais`, `director`, `guion
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `mensajechats`
+--
+
+DROP TABLE IF EXISTS `mensajechats`;
+CREATE TABLE IF NOT EXISTS `mensajechats` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idmiembro` int(10) unsigned NOT NULL,
+  `mensaje` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mensajechats_idmiembro_foreign` (`idmiembro`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Truncar tablas antes de insertar `mensajechats`
+--
+
+TRUNCATE TABLE `mensajechats`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `miembrochats`
+--
+
+DROP TABLE IF EXISTS `miembrochats`;
+CREATE TABLE IF NOT EXISTS `miembrochats` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idchat` int(10) unsigned NOT NULL,
+  `idusuario` int(10) unsigned NOT NULL,
+  `tipomiembro` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Truncar tablas antes de insertar `miembrochats`
+--
+
+TRUNCATE TABLE `miembrochats`;
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `migrations`
 --
 
@@ -173,7 +218,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2014_10_12_000001_create_users_table', 3),
 ('2017_05_11_214727_create_adminchats_table', 4),
 ('2017_05_29_154650_create_participanconcursos_table', 5),
-('2017_05_29_154732_create_votosconcursos_table', 5);
+('2017_05_29_154732_create_votosconcursos_table', 5),
+('2017_06_01_192816_create_mensajechats_table', 6);
 
 -- --------------------------------------------------------
 
@@ -189,12 +235,13 @@ CREATE TABLE IF NOT EXISTS `participanconcursos` (
   `otrosparticipantes` text COLLATE utf8_unicode_ci NOT NULL,
   `titulo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
+  `corto` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`,`idconcurso`,`idusuario`),
   KEY `participanconcursos_idconcurso_foreign` (`idconcurso`),
   KEY `participanconcursos_idusuario_foreign` (`idusuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
 
 --
 -- Truncar tablas antes de insertar `participanconcursos`
@@ -245,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`,`email`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=15 ;
 
 --
 -- Truncar tablas antes de insertar `users`
@@ -257,7 +304,8 @@ TRUNCATE TABLE `users`;
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `nombre`, `apellidos`, `direccion`, `localidad`, `genero`, `fechanacimiento`, `foto`, `tipousuario`, `remember_token`, `created_at`, `updated_at`) VALUES
-(11, 'admin@admin.com', '$2y$10$WeKndm/ircmIedEF9.2Fce7q.DqwN4TCcleKYp451roOYiz4pQQWm', 'admin', 'admin', 'admin', 'admin', 'admin', '0000-00-00', '', 'admin', 'EI0sOafzCk65qvcEryfNxKGa1CHjhmUrbYG9eXRrwUHabXv4ZDOtQeAU3ZKK', '2017-05-27 14:48:50', '2017-05-27 15:52:39');
+(11, 'admin@admin.com', '$2y$10$WeKndm/ircmIedEF9.2Fce7q.DqwN4TCcleKYp451roOYiz4pQQWm', 'admin', 'admin', 'admin', 'admin', 'admin', '0000-00-00', '', 'admin', 'PtyInYQ2mCy8FvXi6O2R74ppflUV5UEKLdwd7qXIwLtaJc2lnkrwjHh4hQjG', '2017-05-27 14:48:50', '2017-05-31 18:25:18'),
+(14, 'pilar@gmail.com', '$2y$10$SN0shKVsheex0psfJsrb4.kU4hqVqsIR1v1XjdB3xUP4t2d35KJlK', 'Pilar', 'Peris', 'Rodeo 20', 'Garganta la Olla', 'Mujer', '2017-05-10', 'perfildefecto.png', 'normal', 'hZ2VIlenO4b7XkJ5IoFy0tBENHQvXGNgPbuUJ5NxGSmMMmI5dzsCCFpMox4s', '2017-05-31 16:12:31', '2017-05-31 17:56:33');
 
 -- --------------------------------------------------------
 
@@ -277,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `votosconcursos` (
   PRIMARY KEY (`id`,`idcortoconcurso`,`idusuario`),
   KEY `votosconcursos_idcortoconcurso_foreign` (`idcortoconcurso`),
   KEY `votosconcursos_idusuario_foreign` (`idusuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Truncar tablas antes de insertar `votosconcursos`
@@ -299,6 +347,12 @@ ALTER TABLE `adminchats`
 --
 ALTER TABLE `adminpeliculas`
   ADD CONSTRAINT `adminpeliculas_genero_foreign` FOREIGN KEY (`genero`) REFERENCES `admingeneros` (`id`);
+
+--
+-- Filtros para la tabla `mensajechats`
+--
+ALTER TABLE `mensajechats`
+  ADD CONSTRAINT `mensajechats_idmiembro_foreign` FOREIGN KEY (`idmiembro`) REFERENCES `miembrochats` (`id`);
 
 --
 -- Filtros para la tabla `participanconcursos`
