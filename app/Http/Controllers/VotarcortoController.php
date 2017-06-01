@@ -19,8 +19,6 @@ class VotarcortoController extends Controller
        'idusuario'=>$request['idusuario'],
        'voto'=> $request['voto'],
        'fechavoto'=> $request['fechavoto'],
-       'descripcion'=> $request['descripcion'],
-       'corto'=> $request['corto'],
      ]);
       /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
       return redirect('/concursos');

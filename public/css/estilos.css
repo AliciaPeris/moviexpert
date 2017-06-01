@@ -97,7 +97,7 @@ h1{
 		también se esté haciendo hover a alguna estrella */
 	display: inline-block;
 }
-.stars a {
+.stars a{
 	text-decoration: none;
 	display: inline-block;
 	/* Volver a dar tamaño al texto */

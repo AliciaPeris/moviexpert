@@ -42,15 +42,21 @@
           $usuarioavotado=VotarcortoController::usuariovoto($idpart,$user);
           $votos=VotarcortoController::votoscorto($idpart);
     ?>
-      <p>Total Votos: <?php echo $votos;?></p>
+      <p>Total Votos: <?php if($votos=="") echo "0"; else echo $votos;?></p>
       @if($usuarioavotado==0)
+			<div>
+			{!!Form::open(['route'=>'votarcorto.store','method'=>'POST'])!!}
+			{!!Form::text('idconcurso',$idpart,['hidden'])!!}
+			{!!Form::text('idusuario',$user,['hidden'])!!}
+			{!!Form::date('fechavoto',$now,['hidden'])!!}
+
         <p class="margintop25">Vota este corto</p>
-        <div class="stars">
-          <a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
-        	<a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
-        	<a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
-        	<a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
-        	<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+					<p class="col-xs-12">{!!Form::radio('voto', '5')!!}<strong><i class="glyphicon glyphicon-star textoSalmon"></i><i class="glyphicon glyphicon-star textoSalmon"></i><i class="glyphicon glyphicon-star textoSalmon"></i><i class="glyphicon glyphicon-star textoSalmon"></i><i class="glyphicon glyphicon-star textoSalmon"></i></strong></p>
+					<p class="col-xs-12">{!!Form::radio('voto', '4')!!}<strong><i class="glyphicon glyphicon-star textoSalmon"></i><i class="glyphicon glyphicon-star textoSalmon"></i></strong><i class="glyphicon glyphicon-star textoSalmon"></i><i class="glyphicon glyphicon-startextoSalmon"></i></strong></p>
+					<p class="col-xs-12">{!!Form::radio('voto', '3')!!}<strong><i class="glyphicon glyphicon-star textoSalmon"></i><i class="glyphicon glyphicon-star textoSalmon"></i></strong><i class="glyphicon glyphicon-star textoSalmon"></i></strong></p>
+					<p class="col-xs-12">{!!Form::radio('voto', '2')!!}<strong><i class="glyphicon glyphicon-star textoSalmon"></i><i class="glyphicon glyphicon-star textoSalmon"></i></strong></p>
+					<p class="col-xs-12">{!!Form::radio('voto', '1')!!}<strong><i class="glyphicon glyphicon-star textoSalmon"></i></p>
+					{!!Form::submit('Votar',['class'=>'btn boton margin10'])!!}
         </div>
       @endif
     </div>
