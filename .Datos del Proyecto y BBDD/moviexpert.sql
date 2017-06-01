@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2017 a las 19:43:38
+-- Tiempo de generación: 01-06-2017 a las 19:51:42
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `adminchats` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `creadorchat` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`,`nombre`),
   KEY `adminchats_creadorchat_foreign` (`creadorchat`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
@@ -180,7 +180,8 @@ CREATE TABLE IF NOT EXISTS `miembrochats` (
   `tipomiembro` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`,`idchat`,`idusuario`),
+  KEY `idchat` (`idchat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
@@ -353,6 +354,12 @@ ALTER TABLE `adminpeliculas`
 --
 ALTER TABLE `mensajechats`
   ADD CONSTRAINT `mensajechats_idmiembro_foreign` FOREIGN KEY (`idmiembro`) REFERENCES `miembrochats` (`id`);
+
+--
+-- Filtros para la tabla `miembrochats`
+--
+ALTER TABLE `miembrochats`
+  ADD CONSTRAINT `miembrochats_ibfk_1` FOREIGN KEY (`idchat`) REFERENCES `adminchats` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `participanconcursos`

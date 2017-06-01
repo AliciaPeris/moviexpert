@@ -29,6 +29,7 @@ Route::get('chat','FrontendController@chat');
 Route::resource('inscripcionconcurso', "InscripcionconcursoController");
 Route::get('inscripcionconcurso/create/{id}', "InscripcionconcursoController@create");
 Route::resource('votarcorto',"VotarCortoController");
+Route::resource('grupochat',"GrupochatController");
 
 Route::get('concursos/participanconcurso/{id}','FrontendController@participanconcurso');
 Route::post('concursos/participanconcurso/{id}/altaparticipacion','FrontendController@altaparticipacion');
