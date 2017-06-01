@@ -14,14 +14,15 @@ class FrontendController extends Controller
       $this->middleware('auth');
   }
   public function index(){
-    return view("frontend.index");
+    $peliculas=\moviexpert\Adminpelicula::All();
+    return view("frontend.index",compact('peliculas'));
   }
   public static function estrenos(){
     $estreno=DB::select('select * from adminpeliculas where anio= :anio',['anio'=>2012]);
     return $estreno;
   }
   public function peliculas(){
-    $peliculas=\moviexpert\adminpeliculas::All();
+    $peliculas=\moviexpert\Adminpelicula::All();
     return view("frontend.peliculas",compact('peliculas'));
   }
   public function concursos(){
