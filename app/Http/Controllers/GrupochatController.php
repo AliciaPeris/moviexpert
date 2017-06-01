@@ -3,17 +3,31 @@
 namespace moviexpert\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
+use Auth;
+use Session;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 
 class GrupochatController extends Controller
 {
-    //
+
+    public function index(){
+      $id=Auth::user()->id;
+      $chats = DB::table('adminchats')
+            ->select('adminchats.*' )
+            ->where('adminchats.creadorchat',$id)
+            ->get();
+            return view('chat.index',compact('chats'));
+    }
+
+
     public function create(){
       /*Retornanmos a la vista create*/
           return view('chat.create');
     }
+
+
     public function store(Request $request){
       \moviexpert\Adminchat::create([
        /*Nombre campo base datos => nombre del campo del formulario*/
@@ -27,5 +41,12 @@ class GrupochatController extends Controller
      ]);
      /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
      return redirect('/chat')->with('message','store');
-}
+    }
+
+
+    public function destroy($id){
+      \moviexpert\Adminchat::destroy($id);
+      Session::flash('message','Chat Eliminado Correctamente');
+       return redirect('/chat')->with('message','store');
+    }
 }

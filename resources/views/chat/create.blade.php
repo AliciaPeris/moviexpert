@@ -1,8 +1,8 @@
 @extends('layouts.frontend')
 	@section('content')
   {!!Form::open(['route'=>'grupochat.store','method'=>'POST'])!!}
-	<p class="col-xs-12 textoMarron text-center margintopbottom25"> Actor: <i class="glyphicon glyphicon-user"></i> | Guionista: <i class="glyphicon glyphicon-list-alt"></i> | Director: <i class="glyphicon glyphicon-film"></i> | Camara: <i class="glyphicon glyphicon-facetime-video"></i></p>
-  <h1 class="textoMarron text-center">Introducir chat</h1>
+	@include('chat.menuchat')
+	<h1 class="textoMarron text-center">Introducir chat</h1>
   <div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3">
       <div class="input-group input-group-lg margintop10">
         <span class="input-group-addon glyphicon glyphicon-comment"></span>
