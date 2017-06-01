@@ -19,9 +19,9 @@
         $id=$ins->id;
         $user=Auth::user()->id;
 ?>
-  <div class="col-xs-12 fondoItem container-fluid margintop25">
+  <div class="col-xs-12 cuadrado container-fluid margintop25">
     <h1 class="col-xs-12 text-center">{{$ins->titulo}}</h1>
-    <div class="col-xs-8 fondoItem container-fluid margintop25">
+    <div class="col-xs-8 container-fluid margintop25">
     <div class="col-xs-9 col-xs-offset-1 margintop25">
       <p class="col-xs-12">Usuario: {{$ins->idusuario}}</p>
     </div>
@@ -35,7 +35,7 @@
       <p class="col-xs-12">Ruta Corto: {{$ins->corto}}</p>
     </div>
   </div>
-  <div class="col-xs-3 fondoItem margintop25">
+  <div class="col-xs-3 cuadrado margintop25">
     <?php
           $idpart=$ins->id;
           //Llamamos a la funcion usuriovoto que esta definida en el controlador y lo unico que hace es pedit datos a la base de datos y retornalos

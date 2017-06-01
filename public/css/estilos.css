@@ -87,30 +87,6 @@ h1{
 #logo{
   margin-left: 50px;
 }
-.stars{
-	/* Espacio entre los inline-block (los hijos, los `a`)
-	   http://ksesocss.blogspot.com/2012/03/display-inline-block-y-sus-empeno-en.html */
-	font-size: 0;
-	/* Podríamos quitarlo,
-		pero de esta manera (siempre que no le demos padding),
-		sólo aplicará la regla .ec-stars-wrapper:hover a cuando
-		también se esté haciendo hover a alguna estrella */
-	display: inline-block;
-}
-.stars a{
-	text-decoration: none;
-	display: inline-block;
-	/* Volver a dar tamaño al texto */
-	font-size: 32px;
-	font-size: 3rem;
-	color: #888;
-}
-.stars:hover a {
-	color: rgb(39, 130, 228);
-}
-.stars > a:hover ~ a {
-	color: #888;
-}
 .encabezados{
   font-family: cursive;
   font-style: italic;
@@ -118,12 +94,12 @@ h1{
   font-weight: bold;
   font-size: 2em;
 }
-#cuadrado{
+.cuadrado{
   padding-bottom:40px;
   box-shadow: 5px 5px 5px gray;
   border: double 3px grey;
 }
-#cuadrado > h1{
+.cuadrado > h1{
   font-family:cursive;
   font-style:italic;
   text-align: center;

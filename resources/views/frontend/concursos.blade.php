@@ -12,7 +12,7 @@
 					$user=Auth::user()->id;
 					$estaparticipando=InscripcionconcursoController::existeusuario($user,$id);
 	?>
-		<div class="col-xs-12 fondoItem container-fluid margintop25">
+		<div class="col-xs-12 cuadrado container-fluid margintop25">
 			<h1 class="col-xs-12 text-center">{{$concurso->nombre}}</h1>
 			@if($ini<$now && $fin>$now)
 			<p class="textoMarron"><strong class="col-xs-12 text-center">Plazo Inscripción: {{$concurso->fechainicioinscripcion}} al {{$concurso->fechafininscripcion}}</strong>
