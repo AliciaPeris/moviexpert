@@ -40,6 +40,7 @@ class FrontendController extends Controller
 
 
   public function chat(){
-    return view("frontend.chat");
+    $chats=\moviexpert\Adminchat::All();
+    return view("frontend.chat",compact('chats'));
   }
 }
