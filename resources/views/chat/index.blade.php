@@ -1,3 +1,4 @@
+<?php use moviexpert\Http\Controllers\MiembrochatController;?>
 @extends('layouts.frontend')
 	@section('content')
 	@include('chat.menuchat')

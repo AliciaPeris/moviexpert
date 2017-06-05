@@ -21,7 +21,7 @@ class GrupochatController extends Controller
             return view('chat.index',compact('chats'));
     }
 
-
+    
     public function create(){
       /*Retornanmos a la vista create*/
           return view('chat.create');
