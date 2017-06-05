@@ -1,5 +1,3 @@
-
-
 @extends('layouts.frontend')
 	@section('content')
 <div class="col-xs-12 cuadrado container-fluid margintop25">

@@ -10,7 +10,7 @@ return array(
     'CreateAdminconcursosTable' => $baseDir . '/database/migrations/2017_05_11_214727_create_adminconcursos_table.php',
     'CreateAdmingenerosTable' => $baseDir . '/database/migrations/2017_05_11_214702_create_admingeneros_table.php',
     'CreateAdminpeliculasTable' => $baseDir . '/database/migrations/2017_05_11_214703_create_adminpeliculas_table.php',
-    'CreateCriticas' => $baseDir . '/database/migrations/2017_06_05_194501_create_criticas.php',
+    'CreateComentarios' => $baseDir . '/database/migrations/2017_06_05_203348_create_comentarios.php',
     'CreateMensajechatsTable' => $baseDir . '/database/migrations/2017_06_01_192820_create_mensajechats_table.php',
     'CreateMiembrochatsTable' => $baseDir . '/database/migrations/2017_06_01_192819_create_miembrochats_table.php',
     'CreateParticipanconcursosTable' => $baseDir . '/database/migrations/2017_05_29_154650_create_participanconcursos_table.php',
@@ -528,6 +528,7 @@ return array(
     'SebastianBergmann\\RecursionContext\\Exception' => $vendorDir . '/sebastian/recursion-context/src/Exception.php',
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
+    'TableComentarios' => $baseDir . '/database/migrations/2017_06_05_204628_table_comentarios.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
 );

@@ -33,6 +33,10 @@ class FrontendController extends Controller
     $peliculas=\moviexpert\Adminpelicula::find($id);
     return view("frontend.criticas",compact('peliculas'));
   }
+  public function trailer($id){
+    $peliculas=\moviexpert\Adminpelicula::find($id);
+    return view("frontend.trailer",compact('peliculas'));
+  }
   public function concursos(){
     $concursos=\moviexpert\AdminConcurso::All();
     return view("frontend.concursos",compact('concursos'));

@@ -15,7 +15,11 @@ class Adminpelicula extends Model
       $this->attributes['cartelera'] = Carbon::now()->second.$cartelera->getClientOriginalName();
       $name =   Carbon::now()->second.$cartelera->getClientOriginalName();
       \Storage::disk('local')->put($name, \File::get($cartelera)) ;
+      $this->attributes['trailer'] = Carbon::now()->second.$trailer->getClientOriginalName();
+      $name =   Carbon::now()->second.$trailer->getClientOriginalName();
+      \Storage::disk('local')->put($name, \File::get($trailer)) ;
     }
+  
     public function genero()
    {
        return $this->belongsTo('\App\Http\Admingenero');
