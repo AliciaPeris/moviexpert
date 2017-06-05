@@ -114,13 +114,9 @@ h1{
   flex-wrap: wrap;
   justify-content: center;
 }
-.fichaRes{
-  /*display: inline-block;
-  width:250px;
-  padding: 20px 25px;
-  transition: 0.6s;*/
 
-position:relative;
+.fichaRes{
+  position:relative;
 margin:15px 10px;
 box-sizing:border-box;
 display:inline-block;
@@ -129,7 +125,16 @@ border:1px solid #D0D0D0;
 box-shadow:0 0 5px #EEE;
 padding:10px;
 width:200px;
-height:320px;
+
+}
+.fichaRes2{
+  position: relative;
+  width: 400px;
+  display:inline-block;
+  border:3px solid #D0D0D0;
+  box-shadow:0 0 5px #EEE;
+  margin: auto;
+
 }
 .fichaRes:hover{
   background:#FEFEFE;
@@ -140,9 +145,34 @@ height:320px;
   background: #ccc;
   border: solid 1px #999;*/
 }
+.fichaRes2:hover{
+  background:#FEFEFE;
+  transition:.3s;
+  box-shadow:0 0 8px #D0D0D0;
+  transform:scale(1.02);
+  color: rgb(39, 130, 228);
+  text-decoration:none;
+}
 .fichaRes:hover *{
   color: rgb(39, 130, 228);
   text-decoration:none;
+}
+.marginBotton{
+  margin-bottom: 2%;
+}
+.fichaRes2 img{
+  display:block;
+  width: 70%;
+  height:calc(150px / 0.647);
+  margin: auto;
+  box-shadow: 4px 1px 1px 1px grey;
+
+}
+.titulosPeliculas{
+  color: #D64937;
+}
+.colorNegro{
+  color:black;
 }
 .fichaRes img{
   display:block;
