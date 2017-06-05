@@ -27,7 +27,7 @@
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
         {!!Form::text('corto',null,['class'=>'form-control','placeholder'=>'Ruta Corto'])!!}
       </div>
-      {!!Form::submit('Realizar Inscripcion',['class'=>'btn boton'])!!}
+      {!!Form::submit('Realizar Inscripcion',['class'=>'btn boton margintop25'])!!}
       {!!Form::close()!!}
   </div>
 @endsection

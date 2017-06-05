@@ -10,15 +10,23 @@
 	<p class="col-xs-12">{{$chat->descripcion}}</p>
 	<?php
 		$idchat=$chat->id;
+		$id=$chat->id;
 		$idusuario=Auth::user()->id;
 		$numcam=MiembrochatController::contarcamaras($idchat);
 		$numact=MiembrochatController::contaractores($idchat);
 		$numdir=MiembrochatController::contardirectores($idchat);
 		$numgui=MiembrochatController::contarguionistas($idchat);
+		$maxpart=(integer)($chat->numactores)+(integer)($chat->numdirectores)+(integer)($chat->numguionistas)+(integer)($chat->numcamaras);
+		$totalpart=(integer)$numgui+(integer)$numcam+(integer)$numdir+(integer)$numact;
 	?>
-	<h3 class="col-xs-6 col-md-6 text-center"><?php echo $numact; ?> / {{$chat->numactores}} <i class="glyphicon glyphicon-user"></i></h3></h3><h3 class="col-xs-6 col-md-6 text-center"> <?php echo $numgui; ?> / {{$chat->numguionistas}} <i class="glyphicon glyphicon-list-alt"></i></h3>
-	<h3 class="col-xs-6 col-md-6 text-center"><?php echo $numdir; ?> / {{$chat->numdirectores}} <i class="glyphicon glyphicon-film"></i></h3></h3><h3 class="col-xs-6 col-md-6 text-center"> <?php echo $numcam; ?> / {{$chat->numcamaras}} <i class="glyphicon glyphicon-facetime-video"></i></h3>
+	<h3 class="col-xs-6 col-md-6 text-center"><?php echo $numact; ?> / {{$chat->numactores}} <i class="glyphicon glyphicon-user"></i></h3><h3 class="col-xs-6 col-md-6 text-center"> <?php echo $numgui; ?> / {{$chat->numguionistas}} <i class="glyphicon glyphicon-list-alt"></i></h3>
+	<h3 class="col-xs-6 col-md-6 text-center"><?php echo $numdir; ?> / {{$chat->numdirectores}} <i class="glyphicon glyphicon-film"></i></h3><h3 class="col-xs-6 col-md-6 text-center"> <?php echo $numcam; ?> / {{$chat->numcamaras}} <i class="glyphicon glyphicon-facetime-video"></i></h3>
+	@if($totalpart<$maxpart)
+		<a class='btn boton col-xs-3 margin10' href={{url('miembrochat/participanchat/'.$id)}}>Unirse al Chat</a>
+	@else
+		<h3 class="textoMarron text-center margintop25">Chat completo</h3>
+	@endif
 </div>
-	@endforeach
+@endforeach
 
 @endsection

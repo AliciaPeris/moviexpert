@@ -11,7 +11,14 @@ class MiembrochatController extends Controller
 {
     //
     public function create(){
-      return view('miembrochat.create');
+
+    }
+    public function participanchat($id){
+      $chat = \moviexpert\AdminChat::find($id);
+      return view('miembrochat.create',['chat'=>$chat]);
+    }
+    public function store(Request $request){
+
     }
     public static function contarcamaras($idchat){
       $num= DB::table('miembrochats')
