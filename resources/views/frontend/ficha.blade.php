@@ -15,7 +15,7 @@
 					<div class="anioP text-center"> Guión: {{$pelicula->guion}}</div>
 					<div class="anioP text-center"> Reparto: {{$pelicula->reparto}}</div>
 					<div class="anioP text-center"> Sinopsis: {{$pelicula->sinopsis}}</div>
-					<div class="anioP text-center">{{$pelicula->genero}}</div>
+					<div class="anioP text-center"> Género: {{$generos[$pelicula->genero]}}</div>
 				<img id="fotoFicha" src="/imagenes/cartelera/{{$pelicula->cartelera}}" alt="{{$pelicula->titulo}}">
 		</div>
 </div>
