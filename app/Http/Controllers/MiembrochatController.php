@@ -11,7 +11,7 @@ class MiembrochatController extends Controller
 {
     //
     public function create(){
-    
+
     }
     public function participanchat($id){
       $chat = \moviexpert\AdminChat::find($id);
@@ -26,6 +26,15 @@ class MiembrochatController extends Controller
       ]);
       /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
       return redirect('/chat')->with('message','store');
+    }
+    public static function usuarioinscrito($idusuario,$idchat){
+      $num= DB::table('miembrochats')
+      ->where([
+              ['idchat', '=', $idchat],
+              ['idusuario', '=', $idusuario],
+          ])
+      ->count();
+      return $num;
     }
     public static function contarcamaras($idchat){
       $num= DB::table('miembrochats')
