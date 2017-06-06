@@ -1,6 +1,9 @@
 *{
   box-sizing: border-box;
 }
+.novisible{
+  display:none;
+}
 .margin5{
   margin:5px;
 }
