@@ -5,7 +5,7 @@
 	@if($message=='store')
 	<div class="alert alert-success alert-dismissible" role="alert">
 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  <strong>Concurso Registrado</strong>
+	  <strong>Chat Registrado</strong>
 	</div>
 	@endif
   <div class="container-fluid">
@@ -34,7 +34,7 @@
         <td>{{$chats->creadorchat}}</td>
         <td class="fila">
         {!!link_to_route('adminchat.edit', $title = "Editar", $parameters = $chats->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
-        {!!Form::open(['route'=>['adminchat.destroy',$concursos->id],'method'=>'DELETE'])!!}
+        {!!Form::open(['route'=>['adminchat.destroy',$chats->id],'method'=>'DELETE'])!!}
         {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
         {!!Form::close()!!}
       </td>

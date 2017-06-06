@@ -47,6 +47,9 @@
                       <li><a class="textoMenu" href="{{ url('/login') }}">Inicio Sesión</a></li>
                       <li><a class="textoMenu" href="{{ url('/register') }}">Registro</a></li>
                   @else
+                    @if(Auth::user()->tipousuario=='admin')
+                    <li class=""><a class="textoMenu" href="/admin">Backend</a></li>
+                    @endif
                       <li class="dropdown">
                           <a href="#" class="dropdown-toggle btn textoMenu" data-toggle="dropdown" role="button" aria-expanded="false">
                               {{ Auth::user()->email }} <span class="caret"></span>
