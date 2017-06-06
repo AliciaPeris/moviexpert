@@ -27,7 +27,10 @@ class FrontendController extends Controller
   }
   public function ficha($id){
     $pelicula=\moviexpert\Adminpelicula::find($id);
-    return view("frontend.ficha",compact('pelicula'));
+
+    /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
+     $generos=\moviexpert\Admingenero::lists('genero','id');
+     return view('frontend.ficha',compact('pelicula'))->with("generos",$generos);
   }
   public function criticas($id){
     $peliculas=\moviexpert\Adminpelicula::find($id);
