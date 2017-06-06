@@ -17,7 +17,6 @@
 		        <div class="colorNegro marginBotton"> <span class="titulosPeliculas">Título: </span> {{$pelicula->titulo}}</div>
 		        <div class="colorNegro marginBotton"> <span class="titulosPeliculas">Año: </span>{{$pelicula->anio}}</div>
 						<div class="colorNegro marginBotton"><span class="titulosPeliculas">Director: </span> {{$pelicula->director}}</div>
-						<div class="colorNegro marginBotton"><span class="titulosPeliculas">Sinopsis: </span>{{$pelicula->sinopsis}}</div>
 					</a>
 				</div>
 				@endforeach
