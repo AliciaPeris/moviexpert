@@ -4,14 +4,34 @@ namespace moviexpert\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Session;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 
 class MiembrochatController extends Controller
 {
     //
+    public function index(){
+      $id=Auth::user()->id;
+      $chats = DB::table('adminchats')
+            ->join('miembrochats', 'miembrochats.idchat', '=', 'adminchats.id')
+            ->select('miembrochats.id as participacion','adminchats.*' )
+            ->where('miembrochats.idusuario',$id)
+            ->get();
+            return view('miembrochat.index',compact('chats'));
+    }
+    public function show($id){
+
+    }
+
     public function create(){
 
+    }
+    public function destroy($id){
+      \moviexpert\miembrochat::destroy($id);
+      Session::flash('message','Te has salido del grupo de chat');
+       return redirect('/miembrochat')->with('message','store');
     }
     public function participanchat($id){
       $chat = \moviexpert\AdminChat::find($id);
@@ -25,7 +45,7 @@ class MiembrochatController extends Controller
        'tipomiembro'=> $request['tipomiembro'],
       ]);
       /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
-      return redirect('/chat')->with('message','store');
+      return redirect('/miembrochat')->with('message','store');
     }
     public static function usuarioinscrito($idusuario,$idchat){
       $num= DB::table('miembrochats')

@@ -3,6 +3,7 @@
 	@section('content')
 	@include('chat.menuchat')
 </div>
+<h3 class="textoMarron text-center margintopbottom25">Grupos de chat a los que perteneces </h3>
   @foreach($chats as $chat)
 <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-1 cuadrado">
 	<h1 class="col-xs-12 text-center">{{$chat->nombre}}</h1>
@@ -12,25 +13,19 @@
 		$idchat=$chat->id;
 		$id=$chat->id;
 		$idusuario=Auth::user()->id;
-		$existeusuario=MiembrochatController::usuarioinscrito($idusuario,$idchat);
 		$numcam=MiembrochatController::contarcamaras($idchat);
 		$numact=MiembrochatController::contaractores($idchat);
 		$numdir=MiembrochatController::contardirectores($idchat);
 		$numgui=MiembrochatController::contarguionistas($idchat);
-		$maxpart=(integer)($chat->numactores)+(integer)($chat->numdirectores)+(integer)($chat->numguionistas)+(integer)($chat->numcamaras);
-		$totalpart=(integer)$numgui+(integer)$numcam+(integer)$numdir+(integer)$numact;
+    $idmiembro=$chat->participacion;
 	?>
 	<h3 class="col-xs-6 col-md-6 text-center"><?php echo $numact; ?> / {{$chat->numactores}} <i class="glyphicon glyphicon-user"></i></h3><h3 class="col-xs-6 col-md-6 text-center"> <?php echo $numgui; ?> / {{$chat->numguionistas}} <i class="glyphicon glyphicon-list-alt"></i></h3>
 	<h3 class="col-xs-6 col-md-6 text-center"><?php echo $numdir; ?> / {{$chat->numdirectores}} <i class="glyphicon glyphicon-film"></i></h3><h3 class="col-xs-6 col-md-6 text-center"> <?php echo $numcam; ?> / {{$chat->numcamaras}} <i class="glyphicon glyphicon-facetime-video"></i></h3>
-	@if($totalpart<$maxpart)
-		@if($existeusuario==0)
-		<a class='btn boton col-xs-4 margin10' href={{url('miembrochat/participanchat/'.$id)}}>Unirse al Chat</a>
-		@else
-		<h3 class="textoMarron text-center margintop25">Ya estas inscrito</h3>
-		@endif
-	@else
-		<h3 class="textoMarron text-center margintop25">Chat completo</h3>
-	@endif
+{!!link_to_route('miembrochat.show', $title = "Chatear", $parameters = $idmiembro, $attributes = ['class'=>'btn boton2 margin5 col-sm-4'])!!}
+  {!!Form::open(['route'=>['miembrochat.destroy',$idmiembro],'method'=>'DELETE'])!!}
+  {!!Form::submit('Salir del Grupo',['class'=>'btn btn-danger margin5 col-sm-4'])!!}
+  {!!Form::close()!!}
+
 </div>
 @endforeach
 

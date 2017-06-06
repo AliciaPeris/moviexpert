@@ -21,7 +21,7 @@ class GrupochatController extends Controller
             return view('chat.index',compact('chats'));
     }
 
-    
+
     public function create(){
       /*Retornanmos a la vista create*/
           return view('chat.create');
@@ -43,7 +43,7 @@ class GrupochatController extends Controller
      return redirect('/chat')->with('message','store');
     }
 
-
+    
     public function destroy($id){
       \moviexpert\Adminchat::destroy($id);
       Session::flash('message','Chat Eliminado Correctamente');
