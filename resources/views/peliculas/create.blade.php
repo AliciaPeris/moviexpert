@@ -1,6 +1,6 @@
 @extends('layouts.admin')
         @section('content')
-  {!!Form::open(['route'=>'adminpelicula.store','method'=>'POST',       'files' => true])!!}
+  {!!Form::open(['route'=>'adminpelicula.store','method'=>'POST','files' => true])!!}
   <h1 class="textoMarron text-center">Formulario de registro de pelicula</h1>
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
       <div class="input-group input-group-lg margin10">

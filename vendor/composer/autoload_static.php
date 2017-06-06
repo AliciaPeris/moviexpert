@@ -273,7 +273,7 @@ class ComposerStaticInit3419ca7b116929e939d207e130abbb17
         'CreateAdminconcursosTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_11_214727_create_adminconcursos_table.php',
         'CreateAdmingenerosTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_11_214702_create_admingeneros_table.php',
         'CreateAdminpeliculasTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_11_214703_create_adminpeliculas_table.php',
-        'CreateCriticas' => __DIR__ . '/../..' . '/database/migrations/2017_06_05_194501_create_criticas.php',
+        'CreateComentarios' => __DIR__ . '/../..' . '/database/migrations/2017_06_05_203348_create_comentarios.php',
         'CreateMensajechatsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_01_192820_create_mensajechats_table.php',
         'CreateMiembrochatsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_01_192819_create_miembrochats_table.php',
         'CreateParticipanconcursosTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_29_154650_create_participanconcursos_table.php',
@@ -791,6 +791,7 @@ class ComposerStaticInit3419ca7b116929e939d207e130abbb17
         'SebastianBergmann\\RecursionContext\\Exception' => __DIR__ . '/..' . '/sebastian/recursion-context/src/Exception.php',
         'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => __DIR__ . '/..' . '/sebastian/recursion-context/src/InvalidArgumentException.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'TableComentarios' => __DIR__ . '/../..' . '/database/migrations/2017_06_05_204628_table_comentarios.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
     );

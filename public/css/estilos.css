@@ -47,6 +47,12 @@ margin-top:10px;
 .textoMarron{
   color: #330000;
 }
+#trailer{
+  background-color: grey;
+}
+.imagenTrailer{
+
+}
 h1{
   color:#330000;
 }
@@ -171,6 +177,21 @@ width:200px;
   box-shadow: 4px 1px 1px 1px grey;
 
 }
+.fotoTrailer{
+  display: block;
+  width: 70%;
+  height: 300px;
+  box-shadow: 4px 1px 1px 1px #330000sy;
+  border-radius: 20px;
+  border:5px solid #330000;
+  margin-top: 4%;
+
+
+}
+.marginLeft{
+  margin-right: 34%;
+    margin-top: 4%;
+}
 .titulosPeliculas{
   color: #D64937;
 }
@@ -188,6 +209,12 @@ width:200px;
   font-size:120%;
   font-weight: bolder;
   color:#003399;
+}
+#trailer{
+  width: 100%;
+  border:3px solid;
+  height: 250px;
+
 }
 .clear-both{
   clear:both;
