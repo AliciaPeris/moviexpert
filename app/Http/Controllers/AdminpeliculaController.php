@@ -42,7 +42,7 @@ class AdminpeliculaController extends Controller
         'guion'=> $request['guion'],
         'reparto'=> $request['reparto'],
         'sinopsis'=> $request['sinopsis'],
-        'trailer'=> $request['trailer'],
+        'trailer'=>(strpos($request["trailer"],"v=")) ? substr($request["trailer"],strpos($request["trailer"],"v=")+2) : $request["trailer"],
         'cartelera'=> $request['imagen'],
         'genero'=> $request['genero'],
 
@@ -63,8 +63,10 @@ class AdminpeliculaController extends Controller
       $generos=\moviexpert\Admingenero::lists('genero','id');
       return view('peliculas.edit',compact("generos"))->with('pelicula', $peliculas);
     }
+
     public function update(Request $request, $id){
       $peliculas= Adminpelicula::find($id);
+      $request["trailer"]=(strpos($request["trailer"],"v=")) ? substr($request["trailer"],strpos($request["trailer"],"v=")+2) : $request["trailer"] ;
       $peliculas->fill($request->all());
       $peliculas->save();
       Session::flash('message','Película Actualizada Correctamente');

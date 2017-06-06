@@ -16,7 +16,8 @@
       <div class="col-xs-6 col-offset-4">
   	        <div class="marginBotton  marginLeft"><span class="titulosPeliculas">Título: </span>  {{$pelicula->titulo}}</div>
   	        <div class="marginBotton marginLeft"><span class="titulosPeliculas"> Año: </span> {{$pelicula->anio}}</div>
-  				<iframe id="trailer" src="https://www.youtube.com/embed/aDI21FZaecM" frameborder="0" allowfullscreen></iframe>
+
+  				<iframe id="trailer" src="https://www.youtube.com/embed/{{$pelicula->trailer}}" frameborder="0" allowfullscreen></iframe>
 
       </div>
   		</div>
