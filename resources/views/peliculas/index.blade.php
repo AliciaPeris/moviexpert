@@ -25,7 +25,7 @@
 				<th class="text-center textoBlanco">Género</th>
         <th class="text-center textoBlanco">Acciones</th>
       </thead>
-			  @foreach($peliculas as $peliculas)
+			@foreach($peliculas as $peliculas)
       <tbody>
         <td>{{$peliculas->id}}</td>
         <td>{{$peliculas->titulo}}</td>
@@ -37,7 +37,7 @@
         <td class="hidden-xs">{{$peliculas->sinopsis}}</td>
         <td class="hidden-xs hidden-sm">{{$peliculas->trailer}}</td>
         <td>{{$peliculas->cartelera}}</td>
-				<td>{{$peliculas->genero}}</td>
+				<td>{{$generos[$peliculas->genero]}}</td>
         <td class="fila">
 					{!!link_to_route('adminpelicula.edit', $title = "Editar", $parameters = $peliculas->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
 	        {!!Form::open(['route'=>['adminpelicula.destroy',$peliculas->id],'method'=>'DELETE'])!!}
