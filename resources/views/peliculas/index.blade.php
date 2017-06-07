@@ -1,3 +1,4 @@
+
 @extends('layouts.admin')
 	@section('content')
 
@@ -8,7 +9,7 @@
 	  <strong>Película Registrada</strong>
 	</div>
 	@endif
-<div class="container-fluid">
+<div class="container-fluid blanco">
 <h1 class="text-center">Listado Peliculas</h1><br>
 	<table class="table table-hover text-center table-bordered">
 		<thead class="fondoMenu">
@@ -45,8 +46,10 @@
 	        {!!Form::close()!!}
 	      </td>
 	    </tbody>
+
 	    @endforeach
 	    <tfoot>
+
 	      <tr>
 	        <td colspan="12">
 	          {!!link_to_route('adminpelicula.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
@@ -54,4 +57,5 @@
 	    </tfoot>
 	    </table>
 	    </div>
+			 
 	    @endsection

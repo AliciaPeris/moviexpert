@@ -1,6 +1,16 @@
 *{
   box-sizing: border-box;
 }
+body{
+  background-image:url("/imagenes/cine.jpg");
+  background-size: 100vw 100vh;
+  background-attachment: fixed;
+  margin:0;
+
+  }
+.blanco{
+    background-color: white;
+  }
 .novisible{
   display:none;
 }
@@ -49,6 +59,12 @@ margin-top:10px;
 }
 #trailer{
   background-color: grey;
+}
+.marginTopPeliculas{
+  margin-top: 4%;
+}
+.marginTopImagenes{
+
 }
 .imagenTrailer{
 
@@ -106,16 +122,24 @@ h1{
   font-weight: bold;
   font-size: 2em;
 }
+
 .cuadrado{
   padding-bottom:40px;
-  box-shadow: 5px 5px 5px gray;
-  border: double 3px grey;
+  box-shadow: 5px 5px 5px black;
+  border: 4px  black;
+  background-color: rgba(255,255,255,0.8);
+
 }
 .cuadrado > h1{
   font-family:cursive;
   font-style:italic;
   text-align: center;
+  color:
 }
+.negrita{
+  font-weight: bold;
+}
+
 .contendor{
   margin:0px;
   padding:0px;
@@ -137,14 +161,20 @@ width:200px;
 
 }
 .fichaRes2{
-  position: relative;
-  width: 400px;
-  display:inline-block;
-  border:3px solid #D0D0D0;
-  box-shadow:0 0 5px #EEE;
-  margin: auto;
-
+/*border:3px solid #D0D0D0;*/
+box-shadow:0 0 5px #EEE;
+float:left;
+height: 200px;
+width: 400px;
+margin:10px;
+padding: 10px;
 }
+
+li:hover{
+
+  background-color:#D64937;
+}
+
 .fichaRes:hover{
   background:#FEFEFE;
   transition:.3s;
@@ -158,8 +188,8 @@ width:200px;
   background:#FEFEFE;
   transition:.3s;
   box-shadow:0 0 8px #D0D0D0;
-  transform:scale(1.02);
-  color: rgb(39, 130, 228);
+  transform:scale(1.07);
+  color: rgb(46, 135, 228);
   text-decoration:none;
 }
 .fichaRes:hover *{
@@ -175,10 +205,8 @@ width:200px;
 }
 .fichaRes2 img{
   display:block;
-  width: 70%;
-  height:calc(150px / 0.647);
-  margin: auto;
-  box-shadow: 4px 1px 1px 1px grey;
+  padding: 0px;
+  box-shadow: 2px 2px 2px black;
 
 }
 .fotoTrailer{
@@ -192,6 +220,7 @@ width:200px;
 
 
 }
+
 .marginLeft{
   margin-right: 34%;
     margin-top: 4%;
@@ -201,6 +230,11 @@ width:200px;
 }
 .colorNegro{
   color:black;
+}
+.fotoPelicula {
+  display:block;
+  float:left;
+  width: 33.333333%;
 }
 .fichaRes img{
   display:block;
@@ -254,5 +288,18 @@ width:200px;
   }
   .heigth100{
     height: 75px;
+  }
+  .fotoPelicula{
+    float:none;
+    margin: auto;
+    clear:both;
+    width: 50%;
+  }
+  .fichaRes2{
+    width: 100%;
+    height: auto;
+  }
+  .marginBottonFicha{
+    margin:15px 5px;
   }
 }

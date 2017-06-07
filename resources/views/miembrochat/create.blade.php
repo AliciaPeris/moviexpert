@@ -4,7 +4,7 @@
 	@include('chat.menuchat')
 <h3>El usuario que creo el grupo no tiene porque participar en el chat, pero si puede ver todo el contenido de este, incluso borrar el grupo si le deja de interesar,tambien puede expulsar a un usuario del grupo.</h3>
 {!!Form::open(['route'=>'miembrochat.store','method'=>'POST'])!!}
-<div class="container">
+<div class="container blanco">
 	<?php
 	$idchat=$chat->id;
 	$numcam=$chat->numcamaras;

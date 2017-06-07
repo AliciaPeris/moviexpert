@@ -1,11 +1,28 @@
+<?php
+
+				$user=Auth::user()->id;
+				
+?>
+@extends('layouts.frontend')
+	@section('content')
+	<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+  @foreach($concursos as $concurso)
+	<?php
+					$ini=$concurso->fechainicioinscripcion;
+					$fin=$concurso->fechafininscripcion;
+					$finconcurso=$concurso->fechafinconcurso;
+					$now=new \Carbon\Carbon();
+					$id=$concurso->id;
+					$user=Auth::user()->id;
+					$estaparticipando=InscripcionconcursoController::existeusuario($user,$id);
+	?>
+
 @extends('layouts.admin')
 	@section('content')
   {!!Form::open(['route'=>'adminusuarios.store','method'=>'POST'])!!}
-
-
+  <h1 class="textoMarron text-center">Mi perfil</h1>
 	@include('alerts.errorformulario')
-  <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 blanco">
-		<h1 class="textoMarron text-center blanco">Formulario de registro de usuario</h1>
+  <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
         {!!Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingrese el email'])!!}
@@ -49,5 +66,4 @@
       {!!Form::submit('Registrar',['class'=>'btn boton'])!!}
       {!!Form::close()!!}
   </div>
-
 @endsection
