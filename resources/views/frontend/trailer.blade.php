@@ -6,7 +6,7 @@
   <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 cuadrado">
   		<ul class="nav nav-tabs">
         <li class=""><a class="textoFicha" href="{{ url('/ficha/') }}/{{$pelicula->id}}">Ficha</a></li>
-        <li class=""><a class="textoFicha" href="{{ url('/trailer/') }}/{{$pelicula->id}}">Trailer</a></li>
+        <li class="active"><a class="textoFicha" href="{{ url('/trailer/') }}/{{$pelicula->id}}">Trailer</a></li>
         <li class=""><a class="textoFicha" href="{{ url('/criticas/') }}/{{$pelicula->id}}">Críticas</a></li>
       </ul>
       <div id="fichaPeli col-xs-12 col-md-6">

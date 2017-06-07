@@ -7,7 +7,7 @@
   		<ul class="nav nav-tabs">
         <li class=""><a class="textoFicha" href="{{ url('/ficha/') }}/{{$peliculas->id}}">Ficha</a></li>
         <li class=""><a class="textoFicha" href="/peliculas">Trailer</a></li>
-        <li class=""><a class="textoFicha" href="{{ url('/criticas/') }}/{{$peliculas->id}}">Críticas</a></li>
+        <li class="active"><a class="textoFicha" href="{{ url('/criticas/') }}/{{$peliculas->id}}">Críticas</a></li>
       </ul>
       <a class='btn boton col-xs-12 col-md-3 margin10' href="{{url('criticas/')}}">Añadir Crítica</a>
 </div>
