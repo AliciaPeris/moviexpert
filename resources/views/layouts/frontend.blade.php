@@ -54,9 +54,11 @@
                           <a href="#" class="dropdown-toggle btn textoMenu" data-toggle="dropdown" role="button" aria-expanded="false">
                               {{ Auth::user()->email }} <span class="caret"></span>
                           </a>
-
+                            <?php $user=Auth::user()->id;?>
                           <ul class="dropdown-menu" role="menu">
                               <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar Sesión</a></li>
+                              <li>{!!link_to_route('perfilusuario.edit', $title = "Perfil Usuario", $parameters = $user, $attributes = ['class'=>'margin5'])!!}
+                              </li>
                           </ul>
                       </li>
                   @endif
