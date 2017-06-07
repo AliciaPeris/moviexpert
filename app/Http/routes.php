@@ -33,6 +33,8 @@ Route::get('inscripcionconcurso/create/{id}', "InscripcionconcursoController@cre
 Route::resource('votarcorto',"VotarCortoController");
 Route::resource('grupochat',"GrupochatController");
 Route::resource('miembrochat',"MiembrochatController");
+Route::resource('mensajechat',"MensajechatController");
+Route::resource('perfilusuario',"PerfilusuarioController");
 Route::get('miembrochat/participanchat/{id}', "MiembrochatController@participanchat");
 Route::get('concursos/participanconcurso/{id}','FrontendController@participanconcurso');
 Route::post('concursos/participanconcurso/{id}/altaparticipacion','FrontendController@altaparticipacion');

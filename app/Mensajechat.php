@@ -8,7 +8,7 @@ class Mensajechat extends Model
 {
     //
     protected $fillable = [
-        'idparticipante',
+        'idmiembro',
         'mensaje',
     ];
 }

@@ -22,9 +22,19 @@ class MiembrochatController extends Controller
             return view('miembrochat.index',compact('chats'));
     }
     public function show($id){
+      $chat = DB::select('select * from mensajechats where idmiembro IN (select id from miembrochats where idchat=(select idchat from miembrochats where id=:id)) ORDER BY id ASC
+', ['id' => $id]);
+      $nombre =DB::select('select * from adminchats where id=(select idchat from miembrochats where id=:id)', ['id' => $id]);
+      return view('miembrochat.show',['chat'=>$chat,'nombre'=>$nombre,'miembro'=>$id]);
+    }
+    public static function nombreuser($id){
+        $nombre = DB::select('select nombre from users where id=(select idusuario from miembrochats where id=:id)', ['id' => $id]);
+        return $nombre;
+    }
+    public static function nombrechat($id){
+        return $nombre;
 
     }
-
     public function create(){
 
     }

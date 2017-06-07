@@ -20,7 +20,7 @@
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="navbar-header container col-xs-12 fondoCabecera heigth100">
               <div class="col-xs-7 col-xs-offset-2 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
-                <a class="navbar-brand" href="/admin"><img class="width100" src="/imagenes/logo.png"></img></a>
+                <a class="navbar-brand" href="/"><img class="width100" src="/imagenes/logo.png"></img></a>
               </div>
               <div class="margintop25 hidden-xs col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
                 <form class="navbar-form">
@@ -54,9 +54,11 @@
                           <a href="#" class="dropdown-toggle btn textoMenu" data-toggle="dropdown" role="button" aria-expanded="false">
                               {{ Auth::user()->email }} <span class="caret"></span>
                           </a>
-
+                            <?php $user=Auth::user()->id;?>
                           <ul class="dropdown-menu" role="menu">
                               <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar Sesión</a></li>
+                              <li>{!!link_to_route('perfilusuario.edit', $title = "Perfil Usuario", $parameters = $user, $attributes = ['class'=>'margin5'])!!}
+                              </li>
                           </ul>
                       </li>
                   @endif
