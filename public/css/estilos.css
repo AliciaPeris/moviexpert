@@ -169,6 +169,10 @@ width:200px;
 .marginBotton{
   margin-bottom: 2%;
 }
+.marginBottonFicha{
+  margin-top: 2%;
+  margin-left: 35%;
+}
 .fichaRes2 img{
   display:block;
   width: 70%;
@@ -204,6 +208,18 @@ width:200px;
   height:calc(160px / 0.647);
   margin:auto;
   border:solid 1px #D0D0D0;
+}
+#fotoFicha img{
+  display:block;
+  width:160px;
+  height:calc(160px / 0.647);
+  margin:auto;
+  border:solid 1px #D0D0D0;
+  box-shadow: 2px 2px 2px 2px grey;
+}
+#fotoFicha{
+  border:2px solid black;
+  padding: 0px;
 }
 .ficharRes > .tituloP{
   font-size:120%;
