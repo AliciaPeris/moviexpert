@@ -20,7 +20,7 @@
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="navbar-header container col-xs-12 fondoCabecera heigth100">
               <div class="col-xs-7 col-xs-offset-2 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
-                <a class="navbar-brand" href="/admin"><img class="width100" src="/imagenes/logo.png"></img></a>
+                <a class="navbar-brand" href="/"><img class="width100" src="/imagenes/logo.png"></img></a>
               </div>
               <div class="margintop25 hidden-xs col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
                 <form class="navbar-form">
