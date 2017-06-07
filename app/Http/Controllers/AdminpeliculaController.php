@@ -46,8 +46,6 @@ class AdminpeliculaController extends Controller
         'trailer'=>(strpos($request["trailer"],"v=")) ? substr($request["trailer"],strpos($request["trailer"],"v=")+2) : $request["trailer"],
         'cartelera'=> $request['imagen'],
         'genero'=> $request['genero'],
-
-
       ]);
       $request->file('imagen')->store('imagenes','public');
       dd($request->file('imagen'));

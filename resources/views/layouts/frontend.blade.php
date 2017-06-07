@@ -56,9 +56,8 @@
                           </a>
                             <?php $user=Auth::user()->id;?>
                           <ul class="dropdown-menu" role="menu">
+                              <li><a href="{{ url('/perfilusuario') }}"><i class="fa fa-btn fa-sign-out"></i>Editar Perfil</a></li>
                               <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar Sesión</a></li>
-                              <li>{!!link_to_route('perfilusuario.edit', $title = "Perfil Usuario", $parameters = $user, $attributes = ['class'=>'margin5'])!!}
-                              </li>
                           </ul>
                       </li>
                   @endif

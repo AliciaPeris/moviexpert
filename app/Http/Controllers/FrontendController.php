@@ -7,6 +7,7 @@ use DB;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 
+
 class FrontendController extends Controller
 {
   public function __construct()
@@ -55,4 +56,6 @@ class FrontendController extends Controller
     $chats=\moviexpert\Adminchat::All();
     return view("frontend.chat",compact('chats'));
   }
+  
+
 }

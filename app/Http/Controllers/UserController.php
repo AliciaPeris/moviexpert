@@ -49,6 +49,7 @@ class UserController extends Controller
     public function edit($id){
         $users = User::find($id);
         return view('user.edit',['user'=>$users]);
+
     }
     public function update(UserUpdateRequest $request,$id){
         $user = User::find($id);
@@ -63,4 +64,5 @@ class UserController extends Controller
         Session::flash('message','Usuario Eliminado Correctamente');
         return redirect::to('/adminusuarios');
     }
+
 }
