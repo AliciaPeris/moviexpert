@@ -9,5 +9,14 @@ use moviexpert\Http\Controllers\Controller;
 
 class MensajechatController extends Controller
 {
-    //
+    public function store(Request $request){
+        $id=$request['idmiembro'];
+        \moviexpert\Mensajechat::create([
+         /*Nombre campo base datos => nombre del campo del formulario*/
+         'idmiembro'=> $request['idmiembro'],
+         'mensaje'=>$request['mensaje'],
+    ]);
+    /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
+      return redirect('/miembrochat/'.$id)->with('message','store');
+    }
 }
