@@ -24,6 +24,7 @@ class FrontendController extends Controller
   public function peliculas(){
     $peliculas=\moviexpert\Adminpelicula::All();
     return view("frontend.peliculas",compact('peliculas'));
+
   }
   public function ficha($id){
     $pelicula=\moviexpert\Adminpelicula::find($id);
@@ -41,6 +42,7 @@ class FrontendController extends Controller
     return view('frontend.trailer',compact('pelicula'));
 
   }
+
   public function concursos(){
     $concursos=\moviexpert\AdminConcurso::All();
     return view("frontend.concursos",compact('concursos'));

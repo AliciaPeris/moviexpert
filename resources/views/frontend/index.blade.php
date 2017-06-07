@@ -6,7 +6,7 @@ $estreno=FrontendController::estrenos();
 
 <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 cuadrado">
 	<div class="col-xs-12 col-md-9">
-		<div class="encabezados">LISTADO DE PELÍCULAS</div>
+		<div class="encabezados">Próximos estrenos</div>
 		<div class="contenedor">
 			@foreach($peliculas as $pelicula)
 				<a class="fichaRes" href="{{ url('/ficha/') }}/{{$pelicula->id}}">
@@ -18,7 +18,7 @@ $estreno=FrontendController::estrenos();
 		</div>
 	</div>
 	<div class="col-md-3 col-xs-12">
-		<div class="encabezados" id="fondoGris">ESTRENOS</div>
+		<div class="encabezados" id="fondoGris">ESTRENOS RECIENTES</div>
 		@foreach($estreno as $estreno)
 		<img class="trailer" src="/imagenes/cartelera/{{$estreno->cartelera}}" alt="{{$estreno->titulo}}">
 			@endforeach

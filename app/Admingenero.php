@@ -2,6 +2,7 @@
 
 namespace moviexpert;
 use Eloquent as Model;
+use Illuminate\Pagination\Paginator;
 
 
 class Admingenero extends Model

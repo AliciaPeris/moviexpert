@@ -1,7 +1,12 @@
+<style>
+
+</style>
+
 @extends('layouts.frontend')
 	@section('content')
-<div class="col-xs-12 cuadrado container-fluid margintop25">
-  <h1 class="col-xs-12 text-center">Trailer</h1>
+<div class="col-xs-12  container-fluid margintop25">
+
+
 
   <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 cuadrado">
   		<ul class="nav nav-tabs">
@@ -11,11 +16,11 @@
       </ul>
       <div id="fichaPeli col-xs-12 col-md-6">
         <div class="col-xs-12 col-md-6">
-        <img class="fotoTrailer col-xs-6" src="/imagenes/cartelera/{{$pelicula->cartelera}}" alt="{{$pelicula->titulo}}">
+        <img class="fotoTrailer" src="/imagenes/cartelera/{{$pelicula->cartelera}}" alt="{{$pelicula->titulo}}">
       </div>
       <div class="col-xs-12 col-md-6 col-offset-4">
-  	        <div class="marginBotton  marginLeft"><span class="titulosPeliculas">Título: </span>  {{$pelicula->titulo}}</div>
-  	        <div class="marginBotton marginLeft"><span class="titulosPeliculas"> Año: </span> {{$pelicula->anio}}</div>
+  	        <div class="marginBotton  negrita marginLeft"><span class="titulosPeliculas negrita">Título: </span>  {{$pelicula->titulo}}</div>
+  	        <div class="marginBotton negrita  marginLeft"><span class="titulosPeliculas negrita"> Año: </span> {{$pelicula->anio}}</div>
 
   				<iframe id="trailer" src="https://www.youtube.com/embed/{{$pelicula->trailer}}" frameborder="0" allowfullscreen></iframe>
 

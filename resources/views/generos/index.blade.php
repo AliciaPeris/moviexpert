@@ -8,7 +8,7 @@
 	  <strong>Género Registrado</strong>
 	</div>
 	@endif
-  <div class="container-fluid">
+  <div class="container-fluid blanco">
   <h1 class="text-center">Géneros</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
@@ -36,4 +36,5 @@
 		    </tfoot>
         </table>
         </div>
+			
         @endsection

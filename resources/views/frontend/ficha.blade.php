@@ -10,14 +10,14 @@
 		<div id="fichaPeli col-xs-12">
 				<img id="fotoFicha" class="col-xs-4 col-md-4" src="/imagenes/cartelera/{{$pelicula->cartelera}}" alt="{{$pelicula->titulo}}">
 
-	        <div class="marginBottonFicha"><span class="titulosPeliculas">Título: </span>{{$pelicula->titulo}}</div>
-	        <div class="marginBottonFicha"><span class="titulosPeliculas"> Año: </span>{{$pelicula->anio}}</div>
-					<div class="marginBottonFicha"> <span class="titulosPeliculas">País: </span> {{$pelicula->pais}}</div>
-					<div class="marginBottonFicha"><span class="titulosPeliculas">Director:</span> {{$pelicula->director}}</div>
-					<div class="marginBottonFicha"><span class="titulosPeliculas">Guión:</span> {{$pelicula->guion}}</div>
-					<div class="marginBottonFicha"><span class="titulosPeliculas">Reparto: </span>{{$pelicula->reparto}}</div>
-					<div class="marginBottonFicha"><span class="titulosPeliculas">Género: </span>{{$generos[$pelicula->genero]}}</div>
-					<div class="marginBottonFicha"><span class="titulosPeliculas">Sinopsis: </span>{{$pelicula->sinopsis}}</div>
+	        <div class="marginBottonFicha negrita"><span class="titulosPeliculas negrita">Título: </span>{{$pelicula->titulo}}</div>
+	        <div class="marginBottonFicha negrita"><span class="titulosPeliculas negrita"> Año: </span>{{$pelicula->anio}}</div>
+					<div class="marginBottonFicha negrita"> <span class="titulosPeliculas negrita">País: </span> {{$pelicula->pais}}</div>
+					<div class="marginBottonFicha negrita"><span class="titulosPeliculas negrita">Director:</span> {{$pelicula->director}}</div>
+					<div class="marginBottonFicha negrita"><span class="titulosPeliculas negrita">Guión:</span> {{$pelicula->guion}}</div>
+					<div class="marginBottonFicha negrita"><span class="titulosPeliculas negrita">Reparto: </span>{{$pelicula->reparto}}</div>
+					<div class="marginBottonFicha negrita"><span class="titulosPeliculas negrita">Género: </span>{{$generos[$pelicula->genero]}}</div>
+					<div class="marginBottonFicha negrita"><span class="titulosPeliculas negrita">Sinopsis: </span>{{$pelicula->sinopsis}}</div>
 
 		</div>
 </div>

@@ -9,6 +9,8 @@ use Session;
 use Redirect;
 use Illuminate\Routing\Route;
 use moviexpert\Admingenero;
+use Illuminate\Pagination\Paginator;
+
 
 
 class AdmingeneroController extends Controller
@@ -17,9 +19,11 @@ class AdmingeneroController extends Controller
     public function index(){
       /*Creamos una variable para almacenar todos los datos de la base de datos*/
 
-         $generos=\moviexpert\Admingenero::All();
+         $generos=\moviexpert\Admingenero::paginate(3);
+
          /*Retornamos a la vista user carpeta index vista y le pasamos la variab                                                                                                                                  le con los datos*/
           return view('generos.index',compact('generos'));
+
 
     }
     public function create(){

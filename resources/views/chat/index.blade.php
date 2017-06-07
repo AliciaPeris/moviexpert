@@ -3,9 +3,10 @@
 	@section('content')
 	@include('chat.menuchat')
 </div>
-<h3 class="textoMarron text-center margintopbottom25">Grupos de chat que has creado</h3>
+
   @foreach($chats as $chat)
 <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-1 cuadrado margintop25">
+	<h3 class="textoMarron text-center margintopbottom25 negrita">Grupos de chat que has creado</h3>
 	<h1 class="col-xs-12 text-center">{{$chat->nombre}}</h1>
 	<p class="col-xs-12 text-center">Administrador del Grupo: {{$chat->creadorchat}}</p>
 	<p class="col-xs-12">{{$chat->descripcion}}</p>

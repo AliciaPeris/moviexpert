@@ -24,6 +24,7 @@ class AdminpeliculaController extends Controller
          $generos=\moviexpert\Admingenero::lists('genero','id');
          return view('peliculas.index',compact('peliculas'))->with("generos",$generos);
 
+
        }
 
     public function create(){

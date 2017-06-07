@@ -8,7 +8,7 @@
 	  <strong>Concurso Registrado</strong>
 	</div>
 	@endif
-  <div class="container-fluid">
+  <div class="container-fluid blanco">
   <h1 class="text-center">Concursos</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
