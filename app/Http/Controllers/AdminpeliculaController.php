@@ -34,14 +34,14 @@ class AdminpeliculaController extends Controller
     }
     public function store(Request $request){
       $nombre="defecto.jpg";
- -      if($request->file('imagen')!=null){
- -      //obtenemos el campo file definido en el formulario
- -         $file = $request->file('imagen');
- -         //obtenemos el nombre del archivo
- -         $nombre = $file->getClientOriginalName();
- -         //indicamos que queremos guardar un nuevo archivo en el disco local
- -         \Storage::disk('local')->put($nombre,  \File::get($file));
- -       }
+      if($request->file('imagen')!=null){
+      //obtenemos el campo file definido en el formulario
+         $file = $request->file('imagen');
+         //obtenemos el nombre del archivo
+         $nombre = $file->getClientOriginalName();
+         //indicamos que queremos guardar un nuevo archivo en el disco local
+         \Storage::disk('local')->put($nombre,  \File::get($file));
+    }
       \moviexpert\Adminpelicula::create([
         /*Nombre campo base datos => nombre del campo del formulario*/
         'titulo'=> $request['titulo'],
