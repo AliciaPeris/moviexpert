@@ -33,15 +33,6 @@ class AdminpeliculaController extends Controller
 
     }
     public function store(Request $request){
-      $nombre="defecto.jpg";
-      if($request->file('imagen')!=null){
-      //obtenemos el campo file definido en el formulario
-         $file = $request->file('imagen');
-         //obtenemos el nombre del archivo
-         $nombre = $file->getClientOriginalName();
-         //indicamos que queremos guardar un nuevo archivo en el disco local
-         \Storage::disk('local')->put($nombre,  \File::get($file));
-       }
       \moviexpert\Adminpelicula::create([
         /*Nombre campo base datos => nombre del campo del formulario*/
         'titulo'=> $request['titulo'],
@@ -52,7 +43,7 @@ class AdminpeliculaController extends Controller
         'reparto'=> $request['reparto'],
         'sinopsis'=> $request['sinopsis'],
         'trailer'=>(strpos($request["trailer"],"v=")) ? substr($request["trailer"],strpos($request["trailer"],"v=")+2) : $request["trailer"],
-        'cartelera'=> $nombre,
+        'cartelera'=> $request['imagen'],
         'genero'=> $request['genero'],
       ]);
       /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
@@ -80,6 +71,7 @@ class AdminpeliculaController extends Controller
 
     }
     public function destroy($id){
+
           \moviexpert\Adminpelicula::destroy($id);
           Session::flash('message','Película eliminada correctamente');
           return redirect::to('/adminpelicula');

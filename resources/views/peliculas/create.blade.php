@@ -1,7 +1,6 @@
 @extends('layouts.admin')
         @section('content')
   {!!Form::open(['route'=>'adminpelicula.store','method'=>'POST','files' => true])!!}
-  {!! csrf_field() !!}
   <div class="container-fluid blanco">
   <h1 class="textoMarron text-center">Formulario de registro de pelicula</h1>
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
@@ -39,8 +38,8 @@
       </div>
       <div class="form-group input-group margin10">
         <span class="input-group-addon glyphicon glyphicon-picture"></span>
-
-          {!!Form::file('imagen',null,['class'=>'form-control'])!!}
+                                        {{ csrf_field() }}
+          {!!Form::file('imagen',['class'=>'form-control'])!!}
       </div>
       <div class="form-group input-group margin10">
         <span class="input-group-addon glyphicon glyphicon-home"></span>
