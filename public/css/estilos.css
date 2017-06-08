@@ -81,6 +81,11 @@ h1{
   color: white;
   font-weight: bold;
 }
+.botonBorrar{
+  text-align:right;
+  padding-top:30px;
+
+}
 .boton:hover{
   text-decoration: none;
   background: #330000;

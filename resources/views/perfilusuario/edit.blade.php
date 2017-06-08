@@ -44,17 +44,18 @@
 				{!!Form::text('tipousuario', 'normal', ['class'=>'novisible','placeholder'=>'','readonly'])!!}
 			</div>
       {!!Form::submit('Actualizar Datos',['class'=>'btn boton'])!!}
+			<div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 botonBorrar">
+		    {!!Form::open(['route'=>['perfilusuario.destroy','destroy'],'method'=>'DELETE'])!!}
+		    {!!Form::submit('Borrar cuenta',['class'=>'btn boton margin5'])!!}
+		    {!!Form::close()!!}
+		  </div>
   </div>
     {!!Form::close()!!}
-  <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1" style="text-align:right;padding/-top:30px;">
-    {!!Form::open(['route'=>['perfilusuario.destroy','destroy'],'method'=>'DELETE'])!!}
-    {!!Form::submit('Borrar cuenta',['class'=>'btn boton margin5'])!!}
-    {!!Form::close()!!}
-  </div>
+
     <script>
       document.forms[2][2].addEventListener("click", function(event){
         if(!confirm("¿Realmente desea borrar su usario, si lo hace no hay vuelta atrás!")) event.preventDefault();
-				
+
     });
     </script>
 @endsection
