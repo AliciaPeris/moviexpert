@@ -52,10 +52,18 @@ class FrontendController extends Controller
     $concursos = \moviexpert\AdminConcurso::find($id);
     return view('inscripcionconcurso.create',['concurso'=>$concursos]);
   }
+  public static function votos($id){
+    $votos= DB::select('select sum(voto) as suma,idcortoconcurso from votosconcursos where idcortoconcurso IN (select id from participanconcursos where idconcurso=:id) GROUP BY idcortoconcurso ORDER BY suma DESC LIMIT 1', ['id' => $id]);
+    return $votos;
+  }
+  public static function nombreganador($idcorto){
+    $nombre= DB::select('select nombre,apellidos from users where id=(select idusuario from participanconcursos where id=:id)', ['id' => $idcorto]);
+    return $nombre;
+  }
   public function chat(){
     $chats=\moviexpert\Adminchat::All();
     return view("frontend.chat",compact('chats'));
   }
-  
+
 
 }
