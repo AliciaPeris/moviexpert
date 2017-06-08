@@ -27,6 +27,7 @@ Route::get('trailer/{id}','FrontendController@trailer');
 Route::get('ficha/{id}','FrontendController@ficha');
 Route::get('criticas/{id}','FrontendController@criticas');
 Route::post('pcritica','FrontendController@procesarCriticas');
+Route::get('eliminarCritica/{idc}/{idp}/{idu}','FrontendController@eliminarCritica');
 
 
 Route::get('concursos','FrontendController@concursos');

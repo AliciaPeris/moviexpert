@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class FrontendController extends Controller
@@ -48,6 +50,12 @@ class FrontendController extends Controller
     'fechavoto'=> date('Y-m-d H:i:s')]);
     return redirect("/criticas/".$request['idpelicula']);
   }
+  public function eliminarCritica($idc,$idp,$idu){
+    if(Auth::user()->tipousuario=="admin" || Auth::user()->id==$idu){
+      \moviexpert\CriticaPeliculas::destroy($idc);
+    }
+    return redirect("/criticas/".$idp);
+}
 
   public function trailer($id){
     $pelicula=\moviexpert\Adminpelicula::find($id);

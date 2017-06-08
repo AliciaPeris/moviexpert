@@ -30,7 +30,13 @@
             <h4 class="colorRojo negrita">{{$usuarios[$critica->idusuario]}}:</h4>
             <div class="alinearIzquierda cursiva">{{$critica->critica}}</div>
   	        <div class="alinearDerecha">{{$critica->fechavoto}}</div>
+            @if(Auth::user()->tipousuario=='admin' || Auth::user()->id==$critica->idusuario)
+            <div class="text-center">
+              <a class="btn btn-danger margin5" href="/eliminarCritica/{{$critica->id}}/{{$peliculas->id}}/{{Auth::user()->id}}">Eliminar crítica</a>
+            </div>
+            @endif
   				</div>
+
   			@endforeach
       </div>
 </div>
