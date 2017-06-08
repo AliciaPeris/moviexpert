@@ -26,6 +26,7 @@ Route::get('peliculas','FrontendController@peliculas');
 Route::get('criticas/{id}','FrontendController@criticas');
 Route::get('trailer/{id}','FrontendController@trailer');
 Route::get('ficha/{id}','FrontendController@ficha');
+
 Route::get('concursos','FrontendController@concursos');
 Route::get('chat','FrontendController@chat');
 Route::resource('inscripcionconcurso', "InscripcionconcursoController");
@@ -35,6 +36,9 @@ Route::resource('grupochat',"GrupochatController");
 Route::resource('miembrochat',"MiembrochatController");
 Route::resource('mensajechat',"MensajechatController");
 Route::resource('perfilusuario',"PerfilusuarioController");
+Route::get('perfilusuario/edit','PerfilusuarioController@edit');
+Route::get('perfilusuario/update','PerfilusuarioController@update');
+Route::get('perfilusuario/destroy','PerfilusuarioController@destroy');
 Route::get('miembrochat/participanchat/{id}', "MiembrochatController@participanchat");
 Route::get('concursos/participanconcurso/{id}','FrontendController@participanconcurso');
 Route::post('concursos/participanconcurso/{id}/altaparticipacion','FrontendController@altaparticipacion');

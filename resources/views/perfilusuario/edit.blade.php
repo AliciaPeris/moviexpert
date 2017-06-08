@@ -1,12 +1,12 @@
 @extends('layouts.frontend')
 	@section('content')
-  {!!Form::model($datosUsuario,['route'=>['perfilusuario.update',$datosUsuario->id],'method'=>'PUT'])!!}
-  <h1 class="textoMarron text-center">Formulario de registro de usuario</h1>
+  {!!Form::model($user,['route'=>['perfilusuario.update',$user->id],'method'=>'PUT'])!!}
 	@include('alerts.errorformulario')
-  <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
+  <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 blanco">
+		<h1 class="textoMarron text-center">Mis datos</h1>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        {!!Form::text('email',$datosUsuario->email,['class'=>'form-control','placeholder'=>'','readonly'])!!}
+        {!!Form::text('email',$user->email,['class'=>'form-control','placeholder'=>'','readonly'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-certificate"></span>
@@ -14,27 +14,27 @@
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-font"></span>
-        {!!Form::text('nombre',$datosUsuario->nombre,['class'=>'form-control','placeholder'=>'Ingrese el nombre'])!!}
+        {!!Form::text('nombre',$user->nombre,['class'=>'form-control','placeholder'=>'Ingrese el nombre'])!!}
       </div>
     <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-bold"></span>
-        {!!Form::text('apellidos',$datosUsuario->apellidos,['class'=>'form-control','placeholder'=>'Ingrese los apellidos'])!!}
+        {!!Form::text('apellidos',$user->apellidos,['class'=>'form-control','placeholder'=>'Ingrese los apellidos'])!!}
       </div>
     <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-home margin10"></span>
-        {!!Form::text('direccion',$datosUsuario->direccion,['class'=>'form-control','placeholder'=>'Ingrese la dirección'])!!}
+        {!!Form::text('direccion',$user->direccion,['class'=>'form-control','placeholder'=>'Ingrese la dirección'])!!}
       </div>
     <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-globe"></span>
-        {!!Form::text('localidad',$datosUsuario->localidad,['class'=>'form-control','placeholder'=>'Ingrese la localidad'])!!}
+        {!!Form::text('localidad',$user->localidad,['class'=>'form-control','placeholder'=>'Ingrese la localidad'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-calendar"></span>
-          {!!Form::date('fechanacimiento', $datosUsuario->fechanacimiento,['class'=>'form-control'])!!}
+          {!!Form::date('fechanacimiento', $user->fechanacimiento,['class'=>'form-control'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-picture novisible"></span>
-          {!!Form::text('foto',$datosUsuario->foto,['class'=>'novisible','placeholder'=>'','readonly'])!!}
+          {!!Form::text('foto',$user->foto,['class'=>'novisible','placeholder'=>'','readonly'])!!}
       </div>
       <div class="form-group margin10">
         <span class="glyphicon glyphicon-new-window"> Hombre&nbsp</span>{!!Form::radio('genero', 'Hombre', true)!!}
@@ -46,4 +46,15 @@
       {!!Form::submit('Actualizar Datos',['class'=>'btn boton'])!!}
   </div>
     {!!Form::close()!!}
+  <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1" style="text-align:right;padding/-top:30px;">
+    {!!Form::open(['route'=>['perfilusuario.destroy','destroy'],'method'=>'DELETE'])!!}
+    {!!Form::submit('Borrar cuenta',['class'=>'btn boton margin5'])!!}
+    {!!Form::close()!!}
+  </div>
+    <script>
+      document.forms[2][2].addEventListener("click", function(event){
+        if(!confirm("¿Realmente desea borrar su usario, si lo hace no hay vuelta atrás!")) event.preventDefault();
+				
+    });
+    </script>
 @endsection
