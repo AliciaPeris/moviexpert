@@ -21,7 +21,7 @@ class FrontendController extends Controller
     return view("frontend.index",compact('peliculas'));
   }
   public static function estrenos(){
-    $estreno=DB::select('select * from adminpeliculas where anio= :anio',['anio'=>2012]);
+    $estreno=DB::select('select * from adminpeliculas order by anio DESC,id DESC limit 8');
     return $estreno;
   }
   public function peliculas(){
