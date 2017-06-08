@@ -1,9 +1,9 @@
 @extends('layouts.frontend')
 	@section('content')
   {!!Form::model($user,['route'=>['perfilusuario.update',$user->id],'method'=>'PUT'])!!}
-  <h1 class="textoMarron text-center">Formulario de registro de usuario</h1>
 	@include('alerts.errorformulario')
-  <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
+  <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 blanco">
+		<h1 class="textoMarron text-center">Mis datos</h1>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
         {!!Form::text('email',$user->email,['class'=>'form-control','placeholder'=>'','readonly'])!!}
@@ -44,7 +44,17 @@
 				{!!Form::text('tipousuario', 'normal', ['class'=>'novisible','placeholder'=>'','readonly'])!!}
 			</div>
       {!!Form::submit('Actualizar Datos',['class'=>'btn boton'])!!}
-			<a class="btn boton" href="/perfilusuario/confirmdelete">Borrar cuenta</a>
   </div>
     {!!Form::close()!!}
+  <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1" style="text-align:right;padding/-top:30px;">
+    {!!Form::open(['route'=>['perfilusuario.destroy','destroy'],'method'=>'DELETE'])!!}
+    {!!Form::submit('Borrar cuenta',['class'=>'btn boton margin5'])!!}
+    {!!Form::close()!!}
+  </div>
+    <script>
+      document.forms[2][2].addEventListener("click", function(event){
+        if(!confirm("¿Realmente desea borrar su usario, si lo hace no hay vuelta atrás!")) event.preventDefault();
+				
+    });
+    </script>
 @endsection

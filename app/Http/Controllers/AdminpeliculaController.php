@@ -10,7 +10,7 @@ use Redirect;
 use Illuminate\Routing\Route;
 use moviexpert\Adminpelicula;
 use moviexpert\Admingenero;
-use Store;
+
 
 
 
@@ -28,7 +28,6 @@ class AdminpeliculaController extends Controller
        }
 
     public function create(){
-      /*Retornanmos a la vista create*/
       $generos=\moviexpert\Admingenero::lists('genero','id');
       return view('peliculas.create',compact("generos"));
 
@@ -47,10 +46,8 @@ class AdminpeliculaController extends Controller
         'cartelera'=> $request['imagen'],
         'genero'=> $request['genero'],
       ]);
-      $request->file('imagen')->store('imagenes','public');
-      dd($request->file('imagen'));
       /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
-      //return redirect('/adminpelicula')->with('message','store');
+      return redirect('/adminpelicula')->with('message','store');
     }
 
     public function show($id){

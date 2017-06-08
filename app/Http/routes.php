@@ -38,6 +38,7 @@ Route::resource('mensajechat',"MensajechatController");
 Route::resource('perfilusuario',"PerfilusuarioController");
 Route::get('perfilusuario/edit','PerfilusuarioController@edit');
 Route::get('perfilusuario/update','PerfilusuarioController@update');
+Route::get('perfilusuario/destroy','PerfilusuarioController@destroy');
 Route::get('miembrochat/participanchat/{id}', "MiembrochatController@participanchat");
 Route::get('concursos/participanconcurso/{id}','FrontendController@participanconcurso');
 Route::post('concursos/participanconcurso/{id}/altaparticipacion','FrontendController@altaparticipacion');

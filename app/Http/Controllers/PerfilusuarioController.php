@@ -3,7 +3,7 @@
 namespace moviexpert\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Session;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -32,7 +32,10 @@ class PerfilusuarioController extends Controller
       $user->save();
       return redirect('/');
     }
-    public function confirmdelete(){
-
-    }
+    public function destroy(){
+      $id=Auth::user()['id'];
+      \moviexpert\User::destroy($id);
+      Session::flash('message','Usuario eliminado correctamente');
+    return redirect('/logout');
+  }
 }
