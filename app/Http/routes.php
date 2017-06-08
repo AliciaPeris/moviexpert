@@ -23,9 +23,11 @@ Route::resource('adminparticipanconcurso','AdminparticipanconcursoController');
 /*Rutas Frontend*/
 Route::resource('/','FrontendController');
 Route::get('peliculas','FrontendController@peliculas');
-Route::get('criticas/{id}','FrontendController@criticas');
 Route::get('trailer/{id}','FrontendController@trailer');
 Route::get('ficha/{id}','FrontendController@ficha');
+Route::get('criticas/{id}','FrontendController@criticas');
+Route::post('pcritica','FrontendController@procesarCriticas');
+
 
 Route::get('concursos','FrontendController@concursos');
 Route::get('chat','FrontendController@chat');

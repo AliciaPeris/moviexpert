@@ -84,7 +84,21 @@ h1{
 .botonBorrar{
   text-align:right;
   padding-top:30px;
+}
+.alinearIzquierda{
+  text-align: left;
+}
+.alinearDerecha{
+  text-align:right;
+}
 
+.colorRojo{
+  color:#b90000;
+}
+.entradaCriticas{
+  box-shadow: 4px 4px 8px black;
+  padding:20px;
+  background-color: rgba(255,255,255,0.5);
 }
 .boton:hover{
   text-decoration: none;
@@ -144,7 +158,9 @@ h1{
 .negrita{
   font-weight: bold;
 }
-
+.cursiva{
+  font-style: italic;
+}
 .contendor{
   margin:0px;
   padding:0px;

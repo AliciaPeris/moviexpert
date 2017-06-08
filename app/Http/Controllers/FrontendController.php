@@ -36,8 +36,19 @@ class FrontendController extends Controller
   }
   public function criticas($id){
     $peliculas=\moviexpert\Adminpelicula::find($id);
-    return view("frontend.criticas",compact('peliculas'));
+    $criticas=\moviexpert\Criticapeliculas::findByPeli($id);
+    $usuarios=\moviexpert\User::lists('nombre','id');
+    return view("frontend.criticas",compact('peliculas'))->with("criticas",$criticas)->with("usuarios",$usuarios);
   }
+  public function procesarCriticas(Request $request){
+    \moviexpert\CriticaPeliculas::create([
+    'idpelicula'=> $request['idpelicula'],
+    'idusuario'=> $request['idusuario'],
+    'critica'=> $request['critica'],
+    'fechavoto'=> date('Y-m-d H:i:s')]);
+    return redirect("/criticas/".$request['idpelicula']);
+  }
+
   public function trailer($id){
     $pelicula=\moviexpert\Adminpelicula::find($id);
     return view('frontend.trailer',compact('pelicula'));
@@ -56,6 +67,6 @@ class FrontendController extends Controller
     $chats=\moviexpert\Adminchat::All();
     return view("frontend.chat",compact('chats'));
   }
-  
+
 
 }
