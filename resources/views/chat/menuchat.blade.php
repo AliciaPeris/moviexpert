@@ -1,4 +1,4 @@
-<div class="col-xs-12 text-center">
+<div class="col-xs-12 text-center cuadrado">
   <p class="col-xs-12 textoMarron"> Actor: <i class="glyphicon glyphicon-user"></i> | Guionista: <i class="glyphicon glyphicon-list-alt"></i> | Director: <i class="glyphicon glyphicon-film"></i> | Camara: <i class="glyphicon glyphicon-facetime-video"></i></p>
   <div class="margintopbottom25">
     <a class="btn boton margin5" href="/chat">Lista Chat</a>
