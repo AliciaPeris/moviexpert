@@ -31,11 +31,23 @@ class FrontendController extends Controller
   }
   public function ficha($id){
     $pelicula=\moviexpert\Adminpelicula::find($id);
-
+    $mediaVotos=\moviexpert\Votospeliculas::avgVotos($id);
+    $cuentaVotos=\moviexpert\Votospeliculas::countVotos($id);
     /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
      $generos=\moviexpert\Admingenero::lists('genero','id');
-     return view('frontend.ficha',compact('pelicula'))->with("generos",$generos);
-  }
+     return view('frontend.ficha',compact('pelicula'))->with("generos",$generos)->with("mediaVotos",$mediaVotos)->with('cuentaVotos',$cuentaVotos);
+   }
+   public function enviarVotos(Request $request){
+     if(!\moviexpert\Votospeliculas::checkVotos($request['idpelicula'],$request['idusuario'])){
+        DB::table('votospeliculas')->insert(['idpelicula'=>$request['idpelicula'],'idusuario'=>$request['idusuario'],'voto'=>$request['voto']]);
+      }else{
+        $voto=\moviexpert\Votospeliculas::findByPeliAndUser($request['idpelicula'],$request['idusuario']);
+        DB::table('votospeliculas')->where('id',$voto[0]['id'])->update(['voto'=>$request['voto']]);
+      }
+      return redirect("/ficha/".$request['idpelicula']);
+    }
+
+
   public function criticas($id){
     $peliculas=\moviexpert\Adminpelicula::find($id);
     $criticas=\moviexpert\Criticapeliculas::findByPeli($id);
@@ -56,7 +68,7 @@ class FrontendController extends Controller
     }
     return redirect("/criticas/".$idp);
 }
-  
+
   public function trailer($id){
     $pelicula=\moviexpert\Adminpelicula::find($id);
     return view('frontend.trailer',compact('pelicula'));
