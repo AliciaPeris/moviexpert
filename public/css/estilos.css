@@ -232,14 +232,12 @@ li:hover{
 }
 .fotoTrailer{
   display: block;
-  width: 70%;
-  height: 300px;
+  width: 200px;
+  height: calc(200px / 0.647);
   box-shadow: 4px 1px 1px 1px #330000sy;
   border-radius: 20px;
   border:5px solid #330000;
   margin-top: 4%;
-
-
 }
 
 .marginLeft{
@@ -287,6 +285,13 @@ li:hover{
   height: 250px;
 
 }
+.tituloPeli{
+  font-size: 40px;
+  color: #D64937;
+  font-style: italic;
+  font-weight: bold;
+  margin-right: 4%;
+}
 .clear-both{
   clear:both;
 }
@@ -323,4 +328,10 @@ li:hover{
   .marginBottonFicha{
     margin:15px 5px;
   }
+  .fotoTrailer{
+    width: 100%;
+    height: calc(200px / 0.647);
+  }
+  #trailer{
+
 }

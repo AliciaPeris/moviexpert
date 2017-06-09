@@ -8,7 +8,7 @@
 
 		</ul>
 		<div id="fichaPeli col-xs-12">
-				<img id="fotoFicha" class="col-xs-4 col-md-4" src="/imagenes/cartelera/{{$pelicula->cartelera}}" alt="{{$pelicula->titulo}}">
+				<img id="fotoFicha" class="col-xs-12 col-md-4" src="/imagenes/cartelera/{{$pelicula->cartelera}}" alt="{{$pelicula->titulo}}">
 
 	        <div class="marginBottonFicha negrita"><span class="titulosPeliculas negrita">Título: </span>{{$pelicula->titulo}}</div>
 	        <div class="marginBottonFicha negrita"><span class="titulosPeliculas negrita"> Año: </span>{{$pelicula->anio}}</div>
