@@ -1,9 +1,10 @@
 @extends('layouts.frontend')
 	@section('content')
   {!!Form::model($user,['route'=>['perfilusuario.update',$user->id],'method'=>'PUT'])!!}
-  <h1 class="textoMarron text-center">Formulario de registro de usuario</h1>
+
 	@include('alerts.errorformulario')
-  <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
+  <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 cuadrado">
+		  <h1 class="textoMarron text-center">Mis datos</h1>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
         {!!Form::text('email',$user->email,['class'=>'form-control','placeholder'=>'','readonly'])!!}
