@@ -19,9 +19,10 @@ $estreno=FrontendController::estrenos();
 	</div>
 	<div class="col-md-3 col-xs-12">
 		<div class="encabezados" id="fondoGris">ESTRENOS RECIENTES</div>
+
 		@foreach($estreno as $estreno)
 		<img class="trailer" src="/imagenes/cartelera/{{$estreno->cartelera}}" alt="{{$estreno->titulo}}">
-			@endforeach
+		@endforeach
 
 	</div>
 </div>

@@ -13,6 +13,7 @@
         <li class=""><a class="textoFicha" href="{{ url('/ficha/') }}/{{$pelicula->id}}">Ficha</a></li>
         <li class="active"><a class="textoFicha" href="{{ url('/trailer/') }}/{{$pelicula->id}}">Trailer</a></li>
         <li class=""><a class="textoFicha" href="{{ url('/criticas/') }}/{{$pelicula->id}}">Críticas</a></li>
+				<li class=""><a class="textoFicha" href="/">Votar</a></li>
       </ul>
       <div id="fichaPeli col-xs-12 col-md-6">
         <div class="col-xs-12 col-md-6">

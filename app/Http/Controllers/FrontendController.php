@@ -56,7 +56,7 @@ class FrontendController extends Controller
     }
     return redirect("/criticas/".$idp);
 }
-
+  
   public function trailer($id){
     $pelicula=\moviexpert\Adminpelicula::find($id);
     return view('frontend.trailer',compact('pelicula'));

@@ -36,6 +36,6 @@ class PerfilusuarioController extends Controller
       $id=Auth::user()['id'];
       \moviexpert\User::destroy($id);
       Session::flash('message','Usuario eliminado correctamente');
-    return redirect('/logout');
-  }
+      return redirect('/logout');
+    }
 }

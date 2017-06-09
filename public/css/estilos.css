@@ -196,6 +196,7 @@ li:hover{
   background-color:#D64937;
 }
 
+
 .fichaRes:hover{
   background:#FEFEFE;
   transition:.3s;
@@ -262,6 +263,9 @@ li:hover{
   margin:auto;
   border:solid 1px #D0D0D0;
 }
+a{
+  font-size:19px;
+}
 #fotoFicha img{
   display:block;
   width:160px;
@@ -306,6 +310,7 @@ li:hover{
   background-color: red;
 
 }
+
 @media(max-width: 600px){
   #logo{
     width: 90%;

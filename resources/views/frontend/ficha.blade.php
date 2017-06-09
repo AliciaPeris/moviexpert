@@ -5,7 +5,7 @@
 			<li class="active"><a class="textoFicha" href="">Ficha</a></li>
 			<li class=""><a class="textoFicha" href="{{ url('/trailer/') }}/{{$pelicula->id}}">Trailer</a></li>
 			<li class=""><a class="textoFicha" href="{{ url('/criticas/') }}/{{$pelicula->id}}">Críticas</a></li>
-
+			<li class=""><a class="textoFicha" href="/">Votar</a></li>
 		</ul>
 		<div id="fichaPeli col-xs-12">
 				<img id="fotoFicha" class="col-xs-12 col-md-4" src="/imagenes/cartelera/{{$pelicula->cartelera}}" alt="{{$pelicula->titulo}}">
