@@ -32,6 +32,7 @@ class FrontendController extends Controller
   public function ficha($id){
     $pelicula=\moviexpert\Adminpelicula::find($id);
     $mediaVotos=\moviexpert\Votospeliculas::avgVotos($id);
+    $mediaVotos=number_format($mediaVotos,1);
     $cuentaVotos=\moviexpert\Votospeliculas::countVotos($id);
     /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
      $generos=\moviexpert\Admingenero::lists('genero','id');

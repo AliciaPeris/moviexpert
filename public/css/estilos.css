@@ -247,10 +247,11 @@ li:hover{
 }
 /* CSS PARA VOTOS*/
 .formVotos{
-   width:250px;
+
     margin:0 auto;
     padding:10px;
-    border: 1px solid #d9d9d9;
+    border: 1px solid black;
+
   }
 .formVotos p, .formVotos input[type = "submit"]{
   text-align:center;
@@ -258,21 +259,60 @@ li:hover{
  }
 .formVotos input[type = "radio"]{
    display:none;
+
  }
 .formVotos label{
    color:grey;
+   margin-top: 4%;
  }
 .formVotos .clasificacion{
   direction: rtl;
   unicode-bidi: bidi-override;
+  font-size:36px;
  }
 .formVotos label:hover,.formVotos  label:hover ~ label{
-  color:orange;
+  color:#D64937;
 }
 .formVotos  input[type = "radio"]:checked ~ label{
   color:orange;
 }
+.cuadradoRojo{
+  background-color:#D64937;
+  border: 1px solid black;
+  height: 50px;
+  width: 30%;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 10%;
+  vertical-align: middle;
+  padding-top: 5px;
 
+
+  }
+.padding10{
+  padding:10px;
+}
+.letraBlanca{
+  color:white;
+  text-align: center;
+}
+.cuadradoBlanco{
+  background-color: white;
+  border: 1px solid #D64937;
+  height: 50px;
+  width: 30%;
+  margin-left: 20%;
+  margin-top: 10px;
+  padding-top:5px;
+}
+.cuadroVotos{
+  background-color: #EEEEEE;
+}
+.noPadding{
+  padding:0px !important;
+}
+
+/* Fin*/
 
 .titulosPeliculas{
   color: #D64937;
@@ -367,6 +407,13 @@ a{
     width: 100%;
     height: calc(200px / 0.647);
   }
-  #trailer{
+  .cuadradoBordesRojo{
+    font-size:12px;
 
+  }
+  .cuadradoBlanco{
+    font-size:12px;
+    text-align: center;
+
+  }
 }

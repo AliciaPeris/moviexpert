@@ -16,6 +16,7 @@ class Votospeliculas extends Model
       ];
     static public function avgVotos($idpeli) {
        return Votospeliculas::where('idpelicula', '=', $idpeli)->avg('voto');
+       
      }
     static public function countVotos($idpeli){
         return Votospeliculas::where('idpelicula', '=', $idpeli)->count();

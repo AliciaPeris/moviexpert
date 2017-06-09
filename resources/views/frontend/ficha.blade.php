@@ -9,11 +9,11 @@
 
 	<div id="fichaPeli col-xs-12">
 		<div class="col-xs-12 col-md-4">
-			<img id="fotoFicha" class="col-xs-10 col-xs-offset-1" src="/imagenes/cartelera/{{$pelicula->cartelera}}" alt="{{$pelicula->titulo}}">
-			<div class="marginBottonFicha cuadroVotos col-xs-10 col-xs-offset-1">
-				<div id="votacion" class="col-xs-12  fondoGris">
-					<div id="media" class="col-xs-12 text-center"><div class="">{{$mediaVotos}}</div></div>
-					<div id="cantidad" class="col-xs-12 text-center"><div class="">{{$cuentaVotos}} votos </div></div>
+			<img id="fotoFicha" class="col-xs-10 col-xs-offset-1 margintop10" src="/imagenes/cartelera/{{$pelicula->cartelera}}" alt="{{$pelicula->titulo}}">
+			<div class="cuadroVotos col-xs-10 col-xs-offset-1 noPadding margintop10">
+				<div id="votacion col-xs-3" class="col-xs-12   fondoGris">
+					<div id="media" class="col-xs-12 text-center cuadradoRojo letraBlanca">{{$mediaVotos}}</div>
+					<div id="cantidad" class="col-xs-12 text-center cuadradoBlanco colorRojo negrita">{{$cuentaVotos}} votos </div>
 				</div>
 				<form action="/enviarVotos" method="post" class="formVotos">
 					{{ csrf_field() }}
@@ -26,11 +26,11 @@
 						<input id="radio4" type="radio" name="voto" value="4"><label for="radio4">&#9733;</label>
 						<input id="radio5" type="radio" name="voto" value="2"><label for="radio5">&#9733;</label>
 					</p>
-					<p><input type="submit" value="submit" name="submit" /></p>
+					<p><input  class="btn btn-danger margin5" type="submit" value="Enviar" name="submit" /></p>
 				</form>
 			</div>
 		</div>
-		<div class="col-xs-12 col-md-8">
+		<div class="padding10">
 			<div class="marginBottonFicha negrita tituloPeli">{{$pelicula->titulo}}</div>
 			<div class="marginBottonFicha negrita"><span class="titulosPeliculas negrita"> Año: </span>{{$pelicula->anio}}</div>
 			<div class="marginBottonFicha negrita"> <span class="titulosPeliculas negrita">País: </span> {{$pelicula->pais}}</div>
