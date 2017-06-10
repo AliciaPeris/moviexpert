@@ -25,8 +25,9 @@ class FrontendController extends Controller
     return $estreno;
   }
   public function peliculas(){
-    $peliculas=\moviexpert\Adminpelicula::All();
+    $peliculas=\moviexpert\Votospeliculas::mediaPeliculas();
     return view("frontend.peliculas",compact('peliculas'));
+
 
   }
   public function ficha($id){

@@ -185,7 +185,7 @@ width:200px;
 /*border:3px solid #D0D0D0;*/
 box-shadow:0 0 5px #EEE;
 float:left;
-height: 200px;
+height: 220px;
 width: 400px;
 margin:10px;
 padding: 10px;
@@ -196,7 +196,16 @@ li:hover{
   background-color:#D64937;
 }
 
+.fichaCuadroVotos{
+  background-color:#D64937;
+  border: 1px solid black;
+  font-size: 25px;
+  font-weight: bolder;
+  width: 3em;
+  margin:auto calc(50% - 1.5em);
+  color:white;
 
+}
 .fichaRes:hover{
   background:#FEFEFE;
   transition:.3s;
@@ -286,9 +295,7 @@ li:hover{
   margin-left: 10%;
   vertical-align: middle;
   padding-top: 5px;
-
-
-  }
+}
 .padding10{
   padding:10px;
 }

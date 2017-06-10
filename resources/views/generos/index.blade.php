@@ -27,6 +27,7 @@
           {!!Form::close()!!}
         </td>
         </tbody>
+				
         @endforeach
 				<tfoot>
 		      <tr>
@@ -36,5 +37,5 @@
 		    </tfoot>
         </table>
         </div>
-			
+
         @endsection

@@ -9,7 +9,7 @@
 			<li class=""><a class="textoFicha" href="/peliculas">Valoración</a></li>
 		</ul>
 		<div class="col-xs-12">
-
+			
 				@foreach($peliculas as $pelicula)
 
 					<a class="col-xs-12 col-md-6 fichaRes2 " href="{{ url('/ficha/') }}/{{$pelicula->id}}">
@@ -18,6 +18,8 @@
 		        <div class="marginBottonFicha colorNegro negrita"> <span class="titulosPeliculas negrita">Título: </span> {{$pelicula->titulo}}</div>
 		        <div class="marginBottonFicha  colorNegro negrita"> <span class="titulosPeliculas negrita">Año: </span>{{$pelicula->anio}}</div>
 						<div class="colorNegro marginBottonFicha negrita"><span class="titulosPeliculas negrita">Director: </span> {{$pelicula->director}}</div>
+						<div class=" fichaCuadroVotos text-center">{{number_format($pelicula->media,1)}}</div>
+
 					</a>
 
 
