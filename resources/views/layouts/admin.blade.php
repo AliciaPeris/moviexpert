@@ -43,6 +43,7 @@
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="{{ url('/adminconcurso') }}"><i class=""></i>Lista Concursos</a></li>
                         <li><a href="{{ url('/adminparticipanconcurso') }}"><i class=""></i>Inscripciones</a></li>
+                        <li><a href="{{ url('/adminvotosconcurso') }}"><i class=""></i>Votos</a></li>
                     </ul>
                 </li>
 
