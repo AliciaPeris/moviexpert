@@ -6,7 +6,7 @@ $estreno=FrontendController::estrenos();
 
 <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 cuadrado">
 	<div class="col-xs-12 col-md-9">
-		<div class="encabezados">Estrenos Recientes</div>
+		<div class="encabezados">Este año en cartelera</div>
 		<div class="contenedor">
 			@foreach($peliculas as $pelicula)
 				<a class="fichaRes" href="{{ url('/ficha/') }}/{{$pelicula->id}}">

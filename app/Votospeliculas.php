@@ -28,6 +28,10 @@ class Votospeliculas extends Model
      return  Votospeliculas::where('idpelicula', '=', $idpeli)->where('idusuario', '=', $idusuario)->select('id')->take(1)->get();
    }
    static public function mediaPeliculas(){
-     return DB::select('select * ,(select avg(voto) from `votospeliculas` as `votos` where votos.idpelicula=pelis.id ) as `media` from `adminpeliculas` as `pelis` order by `media` DESC ');
+     return DB::select('select * ,(select avg(voto) from `votospeliculas` as `votos` where votos.idpelicula=pelis.id ) as `media` from `adminpeliculas` as `pelis` order by `titulo`');
    }
+   static public function top10(){
+     return DB::select('select * ,(select avg(voto) from `votospeliculas` as `votos` where votos.idpelicula=pelis.id ) as `media` from `adminpeliculas` as `pelis` order by `media` DESC limit 10');
+   }
+
 }

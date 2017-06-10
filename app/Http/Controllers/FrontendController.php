@@ -17,11 +17,11 @@ class FrontendController extends Controller
       $this->middleware('auth');
   }
   public function index(){
-    $peliculas=\moviexpert\Adminpelicula::All();
+    $peliculas=DB::select('select * from adminpeliculas where anio="'.date('Y').'" order by anio DESC,id DESC');
     return view("frontend.index",compact('peliculas'));
   }
   public static function estrenos(){
-    $estreno=DB::select('select * from adminpeliculas order by anio DESC,id DESC limit 8');
+    $estreno=DB::select('select * from adminpeliculas where anio>"'.date('Y').'" order by anio DESC,id DESC limit 8');
     return $estreno;
   }
   public function peliculas(){
@@ -35,9 +35,12 @@ class FrontendController extends Controller
     $mediaVotos=\moviexpert\Votospeliculas::avgVotos($id);
     $mediaVotos=number_format($mediaVotos,1);
     $cuentaVotos=\moviexpert\Votospeliculas::countVotos($id);
-    /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
-     $generos=\moviexpert\Admingenero::lists('genero','id');
+    $generos=\moviexpert\Admingenero::lists('genero','id');
      return view('frontend.ficha',compact('pelicula'))->with("generos",$generos)->with("mediaVotos",$mediaVotos)->with('cuentaVotos',$cuentaVotos);
+   }
+   public function top10(){
+     $peliculas=\moviexpert\Votospeliculas::top10();
+     return view("frontend.valoracion",compact('peliculas'));
    }
    public function enviarVotos(Request $request){
      if(!\moviexpert\Votospeliculas::checkVotos($request['idpelicula'],$request['idusuario'])){
