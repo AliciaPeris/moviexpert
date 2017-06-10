@@ -8,7 +8,7 @@
 	  <strong>Género Registrado</strong>
 	</div>
 	@endif
-  <div class="container-fluid blanco">
+  <div class="container-fluid cuadrado">
   <h1 class="text-center">Géneros</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
@@ -38,6 +38,6 @@
         </table>
         </div>
 
-				 {{!! $chat->render() !!}}
+				 {{!! $genero->render() !!}}
 
         @endsection

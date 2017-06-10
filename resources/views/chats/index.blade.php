@@ -8,7 +8,7 @@
 	  <strong>Chat Registrado</strong>
 	</div>
 	@endif
-  <div class="container-fluid blanco">
+  <div class="container-fluid cuadrado">
   <h1 class="text-center">Chats</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
