@@ -10,7 +10,7 @@
         {!!Form::text('email',$user->email,['class'=>'form-control','placeholder'=>'','readonly'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
-        <span class="input-group-addon glyphicon glyphicon-certificate"></span>
+        <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
         {!!Form::password('password',['class'=>'form-control','placeholder'=>'Ingrese la contraseña'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
