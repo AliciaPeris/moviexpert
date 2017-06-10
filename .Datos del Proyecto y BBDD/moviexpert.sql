@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.6
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2017 a las 16:44:37
--- Versión del servidor: 5.6.16
--- Versión de PHP: 5.5.9
+-- Tiempo de generación: 08-06-2017 a las 23:18:20
+-- Versión del servidor: 10.1.16-MariaDB
+-- Versión de PHP: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,13 +14,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `moviexpert`
 --
-CREATE DATABASE IF NOT EXISTS `moviexpert` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `moviexpert`;
 
 -- --------------------------------------------------------
 
@@ -28,9 +26,8 @@ USE `moviexpert`;
 -- Estructura de tabla para la tabla `adminchats`
 --
 
-DROP TABLE IF EXISTS `adminchats`;
-CREATE TABLE IF NOT EXISTS `adminchats` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `adminchats` (
+  `id` int(10) UNSIGNED NOT NULL,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
   `numguionistas` int(11) NOT NULL,
@@ -39,16 +36,9 @@ CREATE TABLE IF NOT EXISTS `adminchats` (
   `numcamaras` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `creadorchat` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`,`nombre`),
-  KEY `adminchats_creadorchat_foreign` (`creadorchat`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+  `creadorchat` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Truncar tablas antes de insertar `adminchats`
---
-
-TRUNCATE TABLE `adminchats`;
 --
 -- Volcado de datos para la tabla `adminchats`
 --
@@ -63,24 +53,17 @@ INSERT INTO `adminchats` (`id`, `nombre`, `descripcion`, `numguionistas`, `numac
 -- Estructura de tabla para la tabla `adminconcursos`
 --
 
-DROP TABLE IF EXISTS `adminconcursos`;
-CREATE TABLE IF NOT EXISTS `adminconcursos` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `adminconcursos` (
+  `id` int(10) UNSIGNED NOT NULL,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
   `fechainicioinscripcion` date NOT NULL,
   `fechafininscripcion` date NOT NULL,
   `fechafinconcurso` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Truncar tablas antes de insertar `adminconcursos`
---
-
-TRUNCATE TABLE `adminconcursos`;
 --
 -- Volcado de datos para la tabla `adminconcursos`
 --
@@ -95,27 +78,24 @@ INSERT INTO `adminconcursos` (`id`, `nombre`, `descripcion`, `fechainicioinscrip
 -- Estructura de tabla para la tabla `admingeneros`
 --
 
-DROP TABLE IF EXISTS `admingeneros`;
-CREATE TABLE IF NOT EXISTS `admingeneros` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admingeneros` (
+  `id` int(10) UNSIGNED NOT NULL,
   `genero` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Truncar tablas antes de insertar `admingeneros`
---
-
-TRUNCATE TABLE `admingeneros`;
 --
 -- Volcado de datos para la tabla `admingeneros`
 --
 
 INSERT INTO `admingeneros` (`id`, `genero`, `created_at`, `updated_at`) VALUES
 (1, 'Terror', '2017-05-25 17:27:59', '2017-05-25 17:27:59'),
-(2, 'Accion', '2017-05-25 17:28:17', '2017-05-25 17:28:17');
+(2, 'Accion', '2017-05-25 17:28:17', '2017-05-25 17:28:17'),
+(3, 'comedia', '2017-06-08 16:08:16', '2017-06-08 16:08:16'),
+(4, 'Animación', '2017-06-08 16:08:22', '2017-06-08 16:08:22'),
+(6, 'Romántica', '2017-06-08 16:09:12', '2017-06-08 16:09:12'),
+(7, 'Drama', '2017-06-08 16:09:21', '2017-06-08 16:09:21');
 
 -- --------------------------------------------------------
 
@@ -123,9 +103,8 @@ INSERT INTO `admingeneros` (`id`, `genero`, `created_at`, `updated_at`) VALUES
 -- Estructura de tabla para la tabla `adminpeliculas`
 --
 
-DROP TABLE IF EXISTS `adminpeliculas`;
-CREATE TABLE IF NOT EXISTS `adminpeliculas` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `adminpeliculas` (
+  `id` int(10) UNSIGNED NOT NULL,
   `titulo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `anio` int(11) NOT NULL,
   `pais` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -137,23 +116,19 @@ CREATE TABLE IF NOT EXISTS `adminpeliculas` (
   `cartelera` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `genero` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `adminpeliculas_genero_foreign` (`genero`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=18 ;
+  `genero` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Truncar tablas antes de insertar `adminpeliculas`
---
-
-TRUNCATE TABLE `adminpeliculas`;
 --
 -- Volcado de datos para la tabla `adminpeliculas`
 --
 
 INSERT INTO `adminpeliculas` (`id`, `titulo`, `anio`, `pais`, `director`, `guion`, `reparto`, `sinopsis`, `trailer`, `cartelera`, `created_at`, `updated_at`, `genero`) VALUES
-(5, 'Abuelos al poder', 2017, 'Estados Unidos', 'Andy Fickman', 'Billy Crystal, Lisa Addario', 'Billy Crystal,  Bette Midler,  Marisa Tomei,  Tom Everett Scott,  Bailee Madison, Joshua Rush,  Kyle Harrison Breitkopf,  Jennifer Crystal Foley,  Rhoda Griffis, Gedde Watanabe,  Tony Hawk,  Cade Jones,  Mavrick Moreno,  Steve Levy', 'Artie y Diane aceptan cuidar de sus tres nietos mientras los padres de estos salen de viaje por motivos de trabajo. Pero cuando los métodos educativos más modernos entran en colisión con los de la vieja escuela, los problemas comienzan a surgir', 'abuelosalpoder.jpg', 'abuelosalpoder.jpg', '2017-05-29 14:16:16', '2017-05-29 14:16:16', 1),
-(17, 'afsdfasdf', 2017, 'afsdfa', 'sdf', 'asdfas', 'dfasdf', 'fasdfas', 'Os3tVZD2g-8&index=26&list=PLIddmSRJEJ0u-5Nv2k6W8Vhe0wUP_7H5W', '', '2017-06-07 17:56:23', '2017-06-07 17:56:23', 1);
+(5, 'Abuelos al poder', 2012, 'Estados Unidos', 'Andy Fickman', 'Billy Crystal, Lisa Addario', 'Billy Crystal,  Bette Midler,  Marisa Tomei,  Tom Everett Scott,  Bailee Madison, Joshua Rush,  Kyle Harrison Breitkopf,  Jennifer Crystal Foley,  Rhoda Griffis, Gedde Watanabe,  Tony Hawk,  Cade Jones,  Mavrick Moreno,  Steve Levy', 'Artie y Diane aceptan cuidar de sus tres nietos mientras los padres de estos salen de viaje por motivos de trabajo. Pero cuando los métodos educativos más modernos entran en colisión con los de la vieja escuela, los problemas comienzan a surgir', 'rYpOQcQZ1aY', 'abuelosalpoder.jpg', '2017-05-29 14:16:16', '2017-06-08 15:44:43', 2),
+(17, 'Piratas del Caribe 5', 2017, 'Estados Unidos', 'Joachim Rønning,  Espen Sandberg', 'Jeff Nathanson', 'Johnny Depp,  Javier Bardem,  Brenton Thwaites,  Kaya Scodelario,  Geoffrey Rush, Orlando Bloom,  Kevin McNally,  David Wenham,  Stephen Graham,  Adam Brown, Golshifteh Farahani,  Martin Klebba,  Goran D. Kleut,  Jessica Green,  Paul McCartney, Keira Knightley', 'El capitán Jack Sparrow se enfrentará a un grupo de piratas-fantasma comandados por una de sus viejas némesis, el terrorífico capitán Salazar, recién escapado del Triángulo de las Bermudas. ', 'wGLBEj30lds', 'piratas.jpg', '2017-06-07 17:56:23', '2017-06-08 16:09:43', 2),
+(18, 'Brave', 2011, 'Estados Unidos', 'Mark Andrews,  Brenda Chapman,  Steve Purcell', 'Mark Andrews, Steve Purcell, Brenda Chapman, Irene Mecchi (Historia: Brenda Chapman)', 'Animation', 'Merida, la indómita hija del Rey Fergus y de la Reina Elinor, es una hábil arquera que decide romper con una antigua costumbre, que es sagrada para los señores de la tierra: el gigantesco Lord MacGuffin, el malhumorado Lord Macintosh y el cascarrabias Lord Dingwall', '0gc36idTb3c', 'brave.jpg', '2017-06-08 15:50:17', '2017-06-08 16:09:55', 4),
+(19, 'Bittersweet Days', 2016, 'España', 'Marga Melià', 'Marga Melià', 'Esther González,  Brian Teuwen,  Joan Miquel Artigues,  Patricia Caballero, Natasja Bode,  Michael Kalweit,  Queralt Riera,  Joan Marqueño,  Marga Melià', 'Cuando el novio de Julia tiene que trasladarse temporalmente a Londres, ella se ve obligada a compartir piso con Luuk, un extrovertido fotógrafo holandés. Su convivencia hará que los dos se replanteen su manera de afrontar la vida. ', 'QLiKuv4aDfQ', 'bittersweet_days.jpg', '2017-06-08 15:52:13', '2017-06-08 16:10:14', 6),
+(20, 'Thor', 2011, 'Estados Unidos', 'Kenneth Branagh', 'Mark Protosevich, J. Michael Straczynski, Don Payne, Zack Stentz, Ashley Miller (Personajes: Stan Lee, Jack Kirby)', 'Chris Hemsworth,  Natalie Portman,  Tom Hiddleston,  Anthony Hopkins, Stellan Skarsgård,  Jaimie Alexander,  Ray Stevenson,  Idris Elba,  Kat Dennings, Colm Feore,  Clark Gregg,  Josh Dallas,  Tadanobu Asano,  Rene Russo, Maximiliano Hernández,  Jeremy Renner,  Samuel L. Jackson,  Dakota Goyo', 'Thor es un arrogante y codicioso guerrero cuya imprudencia desata una antigua guerra. Por ese motivo, su padre Odín lo castiga desterrándolo a la Tierra para que viva entre los hombres y descubra así el verdadero sentido de la humildad.', 'mi8Jg4DHsAg', 'Thor.jpg', '2017-06-08 16:06:07', '2017-06-08 16:10:30', 2);
 
 -- --------------------------------------------------------
 
@@ -161,47 +136,37 @@ INSERT INTO `adminpeliculas` (`id`, `titulo`, `anio`, `pais`, `director`, `guion
 -- Estructura de tabla para la tabla `criticapeliculas`
 --
 
-DROP TABLE IF EXISTS `criticapeliculas`;
-CREATE TABLE IF NOT EXISTS `criticapeliculas` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `idpelicula` int(10) unsigned NOT NULL,
-  `idusuario` int(10) unsigned NOT NULL,
-  `critica` int(11) NOT NULL,
-  `fechavoto` date NOT NULL,
+CREATE TABLE `criticapeliculas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `idpelicula` int(10) UNSIGNED NOT NULL,
+  `idusuario` int(10) UNSIGNED NOT NULL,
+  `critica` varchar(5000) COLLATE utf8_unicode_ci NOT NULL,
+  `fechavoto` datetime NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `criticapeliculas_idpelicula_foreign` (`idpelicula`),
-  KEY `criticapeliculas_idusuario_foreign` (`idusuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Truncar tablas antes de insertar `criticapeliculas`
+-- Volcado de datos para la tabla `criticapeliculas`
 --
 
-TRUNCATE TABLE `criticapeliculas`;
+INSERT INTO `criticapeliculas` (`id`, `idpelicula`, `idusuario`, `critica`, `fechavoto`, `created_at`, `updated_at`) VALUES
+(10, 5, 11, 'me ha gustado la película', '2017-06-08 23:04:00', '2017-06-08 21:04:00', '2017-06-08 21:04:00');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `mensajechats`
 --
 
-DROP TABLE IF EXISTS `mensajechats`;
-CREATE TABLE IF NOT EXISTS `mensajechats` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `idmiembro` int(10) unsigned NOT NULL,
+CREATE TABLE `mensajechats` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `idmiembro` int(10) UNSIGNED NOT NULL,
   `mensaje` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `mensajechats_idmiembro_foreign` (`idmiembro`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Truncar tablas antes de insertar `mensajechats`
---
-
-TRUNCATE TABLE `mensajechats`;
 --
 -- Volcado de datos para la tabla `mensajechats`
 --
@@ -224,23 +189,15 @@ INSERT INTO `mensajechats` (`id`, `idmiembro`, `mensaje`, `created_at`, `updated
 -- Estructura de tabla para la tabla `miembrochats`
 --
 
-DROP TABLE IF EXISTS `miembrochats`;
-CREATE TABLE IF NOT EXISTS `miembrochats` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `idchat` int(10) unsigned NOT NULL,
-  `idusuario` int(10) unsigned NOT NULL,
+CREATE TABLE `miembrochats` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `idchat` int(10) UNSIGNED NOT NULL,
+  `idusuario` int(10) UNSIGNED NOT NULL,
   `tipomiembro` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`,`idchat`,`idusuario`),
-  KEY `idchat` (`idchat`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=81 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Truncar tablas antes de insertar `miembrochats`
---
-
-TRUNCATE TABLE `miembrochats`;
 --
 -- Volcado de datos para la tabla `miembrochats`
 --
@@ -256,17 +213,11 @@ INSERT INTO `miembrochats` (`id`, `idchat`, `idusuario`, `tipomiembro`, `created
 -- Estructura de tabla para la tabla `migrations`
 --
 
-DROP TABLE IF EXISTS `migrations`;
-CREATE TABLE IF NOT EXISTS `migrations` (
+CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Truncar tablas antes de insertar `migrations`
---
-
-TRUNCATE TABLE `migrations`;
 --
 -- Volcado de datos para la tabla `migrations`
 --
@@ -291,56 +242,45 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 -- Estructura de tabla para la tabla `participanconcursos`
 --
 
-DROP TABLE IF EXISTS `participanconcursos`;
-CREATE TABLE IF NOT EXISTS `participanconcursos` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `idconcurso` int(10) unsigned NOT NULL,
-  `idusuario` int(10) unsigned NOT NULL,
+CREATE TABLE `participanconcursos` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `idconcurso` int(10) UNSIGNED NOT NULL,
+  `idusuario` int(10) UNSIGNED NOT NULL,
   `otrosparticipantes` text COLLATE utf8_unicode_ci NOT NULL,
   `titulo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
   `corto` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`,`idconcurso`,`idusuario`),
-  KEY `participanconcursos_idconcurso_foreign` (`idconcurso`),
-  KEY `participanconcursos_idusuario_foreign` (`idusuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Truncar tablas antes de insertar `participanconcursos`
+-- Volcado de datos para la tabla `participanconcursos`
 --
 
-TRUNCATE TABLE `participanconcursos`;
+INSERT INTO `participanconcursos` (`id`, `idconcurso`, `idusuario`, `otrosparticipantes`, `titulo`, `descripcion`, `corto`, `created_at`, `updated_at`) VALUES
+(1, 3, 11, '', '', '', '', '2017-06-08 16:34:11', '2017-06-08 16:34:11');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `password_resets`
 --
 
-DROP TABLE IF EXISTS `password_resets`;
-CREATE TABLE IF NOT EXISTS `password_resets` (
+CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  KEY `password_resets_email_index` (`email`),
-  KEY `password_resets_token_index` (`token`)
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Truncar tablas antes de insertar `password_resets`
---
-
-TRUNCATE TABLE `password_resets`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -353,23 +293,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `tipousuario` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`,`email`),
-  UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=15 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Truncar tablas antes de insertar `users`
---
-
-TRUNCATE TABLE `users`;
 --
 -- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `nombre`, `apellidos`, `direccion`, `localidad`, `genero`, `fechanacimiento`, `foto`, `tipousuario`, `remember_token`, `created_at`, `updated_at`) VALUES
 (11, 'admin@admin.com', '$2y$10$SN0shKVsheex0psfJsrb4.kU4hqVqsIR1v1XjdB3xUP4t2d35KJlK', 'admin', 'admin', 'admin', 'admin', 'Hombre', '2017-06-02', '', 'admin', 'H1FCb8Bq09fIHfDu3qHhm6hQSKJic5jNn9lhmuLkkobxhneYUcaa0HQ8jxbY', '2017-05-27 14:48:50', '2017-06-07 15:52:26'),
-(14, 'pilar@gmail.com', '$2y$10$SN0shKVsheex0psfJsrb4.kU4hqVqsIR1v1XjdB3xUP4t2d35KJlK', 'Pilar', 'Peris', 'Rodeo 20', 'Garganta la Olla', 'Mujer', '2017-05-10', 'perfildefecto.png', 'normal', 'g4OaddQSQjg18lUrvFswjaSoDsScZPDRfADUuGC2cebelDHKsbheSm5C1yCn', '2017-05-31 16:12:31', '2017-06-07 14:05:21');
+(14, 'pilar@gmail.com', '$2y$10$SN0shKVsheex0psfJsrb4.kU4hqVqsIR1v1XjdB3xUP4t2d35KJlK', 'Pilar', 'Peris', 'Rodeo 20', 'Garganta la Olla', 'Mujer', '2017-05-10', 'perfildefecto.png', 'normal', 'g4OaddQSQjg18lUrvFswjaSoDsScZPDRfADUuGC2cebelDHKsbheSm5C1yCn', '2017-05-31 16:12:31', '2017-06-07 14:05:21'),
+(15, 'sheila_bravo@hotmail.com', '$2y$10$byc0FTHBZ1Qg/HfwCg8QL.Icmt5kl.Gf2QmvlhdlcNsAmyz47rtVS', 'Sheila', 'Bravo Sánchez', 'c/José Armella nº8 2ºA', 'Navalmoral de la Mata', 'mujer', '1989-11-07', 'perfildefecto.png', 'normal', 'x9EZAb5eTwrswa7crXpH2nYFigQO6SOruBDM3jo2deHefsCEE8QR5bMaeeP9', '2017-06-08 15:43:02', '2017-06-08 15:43:25');
 
 -- --------------------------------------------------------
 
@@ -377,50 +311,181 @@ INSERT INTO `users` (`id`, `email`, `password`, `nombre`, `apellidos`, `direccio
 -- Estructura de tabla para la tabla `votosconcursos`
 --
 
-DROP TABLE IF EXISTS `votosconcursos`;
-CREATE TABLE IF NOT EXISTS `votosconcursos` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `idcortoconcurso` int(10) unsigned NOT NULL,
-  `idusuario` int(10) unsigned NOT NULL,
+CREATE TABLE `votosconcursos` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `idcortoconcurso` int(10) UNSIGNED NOT NULL,
+  `idusuario` int(10) UNSIGNED NOT NULL,
   `voto` int(11) NOT NULL,
   `fechavoto` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`,`idcortoconcurso`,`idusuario`),
-  KEY `votosconcursos_idcortoconcurso_foreign` (`idcortoconcurso`),
-  KEY `votosconcursos_idusuario_foreign` (`idusuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Truncar tablas antes de insertar `votosconcursos`
---
-
-TRUNCATE TABLE `votosconcursos`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `votospeliculas`
 --
 
-DROP TABLE IF EXISTS `votospeliculas`;
-CREATE TABLE IF NOT EXISTS `votospeliculas` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `idpelicula` int(10) unsigned NOT NULL,
-  `idusuario` int(10) unsigned NOT NULL,
+CREATE TABLE `votospeliculas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `idpelicula` int(10) UNSIGNED NOT NULL,
+  `idusuario` int(10) UNSIGNED NOT NULL,
   `voto` int(11) NOT NULL,
   `fechavoto` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `votospeliculas_idpelicula_foreign` (`idpelicula`),
-  KEY `votospeliculas_idusuario_foreign` (`idusuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Truncar tablas antes de insertar `votospeliculas`
+-- Índices para tablas volcadas
 --
 
-TRUNCATE TABLE `votospeliculas`;
+--
+-- Indices de la tabla `adminchats`
+--
+ALTER TABLE `adminchats`
+  ADD PRIMARY KEY (`id`,`nombre`),
+  ADD KEY `adminchats_creadorchat_foreign` (`creadorchat`);
+
+--
+-- Indices de la tabla `adminconcursos`
+--
+ALTER TABLE `adminconcursos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `admingeneros`
+--
+ALTER TABLE `admingeneros`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `adminpeliculas`
+--
+ALTER TABLE `adminpeliculas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `adminpeliculas_genero_foreign` (`genero`);
+
+--
+-- Indices de la tabla `criticapeliculas`
+--
+ALTER TABLE `criticapeliculas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `criticapeliculas_idpelicula_foreign` (`idpelicula`),
+  ADD KEY `criticapeliculas_idusuario_foreign` (`idusuario`);
+
+--
+-- Indices de la tabla `mensajechats`
+--
+ALTER TABLE `mensajechats`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `mensajechats_idmiembro_foreign` (`idmiembro`);
+
+--
+-- Indices de la tabla `miembrochats`
+--
+ALTER TABLE `miembrochats`
+  ADD PRIMARY KEY (`id`,`idchat`,`idusuario`),
+  ADD KEY `idchat` (`idchat`);
+
+--
+-- Indices de la tabla `participanconcursos`
+--
+ALTER TABLE `participanconcursos`
+  ADD PRIMARY KEY (`id`,`idconcurso`,`idusuario`),
+  ADD KEY `participanconcursos_idconcurso_foreign` (`idconcurso`),
+  ADD KEY `participanconcursos_idusuario_foreign` (`idusuario`);
+
+--
+-- Indices de la tabla `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`),
+  ADD KEY `password_resets_token_index` (`token`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`,`email`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- Indices de la tabla `votosconcursos`
+--
+ALTER TABLE `votosconcursos`
+  ADD PRIMARY KEY (`id`,`idcortoconcurso`,`idusuario`),
+  ADD KEY `votosconcursos_idcortoconcurso_foreign` (`idcortoconcurso`),
+  ADD KEY `votosconcursos_idusuario_foreign` (`idusuario`);
+
+--
+-- Indices de la tabla `votospeliculas`
+--
+ALTER TABLE `votospeliculas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `votospeliculas_idpelicula_foreign` (`idpelicula`),
+  ADD KEY `votospeliculas_idusuario_foreign` (`idusuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `adminchats`
+--
+ALTER TABLE `adminchats`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT de la tabla `adminconcursos`
+--
+ALTER TABLE `adminconcursos`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de la tabla `admingeneros`
+--
+ALTER TABLE `admingeneros`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT de la tabla `adminpeliculas`
+--
+ALTER TABLE `adminpeliculas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+--
+-- AUTO_INCREMENT de la tabla `criticapeliculas`
+--
+ALTER TABLE `criticapeliculas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT de la tabla `mensajechats`
+--
+ALTER TABLE `mensajechats`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT de la tabla `miembrochats`
+--
+ALTER TABLE `miembrochats`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+--
+-- AUTO_INCREMENT de la tabla `participanconcursos`
+--
+ALTER TABLE `participanconcursos`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT de la tabla `votosconcursos`
+--
+ALTER TABLE `votosconcursos`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `votospeliculas`
+--
+ALTER TABLE `votospeliculas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- Restricciones para tablas volcadas
 --
@@ -441,8 +506,8 @@ ALTER TABLE `adminpeliculas`
 -- Filtros para la tabla `criticapeliculas`
 --
 ALTER TABLE `criticapeliculas`
-  ADD CONSTRAINT `criticapeliculas_idusuario_foreign` FOREIGN KEY (`idusuario`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `criticapeliculas_idpelicula_foreign` FOREIGN KEY (`idpelicula`) REFERENCES `adminpeliculas` (`id`);
+  ADD CONSTRAINT `criticapeliculas_idpelicula_foreign` FOREIGN KEY (`idpelicula`) REFERENCES `adminpeliculas` (`id`),
+  ADD CONSTRAINT `criticapeliculas_idusuario_foreign` FOREIGN KEY (`idusuario`) REFERENCES `users` (`id`);
 
 --
 -- Filtros para la tabla `mensajechats`
@@ -474,8 +539,8 @@ ALTER TABLE `votosconcursos`
 -- Filtros para la tabla `votospeliculas`
 --
 ALTER TABLE `votospeliculas`
-  ADD CONSTRAINT `votospeliculas_idusuario_foreign` FOREIGN KEY (`idusuario`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `votospeliculas_idpelicula_foreign` FOREIGN KEY (`idpelicula`) REFERENCES `adminpeliculas` (`id`);
+  ADD CONSTRAINT `votospeliculas_idpelicula_foreign` FOREIGN KEY (`idpelicula`) REFERENCES `adminpeliculas` (`id`),
+  ADD CONSTRAINT `votospeliculas_idusuario_foreign` FOREIGN KEY (`idusuario`) REFERENCES `users` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -84,7 +84,21 @@ h1{
 .botonBorrar{
   text-align:right;
   padding-top:30px;
+}
+.alinearIzquierda{
+  text-align: left;
+}
+.alinearDerecha{
+  text-align:right;
+}
 
+.colorRojo{
+  color:#b90000;
+}
+.entradaCriticas{
+  box-shadow: 4px 4px 8px black;
+  padding:20px;
+  background-color: rgba(255,255,255,0.5);
 }
 .boton:hover{
   text-decoration: none;
@@ -144,7 +158,9 @@ h1{
 .negrita{
   font-weight: bold;
 }
-
+.cursiva{
+  font-style: italic;
+}
 .contendor{
   margin:0px;
   padding:0px;
@@ -180,11 +196,12 @@ li:hover{
   background-color:#D64937;
 }
 
+
 .fichaRes:hover{
   background:#FEFEFE;
   transition:.3s;
   box-shadow:0 0 8px #D0D0D0;
-  transform:scale(1.02);
+  transform:scale(1.09);
   /*box-sizing: border-box;
   background: #ccc;
   border: solid 1px #999;*/
@@ -216,20 +233,87 @@ li:hover{
 }
 .fotoTrailer{
   display: block;
-  width: 70%;
-  height: 300px;
+  width: 100%;
+  height: auto;
   box-shadow: 4px 1px 1px 1px #330000sy;
   border-radius: 20px;
   border:5px solid #330000;
   margin-top: 4%;
-
-
 }
 
 .marginLeft{
   margin-right: 34%;
     margin-top: 4%;
 }
+/* CSS PARA VOTOS*/
+.formVotos{
+
+    margin:0 auto;
+    padding:10px;
+    border: 1px solid black;
+
+  }
+.formVotos p, .formVotos input[type = "submit"]{
+  text-align:center;
+   font-size:20px;
+ }
+.formVotos input[type = "radio"]{
+   display:none;
+
+ }
+.formVotos label{
+   color:grey;
+   margin-top: 4%;
+ }
+.formVotos .clasificacion{
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  font-size:36px;
+ }
+.formVotos label:hover,.formVotos  label:hover ~ label{
+  color:#D64937;
+}
+.formVotos  input[type = "radio"]:checked ~ label{
+  color:orange;
+}
+.cuadradoRojo{
+  background-color:#D64937;
+  border: 1px solid black;
+  height: 50px;
+  width: 30%;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 10%;
+  vertical-align: middle;
+  padding-top: 5px;
+
+
+  }
+.padding10{
+  padding:10px;
+}
+.letraBlanca{
+  color:white;
+  text-align: center;
+}
+.cuadradoBlanco{
+  background-color: white;
+  border: 1px solid #D64937;
+  height: 50px;
+  width: 30%;
+  margin-left: 20%;
+  margin-top: 10px;
+  padding-top:5px;
+}
+.cuadroVotos{
+  background-color: #EEEEEE;
+}
+.noPadding{
+  padding:0px !important;
+}
+
+/* Fin*/
+
 .titulosPeliculas{
   color: #D64937;
 }
@@ -248,6 +332,10 @@ li:hover{
   margin:auto;
   border:solid 1px #D0D0D0;
 }
+a{
+  font-size:19px;
+}
+
 #fotoFicha img{
   display:block;
   width:160px;
@@ -271,6 +359,13 @@ li:hover{
   height: 250px;
 
 }
+.tituloPeli{
+  font-size: 40px;
+  color: #D64937;
+  font-style: italic;
+  font-weight: bold;
+  margin-right: 4%;
+}
 .clear-both{
   clear:both;
 }
@@ -285,6 +380,7 @@ li:hover{
   background-color: red;
 
 }
+
 @media(max-width: 600px){
   #logo{
     width: 90%;
@@ -306,5 +402,18 @@ li:hover{
   }
   .marginBottonFicha{
     margin:15px 5px;
+  }
+  .fotoTrailer{
+    width: 100%;
+    height: calc(200px / 0.647);
+  }
+  .cuadradoBordesRojo{
+    font-size:12px;
+
+  }
+  .cuadradoBlanco{
+    font-size:12px;
+    text-align: center;
+
   }
 }

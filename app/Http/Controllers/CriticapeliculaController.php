@@ -10,4 +10,5 @@ use moviexpert\Http\Controllers\Controller;
 class CriticapeliculaController extends Controller
 {
     //
+    
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class FrontendController extends Controller
@@ -19,7 +21,7 @@ class FrontendController extends Controller
     return view("frontend.index",compact('peliculas'));
   }
   public static function estrenos(){
-    $estreno=DB::select('select * from adminpeliculas where anio= :anio',['anio'=>2012]);
+    $estreno=DB::select('select * from adminpeliculas order by anio DESC,id DESC limit 8');
     return $estreno;
   }
   public function peliculas(){
@@ -29,15 +31,45 @@ class FrontendController extends Controller
   }
   public function ficha($id){
     $pelicula=\moviexpert\Adminpelicula::find($id);
-
+    $mediaVotos=\moviexpert\Votospeliculas::avgVotos($id);
+    $mediaVotos=number_format($mediaVotos,1);
+    $cuentaVotos=\moviexpert\Votospeliculas::countVotos($id);
     /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
      $generos=\moviexpert\Admingenero::lists('genero','id');
-     return view('frontend.ficha',compact('pelicula'))->with("generos",$generos);
-  }
+     return view('frontend.ficha',compact('pelicula'))->with("generos",$generos)->with("mediaVotos",$mediaVotos)->with('cuentaVotos',$cuentaVotos);
+   }
+   public function enviarVotos(Request $request){
+     if(!\moviexpert\Votospeliculas::checkVotos($request['idpelicula'],$request['idusuario'])){
+        DB::table('votospeliculas')->insert(['idpelicula'=>$request['idpelicula'],'idusuario'=>$request['idusuario'],'voto'=>$request['voto']]);
+      }else{
+        $voto=\moviexpert\Votospeliculas::findByPeliAndUser($request['idpelicula'],$request['idusuario']);
+        DB::table('votospeliculas')->where('id',$voto[0]['id'])->update(['voto'=>$request['voto']]);
+      }
+      return redirect("/ficha/".$request['idpelicula']);
+    }
+
+
   public function criticas($id){
     $peliculas=\moviexpert\Adminpelicula::find($id);
-    return view("frontend.criticas",compact('peliculas'));
+    $criticas=\moviexpert\Criticapeliculas::findByPeli($id);
+    $usuarios=\moviexpert\User::lists('nombre','id');
+    return view("frontend.criticas",compact('peliculas'))->with("criticas",$criticas)->with("usuarios",$usuarios);
   }
+  public function procesarCriticas(Request $request){
+    \moviexpert\CriticaPeliculas::create([
+    'idpelicula'=> $request['idpelicula'],
+    'idusuario'=> $request['idusuario'],
+    'critica'=> $request['critica'],
+    'fechavoto'=> date('Y-m-d H:i:s')]);
+    return redirect("/criticas/".$request['idpelicula']);
+  }
+  public function eliminarCritica($idc,$idp,$idu){
+    if(Auth::user()->tipousuario=="admin" || Auth::user()->id==$idu){
+      \moviexpert\CriticaPeliculas::destroy($idc);
+    }
+    return redirect("/criticas/".$idp);
+}
+
   public function trailer($id){
     $pelicula=\moviexpert\Adminpelicula::find($id);
     return view('frontend.trailer',compact('pelicula'));
