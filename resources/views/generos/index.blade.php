@@ -16,7 +16,7 @@
           <th class="text-center textoBlanco">Género</th>
           <th class="text-center textoBlanco">Acciones</th>
         </thead>
-        @foreach($generos as $generos)
+        @foreach($genero as $generos)
         <tbody>
         <td>{{$generos->id}}</td>
         <td>{{$generos->genero}}</td>
@@ -27,7 +27,7 @@
           {!!Form::close()!!}
         </td>
         </tbody>
-				
+
         @endforeach
 				<tfoot>
 		      <tr>
@@ -37,5 +37,7 @@
 		    </tfoot>
         </table>
         </div>
+
+				 {{!! $genero->render() !!}}
 
         @endsection

@@ -26,7 +26,7 @@
 				<th class="text-center textoBlanco">Género</th>
         <th class="text-center textoBlanco">Acciones</th>
       </thead>
-			@foreach($peliculas as $peliculas)
+			@foreach($pelicula as $peliculas)
       <tbody>
         <td>{{$peliculas->id}}</td>
         <td>{{$peliculas->titulo}}</td>
@@ -57,5 +57,6 @@
 	    </tfoot>
 	    </table>
 	    </div>
-			 
+			{{!! $pelicula->render() !!}}
+
 	    @endsection
