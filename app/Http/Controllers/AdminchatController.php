@@ -5,15 +5,15 @@ namespace moviexpert\Http\Controllers;
 use Illuminate\Http\Request;
 
 use moviexpert\Http\Requests;
-
+use DB;
 class AdminchatController extends Controller
 {
     //
     public function index(){
       /*Creamos una variable para almacenar todos los datos de la base de datos*/
-         $chats=\moviexpert\Adminchat::All();
+         $chat=DB::table('adminchats')->paginate(4);
          /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
-          return view('chats.index',compact('chats'));
+          return view('chats.index',compact('chat'));
     }
     public function create(){
       /*Retornanmos a la vista create*/
