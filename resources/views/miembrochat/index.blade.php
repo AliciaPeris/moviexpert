@@ -2,8 +2,6 @@
 @extends('layouts.frontend')
 	@section('content')
 	@include('chat.menuchat')
-</div>
-<h3 class="textoMarron text-center margintopbottom25">Grupos de chat a los que perteneces </h3>
   @foreach($chats as $chat)
 <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-1 cuadrado blanco">
 	<h1 class="col-xs-12 text-center">{{$chat->nombre}}</h1>
