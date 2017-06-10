@@ -10,7 +10,7 @@
         {!!Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Nombre del Chat'])!!}
       </div>
       <div class="input-group input-group-lg margintop10">
-        <span class="input-group-addon glyphicon glyphicon-book"></span>
+        <span class="input-group-addon"><i class="fa fa-newspaper-o" aria-hidden="true"></i></span>
         {!!Form::textarea('descripcion',null,['class'=>'form-control','placeholder'=>'Descripción del Chat'])!!}
       </div>
       <div class="input-group input-group-lg margintop10 col-xs-12 col-sm-4 col-sm-offset-4">

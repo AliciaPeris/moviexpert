@@ -12,7 +12,7 @@
         {!!Form::number('idusuario',null,['class'=>'form-control','placeholder'=>'ID Usuario'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
-        <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+        <span class="input-group-addon glyphicon glyphicon-user"></span>
         {!!Form::text('otrosparticipantes',null,['class'=>'form-control','placeholder'=>'Otros Participantes'])!!}
       </div>
       <div class="input-group input-group-lg margin10">

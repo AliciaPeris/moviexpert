@@ -38,8 +38,8 @@
           {!!Form::text('foto',$user->foto,['class'=>'novisible','placeholder'=>'','readonly'])!!}
       </div>
       <div class="form-group margin10">
-        <span class="glyphicon glyphicon-new-window"> Hombre&nbsp</span>{!!Form::radio('genero', 'Hombre', true)!!}
-        <span class="glyphicon glyphicon-rub"> Mujer&nbsp </span>{!!Form::radio('genero', 'Mujer')!!}
+        <span class="fa fa-male"> Hombre&nbsp</span>{!!Form::radio('genero', 'Hombre', true)!!}
+        <span class="fa fa-female"> Mujer&nbsp </span>{!!Form::radio('genero', 'Mujer')!!}
       </div>
 			<div class="form-group margin10">
 				{!!Form::text('tipousuario', 'normal', ['class'=>'novisible','placeholder'=>'','readonly'])!!}

@@ -27,7 +27,7 @@
                   <div class="form-group">
                     <input type="text" class="form-control" placeholder="Texto a buscar">
                   </div>
-                  <button type="submit" class="btn fondoMenu">Buscar</button>
+                  <button type="submit" class="btn fondoMenu glyphicon glyphicon-search"></button>
                   </form>
               </div>
               <div class="hidden-sm hidden-md hidden-lg col-xs-1 col-xs-offset-1 margintop25 ">
@@ -56,8 +56,8 @@
                           </a>
                             <?php $user=Auth::user()->id;?>
                           <ul class="dropdown-menu" role="menu">
-                              <li><a href="{{ url('/perfilusuario') }}"><i class="fa fa-btn fa-sign-out"></i>Editar Perfil</a></li>
-                              <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar Sesión</a></li>
+                              <li><a href="{{ url('/perfilusuario') }}"><i class="fa fa-pencil" aria-hidden="true"> </i>Editar Perfil</a></li>
+                              <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"> </i>Cerrar Sesión</a></li>
                           </ul>
                       </li>
                   @endif
