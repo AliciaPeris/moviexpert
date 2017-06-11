@@ -11,12 +11,14 @@ use Session;
 use Redirect;
 use Illuminate\Routing\Route;
 use moviexpert\User;
+use DB;
 class UserController extends Controller
 {
     //
     public function index(){
       /*Creamos una variable para almacenar todos los datos de la base de datos*/
-         $users=\moviexpert\User::All();
+         $users=DB::table('users')->paginate(2);
+
          /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
           return view('user.index',compact('users'));
     }

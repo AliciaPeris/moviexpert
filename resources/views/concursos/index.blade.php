@@ -8,7 +8,7 @@
 	  <strong>Concurso Registrado</strong>
 	</div>
 	@endif
-  <div class="container-fluid blanco">
+  <div class="container-fluid cuadrado">
   <h1 class="text-center">Concursos</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
@@ -20,7 +20,7 @@
           <th class="text-center textoBlanco">Fecha fin Concurso</th>
 					<th class="text-center textoBlanco">Acciones</th>
         </thead>
-        @foreach($concursos as $concursos)
+        @foreach($concurso as $concursos)
         <tbody>
         <td>{{$concursos->id}}</td>
         <td>{{$concursos->nombre}}</td>
@@ -44,4 +44,5 @@
     </tfoot>
     </table>
     </div>
+		{{!! $concurso->render() !!}}
     @endsection
