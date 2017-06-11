@@ -50,4 +50,5 @@ Route::post('concursos/participanconcurso/{id}/altaparticipacion','FrontendContr
 
 Route::auth();
 
+
 Route::get('/home', 'HomeController@index');
