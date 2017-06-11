@@ -13,6 +13,13 @@
 
 
 <form method="POST" action="/pcritica" class="col-xs-12">
+	<?php $message=Session::get('message')?>
+	@if($message=='store')
+	<div class="alert alert-danger alert-dismissible" role="alert">
+    <strong>Tienes que iniciar sesión o registrarte para poder hacer una crítica</strong>
+  </div>
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	@endif
 {!! Form::hidden('idpelicula',$peliculas->id) !!}
 {!! Form::hidden('idusuario',Auth::user()->id) !!}
 {{ csrf_field() }}
@@ -38,6 +45,7 @@
   				</div>
   			@endforeach
       </div>
+			{!! $criticas->render() !!}
 </div>
 
   @endsection
