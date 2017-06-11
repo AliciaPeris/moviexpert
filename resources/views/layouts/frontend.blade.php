@@ -57,6 +57,7 @@
                             <?php $user=Auth::user()->id;?>
                           <ul class="dropdown-menu" role="menu">
                               <li><a href="{{ url('/perfilusuario') }}"><i class="fa fa-pencil" aria-hidden="true"> </i>Editar Perfil</a></li>
+                              <li><a href="{{ url('/misCriticas/') }}"><i class="fa fa-film" aria-hidden="true"> </i> Mis críticas </a></li>
                               <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"> </i>Cerrar Sesión</a></li>
                           </ul>
                       </li>

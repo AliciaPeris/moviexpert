@@ -23,10 +23,8 @@ body{
 /* Pagination */
 .pagination > li > a,
 .pagination > li > span {
-  position: relative;
-  float: left;
   padding: 6px 12px;
-  margin-left: -1px;
+  margin: auto;
   line-height: 1.42857143;
   color: black;
   text-decoration: none;
@@ -491,4 +489,5 @@ a{
   .fichaRes3Content .sinopsis{
     display: none;
   }
+
 }

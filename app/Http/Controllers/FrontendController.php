@@ -55,12 +55,15 @@ class FrontendController extends Controller
 
   public function criticas($id){
     $peliculas=\moviexpert\Adminpelicula::find($id);
-    /*$criticas=\moviexpert\Criticapeliculas::findByPeli($id);*/
-    $criticas=DB::table('criticaPeliculas')->paginate(6);
+    $criticas=DB::table('criticaPeliculas')->where('idpelicula', '=', $id)->orderBy('id','DESC')->paginate(10);
     $usuarios=\moviexpert\User::lists('nombre','id');
     return view("frontend.criticas",compact('peliculas'))->with("criticas",$criticas)->with("usuarios",$usuarios);
   }
-
+  public function misCriticas(){
+    $criticas=DB::table('criticaPeliculas')->where('idusuario', '=', Auth::user()->id)->orderBy('id','DESC')->paginate(10);
+    $peliculas=\moviexpert\Adminpelicula::lists('titulo','id');
+    return view("frontend.misCriticas",compact('criticas'))->with('peliculas',$peliculas);
+  }
   public function procesarCriticas(Request $request){
     \moviexpert\CriticaPeliculas::create([
     'idpelicula'=> $request['idpelicula'],

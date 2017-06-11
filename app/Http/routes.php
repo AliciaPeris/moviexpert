@@ -28,6 +28,7 @@ Route::get('trailer/{id}','FrontendController@trailer');
 Route::get('ficha/{id}','FrontendController@ficha');
 Route::post('enviarVotos','FrontendController@enviarVotos');
 Route::get('criticas/{id}','FrontendController@criticas');
+Route::resource('misCriticas','FrontendController@misCriticas');
 Route::post('pcritica','FrontendController@procesarCriticas');
 Route::get('eliminarCritica/{idc}/{idp}/{idu}','FrontendController@eliminarCritica');
 
