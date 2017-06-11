@@ -16,7 +16,7 @@
 	      </div>
 	      <div class="col-xs-12 col-md-8">
 	  	        <div class="marginBotton  tituloPeli negrita "><span class="titulosPeliculas negrita"> </span>  {{$pelicula->titulo}}</div>
-							<iframe id="trailer" src="https://www.youtube.com/embed/{{$pelicula->trailer}}" frameborder="0" allowfullscreen></iframe>
+							<iframe id="trailer"  src="https://www.youtube.com/embed/{{$pelicula->trailer}}" frameborder="0" allowfullscreen></iframe>
 
 	      </div>
   		</div>

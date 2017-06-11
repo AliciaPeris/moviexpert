@@ -16,13 +16,13 @@
 					<div id="cantidad" class="col-xs-12 text-center cuadradoBlanco colorRojo negrita">{{$cuentaVotos}} votos </div>
 				</div>
 				<form action="/enviarVotos" method="post" class="formVotos">
-					<?php $message=Session::get('message')?>
+					<?php /*$message=Session::get('message')?>
 					@if($message=='store')
 					<div class="alert alert-danger alert-dismissible" role="alert">
 				    <strong>Tienes que iniciar sesión o registrarte para poder votar</strong>
 				  </div>
 					  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					@endif
+					@endif*/?>
 					{{ csrf_field() }}
 					{!! Form::hidden('idpelicula',$pelicula->id) !!}
 					{!! Form::hidden('idusuario',Auth::user()->id) !!}

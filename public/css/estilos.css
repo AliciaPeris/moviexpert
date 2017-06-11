@@ -21,14 +21,15 @@ body{
   margin:10px;
 }
 /* Pagination */
+
+
 .pagination > li > a,
 .pagination > li > span {
-  padding: 6px 12px;
   margin: auto;
   line-height: 1.42857143;
   color: black;
   text-decoration: none;
-  background-color: azure;
+  background-color:white;
   border: 2px solid black;
   border-color: #FE0000;
 }
@@ -410,8 +411,8 @@ a{
 }
 #trailer{
   width: 100%;
-  border:3px solid;
-  height: 250px;
+  border:4px solid;
+  height:320px;
 
 }
 .tituloPeli{
@@ -428,13 +429,7 @@ a{
   background-color: gray;
 
 }
-.trailer{
-  width: 90px;
-  height: calc(90px / 0.674);
-  margin: 5px;
-  background-color: red;
 
-}
 @media(max-width:720px){
   .fichaRes2{
      width: 100%;
