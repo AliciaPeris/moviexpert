@@ -36,8 +36,9 @@
 		      </tr>
 		    </tfoot>
         </table>
+				{!! $genero->render() !!}
         </div>
 
-				 {!! $genero->render() !!}
+
 
         @endsection
