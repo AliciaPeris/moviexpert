@@ -16,7 +16,7 @@ class AdminconcursoController extends Controller
     //
     public function index(){
       /*Creamos una variable para almacenar todos los datos de la base de datos*/
-         $concurso=DB::table('adminconcursos')->paginate(3);
+         $concurso=DB::table('adminconcursos')->paginate(1);
          /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
           return view('concursos.index',compact('concurso'));
     }

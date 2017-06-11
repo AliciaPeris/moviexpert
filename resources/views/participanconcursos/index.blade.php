@@ -7,7 +7,7 @@
 	  <strong>Concurso Registrado</strong>
 	</div>
 	@endif
-  <div class="container-fluid blanco">
+  <div class="container-fluid cuadrado">
   <h1 class="text-center">Incripcion a Concursos</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
@@ -43,4 +43,5 @@
     </tfoot>
     </table>
     </div>
+		{!! $participanconcurso->render() !!}
     @endsection

@@ -44,5 +44,5 @@
     </tfoot>
     </table>
     </div>
-		{{!! $concurso->render() !!}}
+		{!! $concurso->render() !!}
     @endsection

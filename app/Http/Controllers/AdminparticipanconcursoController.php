@@ -8,12 +8,13 @@ use Redirect;
 use Illuminate\Routing\Route;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
+use DB;
 
 class AdminparticipanconcursoController extends Controller
 {
   public function index(){
     /*Creamos una variable para almacenar todos los datos de la base de datos*/
-       $participanconcurso=\moviexpert\participanconcurso::All();
+       $participanconcurso=DB::table('participanconcursos')->paginate(1);
        /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
         return view('participanconcursos.index',compact('participanconcurso'));
   }

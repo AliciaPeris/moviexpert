@@ -38,6 +38,6 @@
         </table>
         </div>
 
-				 {{!! $genero->render() !!}}
+				 {!! $genero->render() !!}
 
         @endsection

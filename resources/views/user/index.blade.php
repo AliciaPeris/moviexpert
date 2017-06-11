@@ -51,5 +51,5 @@
 			</tfoot>
     </table>
 	</div>
-	{{!! $users->render() !!}}
+	{!! $users->render() !!}
   @endsection

@@ -57,6 +57,6 @@
 	    </tfoot>
 	    </table>
 	    </div>
-			{{!! $pelicula->render() !!}}
+			{!! $pelicula->render() !!}
 
 	    @endsection
