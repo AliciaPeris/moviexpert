@@ -105,6 +105,14 @@ class FrontendController extends Controller
     $chats=\moviexpert\Adminchat::All();
     return view("frontend.chat",compact('chats'));
   }
+  public function buscar(Request $request){
+    $buscar=$request['buscar'];
+    $peliculasT=DB::select("SELECT * FROM adminpeliculas WHERE titulo like '".$buscar."%' order by titulo;");
+    $peliculasA=DB::select("SELECT * FROM adminpeliculas WHERE anio like '%".$buscar."%'order by anio;");
+    $peliculasD=DB::select("SELECT * FROM adminpeliculas WHERE director like '%".$buscar."%'order by director;");
+    $peliculasR=DB::select("SELECT * FROM adminpeliculas WHERE reparto like '%".$buscar."%'order by reparto;");
+    return view("frontend.buscar",compact('peliculasT'))->with('peliculasA',$peliculasA)->with('peliculasD',$peliculasD)->with('peliculasR',$peliculasR)->with('buscar',$buscar);
 
+  }
 
 }

@@ -31,6 +31,7 @@ Route::get('criticas/{id}','FrontendController@criticas');
 Route::resource('misCriticas','FrontendController@misCriticas');
 Route::post('pcritica','FrontendController@procesarCriticas');
 Route::get('eliminarCritica/{idc}/{idp}/{idu}','FrontendController@eliminarCritica');
+Route::post('buscar','FrontendController@buscar');
 
 
 Route::get('concursos','FrontendController@concursos');
@@ -48,6 +49,8 @@ Route::get('perfilusuario/destroy','PerfilusuarioController@destroy');
 Route::get('miembrochat/participanchat/{id}', "MiembrochatController@participanchat");
 Route::get('concursos/participanconcurso/{id}','FrontendController@participanconcurso');
 Route::post('concursos/participanconcurso/{id}/altaparticipacion','FrontendController@altaparticipacion');
+
+
 
 Route::auth();
 
