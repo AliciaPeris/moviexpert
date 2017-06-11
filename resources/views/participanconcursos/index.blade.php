@@ -42,6 +42,7 @@
       </tr>
     </tfoot>
     </table>
-    </div>
 		{!! $participanconcurso->render() !!}
+    </div>
+
     @endsection

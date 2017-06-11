@@ -11,7 +11,7 @@ class AdminchatController extends Controller
     //
     public function index(){
       /*Creamos una variable para almacenar todos los datos de la base de datos*/
-         $chat=DB::table('adminchats')->paginate(4);
+         $chat=DB::table('adminchats')->paginate(3);
          /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
           return view('chats.index',compact('chat'));
     }

@@ -56,7 +56,8 @@
 	      </tr>
 	    </tfoot>
 	    </table>
-	    </div>
 			{!! $pelicula->render() !!}
+	    </div>
+
 
 	    @endsection

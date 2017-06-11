@@ -47,6 +47,7 @@
       </tr>
     </tfoot>
     </table>
+		{!! $chat->render() !!}
     </div>
-		{{!! $chat->render() !!}}
+
     @endsection

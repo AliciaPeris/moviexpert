@@ -50,6 +50,7 @@
 				</tr>
 			</tfoot>
     </table>
+		{!! $users->render() !!}
 	</div>
-	{!! $users->render() !!}
+
   @endsection
