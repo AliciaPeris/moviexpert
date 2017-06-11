@@ -24,7 +24,7 @@
                   <div class="form-group">
                     <input type="text" class="form-control" placeholder="Texto a buscar">
                   </div>
-                  <button type="submit" class="btn fondoMenu">Buscar</button>
+                    <button type="submit" class="btn fondoMenu letraBlanca glyphicon glyphicon-search"></button>
                   </form>
               </div>
               <div class="hidden-sm hidden-md hidden-lg col-xs-1 col-xs-offset-1 margintop25 ">
