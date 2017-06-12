@@ -19,6 +19,7 @@ Route::resource('adminconcurso','AdminconcursoController');
 Route::resource('adminchat','AdminchatController');
 Route::resource('adminusuarios','UserController');
 Route::resource('adminparticipanconcurso','AdminparticipanconcursoController');
+Route::post('buscarusuarios','UserController@buscarUsuarios');
 
 /*Rutas Frontend*/
 Route::resource('/','FrontendController');
@@ -32,6 +33,7 @@ Route::resource('misCriticas','FrontendController@misCriticas');
 Route::post('pcritica','FrontendController@procesarCriticas');
 Route::get('eliminarCritica/{idc}/{idp}/{idu}','FrontendController@eliminarCritica');
 Route::post('buscar','FrontendController@buscar');
+
 
 
 Route::get('concursos','FrontendController@concursos');
