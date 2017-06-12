@@ -82,6 +82,36 @@ margin-top:10px;
 .textoMarron{
   color: #330000;
 }
+.fondoRojoTransparente{
+  background-color:rgba(214, 73, 55,0.9)
+}
+.heigth100{
+  height: 100%;
+
+}
+.estreno{
+  border:2px solid white;
+  /*box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.6);*/
+  outline: 2px solid black;
+}
+.estreno:hover{
+  border-color:#d64937;
+}
+.contentT{
+display:table;
+}
+.rowT {
+height:100%;
+display: table-row;
+}
+.paddingTop40{
+  padding-top: 40px;
+}
+.rowT .noFloat{
+  float:none;
+  display: table-cell;
+
+}
 #trailer{
   background-color: grey;
 }
@@ -415,8 +445,8 @@ a{
   height:320px;
 }
 .trailer{
-  width: 90px;
-  height: calc(90px / 0.674);
+  width: 100px;
+  height: calc(100px / 0.674);
   margin: 5px;
   background-color: red;
 
@@ -453,9 +483,7 @@ a{
     width: 100%;
 
   }
-  .heigth100{
-    height: 75px;
-  }
+  
   .fotoPelicula{
     float:none;
     margin: auto;
@@ -489,6 +517,9 @@ a{
   }
   .fichaRes3Content .sinopsis{
     display: none;
+  }
+  .contentT, .rowT, .rowT .noFloat{
+    display: inline-block;
   }
 
 }
