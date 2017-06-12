@@ -20,6 +20,7 @@ Route::resource('adminchat','AdminchatController');
 Route::resource('adminusuarios','UserController');
 Route::resource('adminparticipanconcurso','AdminparticipanconcursoController');
 Route::resource('adminvotosconcurso','AdminvotosconcursoController');
+Route::resource('adminparticipanchat','AdminparticipanteschatController');
 Route::post('buscarusuarios','UserController@buscarUsuarios');
 
 
