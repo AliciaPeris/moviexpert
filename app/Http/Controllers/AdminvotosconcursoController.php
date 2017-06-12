@@ -7,6 +7,7 @@ use Session;
 use Redirect;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
+use moviexpert\Http\Requests\VotosConcursoRequest;
 
 class AdminvotosconcursoController extends Controller
 {
@@ -23,7 +24,7 @@ class AdminvotosconcursoController extends Controller
         return view('votosconcursos.create')->with("usuarios",$usuarios)->with("cortos",$cortos);
   }
 
-  public function store(Request $request){
+  public function store(VotosConcursoRequest $request){
     \moviexpert\votosconcurso::create([
      /*Nombre campo base datos => nombre del campo del formulario*/
      'idcortoconcurso'=> $request['idcortoconcurso'],
@@ -43,7 +44,7 @@ class AdminvotosconcursoController extends Controller
     $cortos=\moviexpert\participanconcurso::lists('titulo','id');
     return view('votosconcursos.edit',['votosconcurso'=>$votosconcurso])->with("usuarios",$usuarios)->with("cortos",$cortos);
   }
-  public function update(Request $request,$id){
+  public function update(VotosConcursoRequest $request,$id){
     $concursos = \moviexpert\votosconcurso::find($id);
     $concursos->fill($request->all());
     $concursos->save();

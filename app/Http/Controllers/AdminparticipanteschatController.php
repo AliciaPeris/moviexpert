@@ -9,6 +9,7 @@ use Illuminate\Routing\Route;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 use DB;
+use moviexpert\Http\Requests\ParticipanChatRequest;
 
 class AdminparticipanteschatController extends Controller
 {
@@ -23,7 +24,7 @@ class AdminparticipanteschatController extends Controller
         return view('participanchat.create');
   }
 
-  public function store(Request $request){
+  public function store(ParticipanChatRequest $request){
     \moviexpert\miembrochat::create([
      /*Nombre campo base datos => nombre del campo del formulario*/
      'idchat'=> $request['idchat'],
@@ -40,7 +41,7 @@ class AdminparticipanteschatController extends Controller
     $participanchat = \moviexpert\miembrochat::find($id);
     return view('participanchat.edit',['participanchat'=>$participanchat]);
   }
-  public function update(Request $request,$id){
+  public function update(ParticipanChatRequest $request,$id){
     $participanchat = \moviexpert\miembrochat::find($id);
     $participanchat->fill($request->all());
     $participanchat->save();

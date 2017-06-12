@@ -44,10 +44,15 @@ class AdminchatController extends Controller
 
     }
     public function edit($id){
-
+      $chat = \moviexpert\Adminchat::find($id);
+      return view('chats.edit',['chat'=>$chat]);
     }
-    public function update($id){
-
+    public function update(ChatUpdateRequest $request,$id){
+      $chat = \moviexpert\Adminchat::find($id);
+      $chat->fill($request->all());
+      $chat->save();
+      Session::flash('message','Grupo Chat Actualizada Correctamente');
+      return Redirect::to('/adminchat');
     }
     public function destroy($id){
       \moviexpert\Adminchat::destroy($id);

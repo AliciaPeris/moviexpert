@@ -48,7 +48,14 @@
                     </ul>
                 </li>
 
-                <li class=""><a class="textoMenu" href="/adminchat">Chats</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle btn textoMenu" data-toggle="dropdown" role="button" aria-expanded="false">Chats<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/adminchat') }}"><i class=""></i>Lista Chat</a></li>
+                        <li><a href="{{ url('/adminparticipanchat') }}"><i class=""></i>Miembros Chat</a></li>
+                        <li><a href="{{ url('/adminmensajechat') }}"><i class=""></i>Mensajes Chat</a></li>
+                    </ul>
+                </li>
                 <li class=""><a class="textoMenu" href="/adminusuarios">Usuarios</a></li>
                 <li class=""><a class="textoMenu" href="/">Frontend</a></li>
               </ul>

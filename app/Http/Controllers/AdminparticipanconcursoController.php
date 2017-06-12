@@ -9,6 +9,7 @@ use Illuminate\Routing\Route;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 use DB;
+use moviexpert\Http\Requests\ParticipanConcursoRequest;
 
 class AdminparticipanconcursoController extends Controller
 {
@@ -23,7 +24,7 @@ class AdminparticipanconcursoController extends Controller
         return view('participanconcursos.create');
   }
 
-  public function store(Request $request){
+  public function store(ParticipanConcursoRequest $request){
     \moviexpert\participanconcurso::create([
      /*Nombre campo base datos => nombre del campo del formulario*/
      'idconcurso'=> $request['idconcurso'],
@@ -43,7 +44,7 @@ class AdminparticipanconcursoController extends Controller
     $participanconcurso = \moviexpert\participanconcurso::find($id);
     return view('participanconcursos.edit',['participanconcurso'=>$participanconcurso]);
   }
-  public function update(Request $request,$id){
+  public function update(ParticipanConcursoRequest $request,$id){
     $concursos = \moviexpert\participanconcurso::find($id);
     $concursos->fill($request->all());
     $concursos->save();

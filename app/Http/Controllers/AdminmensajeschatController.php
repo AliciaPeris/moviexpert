@@ -8,6 +8,7 @@ use Redirect;
 use DB;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
+use moviexpert\Http\Requests\MensajeChatRequest;
 
 class AdminmensajeschatController extends Controller
 {
@@ -22,7 +23,7 @@ public function create(){
       return view('adminmensajechat.create');
 }
 
-public function store(Request $request){
+public function store(MensajeChatRequest $request){
   \moviexpert\mensajechat::create([
    /*Nombre campo base datos => nombre del campo del formulario*/
    'idmiembro'=> $request['idmiembro'],
@@ -38,7 +39,7 @@ public function edit($id){
   $mensajechat = \moviexpert\mensajechat::find($id);
   return view('adminmensajechat.edit',['mensajechat'=>$mensajechat]);
 }
-public function update(Request $request,$id){
+public function update(MensajeChatRequest $request,$id){
   $mensajechat = \moviexpert\mensajechat::find($id);
   $mensajechat->fill($request->all());
   $mensajechat->save();

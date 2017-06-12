@@ -42,7 +42,7 @@
     @endforeach
     <tfoot>
       <tr>
-        <td colspan="8">
+        <td colspan="9">
           {!!link_to_route('adminchat.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
       </tr>
     </tfoot>
