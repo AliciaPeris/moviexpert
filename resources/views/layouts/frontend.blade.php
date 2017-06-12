@@ -7,7 +7,7 @@
     <title>MoviExpert</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
-
+    <link rel=icon href="/imagenes/favicon.svg" sizes="any" type="image/svg+xml">
     <!-- Styles -->
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
     {!!Html::style('css/bootstrap.min.css')!!}
@@ -23,12 +23,13 @@
                 <a class="navbar-brand" href="/"><img class="width100" src="/imagenes/logo.png"></img></a>
               </div>
               <div class="margintop25 hidden-xs col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
-                <form class="navbar-form">
+                <form class="navbar-form" action="/buscar" method="POST">
+                  {{ csrf_field() }}
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Texto a buscar">
+                    <input name="buscar" type="text" class="form-control" placeholder="Buscar por película">
                   </div>
-                  <button type="submit" class="btn fondoMenu glyphicon glyphicon-search"></button>
-                  </form>
+                  <button type="submit" class="btn fondoMenu letraBlanca glyphicon glyphicon-search"></button>
+                </form>
               </div>
               <div class="hidden-sm hidden-md hidden-lg col-xs-1 col-xs-offset-1 margintop25 ">
               <button id="btnmenuadmin" class="textoMenu glyphicon glyphicon-menu-hamburger fondoCabecera"></button>
@@ -57,6 +58,7 @@
                             <?php $user=Auth::user()->id;?>
                           <ul class="dropdown-menu" role="menu">
                               <li><a href="{{ url('/perfilusuario') }}"><i class="fa fa-pencil" aria-hidden="true"> </i>Editar Perfil</a></li>
+                              <li><a href="{{ url('/misCriticas/') }}"><i class="fa fa-film" aria-hidden="true"> </i> Mis críticas </a></li>
                               <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"> </i>Cerrar Sesión</a></li>
                           </ul>
                       </li>

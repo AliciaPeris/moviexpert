@@ -10,7 +10,7 @@ use Redirect;
 use Illuminate\Routing\Route;
 use moviexpert\Adminpelicula;
 use moviexpert\Admingenero;
-
+use DB;
 
 
 
@@ -19,10 +19,10 @@ class AdminpeliculaController extends Controller
     public function index(){
       /*Creamos una variable para almacenar todos los datos de la base de datos*/
 
-        $peliculas=\moviexpert\Adminpelicula::All();
+        $pelicula=DB::table('adminpeliculas')->paginate(6);
          /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
          $generos=\moviexpert\Admingenero::lists('genero','id');
-         return view('peliculas.index',compact('peliculas'))->with("generos",$generos);
+         return view('peliculas.index',compact('pelicula'))->with("generos",$generos);
 
 
        }

@@ -9,7 +9,7 @@
 	  <strong>Película Registrada</strong>
 	</div>
 	@endif
-<div class="container-fluid blanco">
+<div class="container-fluid cuadrado">
 <h1 class="text-center">Listado Peliculas</h1><br>
 	<table class="table table-hover text-center table-bordered">
 		<thead class="fondoMenu">
@@ -26,7 +26,7 @@
 				<th class="text-center textoBlanco">Género</th>
         <th class="text-center textoBlanco">Acciones</th>
       </thead>
-			@foreach($peliculas as $peliculas)
+			@foreach($pelicula as $peliculas)
       <tbody>
         <td>{{$peliculas->id}}</td>
         <td>{{$peliculas->titulo}}</td>
@@ -56,6 +56,8 @@
 	      </tr>
 	    </tfoot>
 	    </table>
+			{!! $pelicula->render() !!}
 	    </div>
-			 
+
+
 	    @endsection

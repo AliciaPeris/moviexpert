@@ -8,7 +8,7 @@
 	  <strong>Género Registrado</strong>
 	</div>
 	@endif
-  <div class="container-fluid blanco">
+  <div class="container-fluid cuadrado">
   <h1 class="text-center">Géneros</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
@@ -16,7 +16,7 @@
           <th class="text-center textoBlanco">Género</th>
           <th class="text-center textoBlanco">Acciones</th>
         </thead>
-        @foreach($generos as $generos)
+        @foreach($genero as $generos)
         <tbody>
         <td>{{$generos->id}}</td>
         <td>{{$generos->genero}}</td>
@@ -27,6 +27,7 @@
           {!!Form::close()!!}
         </td>
         </tbody>
+
         @endforeach
 				<tfoot>
 		      <tr>
@@ -35,6 +36,9 @@
 		      </tr>
 		    </tfoot>
         </table>
+				{!! $genero->render() !!}
         </div>
-			
+
+
+
         @endsection

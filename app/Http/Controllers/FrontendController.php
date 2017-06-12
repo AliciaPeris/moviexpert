@@ -17,16 +17,17 @@ class FrontendController extends Controller
       $this->middleware('auth');
   }
   public function index(){
-    $peliculas=\moviexpert\Adminpelicula::All();
+    $peliculas=DB::select('select * from adminpeliculas where anio="'.date('Y').'" order by anio DESC,id DESC');
     return view("frontend.index",compact('peliculas'));
   }
   public static function estrenos(){
-    $estreno=DB::select('select * from adminpeliculas order by anio DESC,id DESC limit 8');
+    $estreno=DB::select('select * from adminpeliculas where anio>"'.date('Y').'" order by anio DESC,id DESC limit 8');
     return $estreno;
   }
   public function peliculas(){
-    $peliculas=\moviexpert\Adminpelicula::All();
+    $peliculas=\moviexpert\Votospeliculas::mediaPeliculas();
     return view("frontend.peliculas",compact('peliculas'));
+
 
   }
   public function ficha($id){
@@ -34,9 +35,12 @@ class FrontendController extends Controller
     $mediaVotos=\moviexpert\Votospeliculas::avgVotos($id);
     $mediaVotos=number_format($mediaVotos,1);
     $cuentaVotos=\moviexpert\Votospeliculas::countVotos($id);
-    /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
-     $generos=\moviexpert\Admingenero::lists('genero','id');
+    $generos=\moviexpert\Admingenero::lists('genero','id');
      return view('frontend.ficha',compact('pelicula'))->with("generos",$generos)->with("mediaVotos",$mediaVotos)->with('cuentaVotos',$cuentaVotos);
+   }
+   public function top10(){
+     $peliculas=\moviexpert\Votospeliculas::top10();
+     return view("frontend.valoracion",compact('peliculas'));
    }
    public function enviarVotos(Request $request){
      if(!\moviexpert\Votospeliculas::checkVotos($request['idpelicula'],$request['idusuario'])){
@@ -51,9 +55,14 @@ class FrontendController extends Controller
 
   public function criticas($id){
     $peliculas=\moviexpert\Adminpelicula::find($id);
-    $criticas=\moviexpert\Criticapeliculas::findByPeli($id);
+    $criticas=DB::table('criticaPeliculas')->where('idpelicula', '=', $id)->orderBy('id','DESC')->paginate(10);
     $usuarios=\moviexpert\User::lists('nombre','id');
     return view("frontend.criticas",compact('peliculas'))->with("criticas",$criticas)->with("usuarios",$usuarios);
+  }
+  public function misCriticas(){
+    $criticas=DB::table('criticaPeliculas')->where('idusuario', '=', Auth::user()->id)->orderBy('id','DESC')->paginate(10);
+    $peliculas=\moviexpert\Adminpelicula::lists('titulo','id');
+    return view("frontend.misCriticas",compact('criticas'))->with('peliculas',$peliculas);
   }
   public function procesarCriticas(Request $request){
     \moviexpert\CriticaPeliculas::create([
@@ -96,6 +105,14 @@ class FrontendController extends Controller
     $chats=\moviexpert\Adminchat::All();
     return view("frontend.chat",compact('chats'));
   }
+  public function buscar(Request $request){
+    $buscar=$request['buscar'];
+    $peliculasT=DB::select("SELECT * FROM adminpeliculas WHERE titulo like '".$buscar."%' order by titulo;");
+    $peliculasA=DB::select("SELECT * FROM adminpeliculas WHERE anio like '%".$buscar."%'order by anio;");
+    $peliculasD=DB::select("SELECT * FROM adminpeliculas WHERE director like '%".$buscar."%'order by director;");
+    $peliculasR=DB::select("SELECT * FROM adminpeliculas WHERE reparto like '%".$buscar."%'order by reparto;");
+    return view("frontend.buscar",compact('peliculasT'))->with('peliculasA',$peliculasA)->with('peliculasD',$peliculasD)->with('peliculasR',$peliculasR)->with('buscar',$buscar);
 
+  }
 
 }

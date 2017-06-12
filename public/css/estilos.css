@@ -20,6 +20,31 @@ body{
 .margin10{
   margin:10px;
 }
+/* Pagination */
+
+
+.pagination > li > a,
+.pagination > li > span {
+  margin: auto;
+  line-height: 1.42857143;
+  color: black;
+  text-decoration: none;
+  background-color:white;
+  border: 2px solid black;
+  border-color: #FE0000;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 3;
+  color: #fff;
+  cursor: default;
+  background-color: black;
+  border-color: #D64937;
+}
 .margintop10{
 margin-top:10px;
 }
@@ -56,6 +81,36 @@ margin-top:10px;
 }
 .textoMarron{
   color: #330000;
+}
+.fondoRojoTransparente{
+  background-color:rgba(214, 73, 55,0.9)
+}
+.heigth100{
+  height: 100%;
+
+}
+.estreno{
+  border:2px solid white;
+  /*box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.6);*/
+  outline: 2px solid black;
+}
+.estreno:hover{
+  border-color:#d64937;
+}
+.contentT{
+display:table;
+}
+.rowT {
+height:100%;
+display: table-row;
+}
+.paddingTop40{
+  padding-top: 40px;
+}
+.rowT .noFloat{
+  float:none;
+  display: table-cell;
+
 }
 #trailer{
   background-color: grey;
@@ -132,7 +187,7 @@ h1{
     border-radius: 2;
 }
 #logo{
-  margin-left: 50px;
+  margin-left: 30px;
 }
 .encabezados{
   font-family: cursive;
@@ -185,18 +240,50 @@ width:200px;
 /*border:3px solid #D0D0D0;*/
 box-shadow:0 0 5px #EEE;
 float:left;
-height: 200px;
-width: 400px;
+height: 240px;
+width: calc(50% - 20px);
 margin:10px;
 padding: 10px;
+}
+.fichaRes3{
+  box-shadow:0 0 5px #EEE;
+  min-height: 220px;
+  width: 100%;
+  margin:10px;
+  padding: 10px;
+}
+.fichaRes3Content{
+  margin-left: 200px;
+}
+.fichaRes3:hover{
+  background:#FEFEFE;
+  transition:.3s;
+  box-shadow:0 0 8px #D0D0D0;
+  transform:scale(1.07);
+  color: rgb(46, 135, 228);
+  text-decoration:none;
+  margin-left: -0.035%;
 }
 
 li:hover{
 
   background-color:#D64937;
 }
+.fotoValoracion{
+  display:block;
+  float:left;
+  width: 140px;
+}
+.fichaCuadroVotos{
+  background-color:#D64937;
+  border: 1px solid black;
+  font-size: 25px;
+  font-weight: bolder;
+  width: 3em;
+  margin:auto calc(50% - 1.5em);
+  color:white;
 
-
+}
 .fichaRes:hover{
   background:#FEFEFE;
   transition:.3s;
@@ -223,7 +310,7 @@ li:hover{
 }
 .marginBottonFicha{
   margin-top: 2%;
-  margin-left: 35%;
+  margin-left: 160px;
 }
 .fichaRes2 img{
   display:block;
@@ -280,15 +367,13 @@ li:hover{
   background-color:#D64937;
   border: 1px solid black;
   height: 50px;
-  width: 30%;
+  width: 40%;
   font-size: 25px;
   margin-top: 10px;
-  margin-left: 10%;
+  margin-left: 5%;
   vertical-align: middle;
   padding-top: 5px;
-
-
-  }
+}
 .padding10{
   padding:10px;
 }
@@ -300,10 +385,11 @@ li:hover{
   background-color: white;
   border: 1px solid #D64937;
   height: 50px;
-  width: 30%;
-  margin-left: 20%;
+  width: 40%;
+  margin-left: 10%;
   margin-top: 10px;
   padding-top:5px;
+  font-size:1.2em;
 }
 .cuadroVotos{
   background-color: #EEEEEE;
@@ -323,7 +409,7 @@ li:hover{
 .fotoPelicula {
   display:block;
   float:left;
-  width: 33.333333%;
+  width: 145px;
 }
 .fichaRes img{
   display:block;
@@ -355,12 +441,19 @@ a{
 }
 #trailer{
   width: 100%;
-  border:3px solid;
-  height: 250px;
+  border:4px solid;
+  height:320px;
+}
+.trailer{
+  width: 100px;
+  height: calc(100px / 0.674);
+  margin: 5px;
+  background-color: red;
 
 }
+
 .tituloPeli{
-  font-size: 40px;
+  font-size: 60px;
   color: #D64937;
   font-style: italic;
   font-weight: bold;
@@ -373,36 +466,31 @@ a{
   background-color: gray;
 
 }
-.trailer{
-  width: 90px;
-  height: calc(90px / 0.674);
-  margin: 5px;
-  background-color: red;
 
+@media(max-width:720px){
+  .fichaRes2{
+     width: 100%;
+     height: auto;
+  }
+
+  .marginBottonFicha{
+     margin:15px;
+     padding: 10px;
+  }
 }
-
 @media(max-width: 600px){
   #logo{
-    width: 90%;
-    margin-left: 5px;
-    margin-bottom: 10px;
+    width: 100%;
+
   }
-  .heigth100{
-    height: 75px;
-  }
+  
   .fotoPelicula{
     float:none;
     margin: auto;
     clear:both;
     width: 50%;
   }
-  .fichaRes2{
-    width: 100%;
-    height: auto;
-  }
-  .marginBottonFicha{
-    margin:15px 5px;
-  }
+
   .fotoTrailer{
     width: 100%;
     height: calc(200px / 0.647);
@@ -414,6 +502,24 @@ a{
   .cuadradoBlanco{
     font-size:12px;
     text-align: center;
+  }
+  .fotoValoracion{
+    margin: auto;
+    float:none;
+  }
+  .fichaRes3Content{
+    margin: 10px;
+    width: 100%;
 
   }
+  .fichaRes3Content *{
+    text-align: center;
+  }
+  .fichaRes3Content .sinopsis{
+    display: none;
+  }
+  .contentT, .rowT, .rowT .noFloat{
+    display: inline-block;
+  }
+
 }

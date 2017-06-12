@@ -7,9 +7,17 @@
 	  <strong>Usuario Registrado</strong>
 	</div>
 	@endif
-<div class="container-fluid blanco">
+<div class="container-fluid cuadrado">
 <h1 class="text-center">Listado Usuarios</h1><br>
-	<table class="table table-hover text-center table-bordered">
+<form class "navbar-form navbar-left col-xs-12" role="search" method="POST" action="/buscarusuarios">
+	{{ csrf_field() }}
+	<div class="form-group col-xs-12 col-md-2">
+		<input type="text" name="nombre" class="form-control" placeholder="Buscar">
+	</div>
+	<button type="submit" class="btn btn-danger col-xs-3 col-md-1">Buscar</button>
+</form>
+<div class="table-responsive col-xs-12">
+	<table class="table table-hover text-center table-bordered" id="myTable">
 		<thead class="fondoMenu">
         <th class="text-center textoBlanco">ID</th>
         <th class="text-center textoBlanco">Email</th>
@@ -35,6 +43,7 @@
         <td class="hidden-xs">{{$user->fechanacimiento}}</td>
         <td class="hidden-xs hidden-sm">{{$user->foto}}</td>
         <td>{{$user->tipousuario}}</td>
+
         <td class="fila">
           {!!link_to_route('adminusuarios.edit', $title = "Editar", $parameters = $user->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
           {!!Form::open(['route'=>['adminusuarios.destroy',$user->id],'method'=>'DELETE'])!!}
@@ -43,6 +52,7 @@
         </td>
       </tbody>
       @endforeach
+		</div>
 			<tfoot>
 				<tr>
 					<td colspan="11">
@@ -50,5 +60,9 @@
 				</tr>
 			</tfoot>
     </table>
+		@if (!$noRender)
+			{!! $users->render() !!}
+		@endif
 	</div>
+
   @endsection

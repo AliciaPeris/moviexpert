@@ -9,15 +9,16 @@ use Session;
 use Redirect;
 use Illuminate\Routing\Route;
 use moviexpert\Adminconcurso;
+use DB;
 
 class AdminconcursoController extends Controller
 {
     //
     public function index(){
       /*Creamos una variable para almacenar todos los datos de la base de datos*/
-         $concursos=\moviexpert\Adminconcurso::All();
+         $concurso=DB::table('adminconcursos')->paginate(1);
          /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
-          return view('concursos.index',compact('concursos'));
+          return view('concursos.index',compact('concurso'));
     }
     public function create(){
       /*Retornanmos a la vista create*/

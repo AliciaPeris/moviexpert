@@ -3,6 +3,7 @@
 namespace moviexpert;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -23,4 +24,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+     static public function nombre($nombre){
+
+       return DB::select("SELECT * FROM users WHERE nombre like '".$nombre."%';");
+
+
+    }
 }

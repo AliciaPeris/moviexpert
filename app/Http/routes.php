@@ -20,16 +20,22 @@ Route::resource('adminchat','AdminchatController');
 Route::resource('adminusuarios','UserController');
 Route::resource('adminparticipanconcurso','AdminparticipanconcursoController');
 Route::resource('adminvotosconcurso','AdminvotosconcursoController');
+Route::post('buscarusuarios','UserController@buscarUsuarios');
+
 
 /*Rutas Frontend*/
 Route::resource('/','FrontendController');
 Route::get('peliculas','FrontendController@peliculas');
+Route::resource('top10','FrontendController@top10');
 Route::get('trailer/{id}','FrontendController@trailer');
 Route::get('ficha/{id}','FrontendController@ficha');
 Route::post('enviarVotos','FrontendController@enviarVotos');
 Route::get('criticas/{id}','FrontendController@criticas');
+Route::resource('misCriticas','FrontendController@misCriticas');
 Route::post('pcritica','FrontendController@procesarCriticas');
 Route::get('eliminarCritica/{idc}/{idp}/{idu}','FrontendController@eliminarCritica');
+Route::post('buscar','FrontendController@buscar');
+
 
 
 Route::get('concursos','FrontendController@concursos');
@@ -48,6 +54,9 @@ Route::get('miembrochat/participanchat/{id}', "MiembrochatController@participanc
 Route::get('concursos/participanconcurso/{id}','FrontendController@participanconcurso');
 Route::post('concursos/participanconcurso/{id}/altaparticipacion','FrontendController@altaparticipacion');
 
+
+
 Route::auth();
+
 
 Route::get('/home', 'HomeController@index');

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Backend</title>
+    <link rel="icon" href="/imagenes/favicon.svg" sizes="any" type="image/svg+xml">
     {!!Html::style('css/bootstrap.min.css')!!}
     {!!Html::style('css/metisMenu.min.css')!!}
     {!!Html::style('css/estilos.css')!!}
@@ -20,12 +21,13 @@
                 <a class="navbar-brand" href="/admin"><img class="width100" src="/imagenes/logo.png"></img></a>
               </div>
               <div class="margintop25 hidden-xs col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
-                <form class="navbar-form">
+                <form class="navbar-form" action="/buscar" method="POST">
+                  {{ csrf_field() }}
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Texto a buscar">
+                    <input name="buscar" type="text" class="form-control" placeholder="Buscar por película">
                   </div>
-                  <button type="submit" class="btn fondoMenu">Buscar</button>
-                  </form>
+                  <button type="submit" class="btn fondoMenu letraBlanca glyphicon glyphicon-search"></button>
+                </form>
               </div>
               <div class="hidden-sm hidden-md hidden-lg col-xs-1 col-xs-offset-1 margintop25 ">
                 <button id="btnmenuadmin" class="textoMenu glyphicon glyphicon-menu-hamburger fondoCabecera"></button>

@@ -13,12 +13,17 @@
 
 
 <form method="POST" action="/pcritica" class="col-xs-12">
+  @if (Auth::guest())
+	<div class="alert alert-danger alert-dismissible" role="alert">
+    <strong>Tienes que <a href="{{ url('/login') }}">iniciar sesión</a> o <a href="{{ url('/register') }}"> registrarte </a> para poder hacer una crítica</strong>
+  </div>
+	@else
 {!! Form::hidden('idpelicula',$peliculas->id) !!}
 {!! Form::hidden('idusuario',Auth::user()->id) !!}
 {{ csrf_field() }}
 {!! Form::textarea('critica', null, ['class' => ' col-xs-12 margin10']) !!}
 {!!Form::submit('Enviar',['class'=>'col-xs-12 btn boton margin10'])!!}
-
+@endif
 </form>
 
 
@@ -36,9 +41,9 @@
             </div>
             @endif
   				</div>
-
   			@endforeach
       </div>
+			{!! $criticas->render() !!}
 </div>
 
   @endsection

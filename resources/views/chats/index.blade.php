@@ -8,7 +8,7 @@
 	  <strong>Chat Registrado</strong>
 	</div>
 	@endif
-  <div class="container-fluid blanco">
+  <div class="container-fluid cuadrado">
   <h1 class="text-center">Chats</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
@@ -22,7 +22,7 @@
           <th class="text-center textoBlanco">Creador del chat</th>
 					<th class="text-center textoBlanco">Acciones</th>
         </thead>
-        @foreach($chats as $chats)
+        @foreach($chat as $chats)
         <tbody>
         <td>{{$chats->id}}</td>
         <td>{{$chats->nombre}}</td>
@@ -47,5 +47,7 @@
       </tr>
     </tfoot>
     </table>
+		{!! $chat->render() !!}
     </div>
+
     @endsection

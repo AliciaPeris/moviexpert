@@ -11,14 +11,25 @@ use Session;
 use Redirect;
 use Illuminate\Routing\Route;
 use moviexpert\User;
+use DB;
+use Illuminate\Support\Facades\Validator;
+
 class UserController extends Controller
 {
     //
     public function index(){
       /*Creamos una variable para almacenar todos los datos de la base de datos*/
-         $users=\moviexpert\User::All();
+        $noRender=false;
+        $users=DB::table('users')->orderBy('nombre')->paginate(6);
          /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
-          return view('user.index',compact('users'));
+          return view('user.index',compact('users'))->with('noRender',$noRender);
+    }
+    public function buscarUsuarios(Request $request){
+      $nombre=$request['nombre'];
+      $users=\moviexpert\User::nombre($nombre);
+      $noRender=true;
+     /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
+     return view('user.index',compact('users'))->with('noRender',$noRender);
     }
     public function create(){
       /*Retirnanmos a la vista create*/
@@ -64,5 +75,6 @@ class UserController extends Controller
         Session::flash('message','Usuario Eliminado Correctamente');
         return redirect::to('/adminusuarios');
     }
+
 
 }
