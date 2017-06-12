@@ -7,8 +7,17 @@
 	  <strong>Concurso Registrado</strong>
 	</div>
 	@endif
+  <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 ">
+    <div class="col-xs-12 fondoCabecera container-fluid margintopbottom25">
+      <h1 class="col-xs-12 text-center textoSalmon">{{$concursos->nombre}}</h1>
+      <p class="textoBlanco"><strong class="col-xs-12 text-center textoBlanco">Plazo Inscripción: {{$concursos->fechainicioinscripcion}} al {{$concursos->fechafininscripcion}}</strong>
+      <strong class="col-xs-12 text-center textoBlanco"> El concurso finaliza: {{$concursos->fechafinconcurso}}</strong></p>
+      <div class="col-xs-10 col-xs-offset-1 margintop25">
+        <p class="col-xs-12 textoBlanco">{{$concursos->descripcion}}</p>
+      </div>
+    </div>
+  </div>
   <div class="container-fluid cuadrado">
-  <h1 class="text-center">Incripcion a Concursos</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
           <th class="text-center textoBlanco">ID</th>
@@ -19,31 +28,24 @@
           <th class="text-center textoBlanco">Corto</th>
 					<th class="text-center textoBlanco">Acciones</th>
         </thead>
-        @foreach($participanconcurso as $concursos)
+        @foreach($participanconcurso as $con)
         <tbody>
-        <td>{{$concursos->id}}</td>
-        <td>{{$concursos->idconcurso}}</td>
-        <td>{{$concursos->idusuario}}</td>
-        <td>{{$concursos->titulo}}</td>
-        <td>{{$concursos->descripcion}}</td>
-				<td>{{$concursos->corto}}</td>
+        <td>{{$con->id}}</td>
+        <td>{{$con->idconcurso}} - {{$concursos->nombre}}</td>
+        <td>{{$con->idusuario}}</td>
+        <td>{{$con->titulo}}</td>
+        <td>{{$con->descripcion}}</td>
+				<td>{{$con->corto}}</td>
 				<td class="fila">
         {!!link_to_route('adminparticipanconcurso.edit', $title = "Editar", $parameters = $concursos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
 				{!!link_to_route('adminvotosconcurso.show', $title = "Ver Votos", $parameters = $concursos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
-        {!!Form::open(['route'=>['adminparticipanconcurso.destroy',$concursos->id],'method'=>'DELETE'])!!}
+			  {!!Form::open(['route'=>['adminparticipanconcurso.destroy',$concursos->id],'method'=>'DELETE'])!!}
         {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
         {!!Form::close()!!}
       </td>
     </tbody>
     @endforeach
-    <tfoot>
-      <tr>
-        <td colspan="7">
-          {!!link_to_route('adminparticipanconcurso.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
-      </tr>
-    </tfoot>
     </table>
-		{!! $participanconcurso->render() !!}
     </div>
 
     @endsection

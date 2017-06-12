@@ -8,6 +8,7 @@ use Redirect;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 use moviexpert\Http\Requests\VotosConcursoRequest;
+use DB;
 
 class AdminvotosconcursoController extends Controller
 {
@@ -36,6 +37,13 @@ class AdminvotosconcursoController extends Controller
     return redirect('adminvotosconcurso');
   }
   public function show($id){
+    $concursos=$concursos = \moviexpert\participanconcurso::find($id);
+    $votos = DB::table('votosconcursos')
+          ->join('participanconcursos', 'participanconcursos.id', '=', 'votosconcursos.idcortoconcurso')
+          ->select('votosconcursos.*' )
+          ->where('votosconcursos.idcortoconcurso',$id)
+          ->get();
+          return view('votosconcursos.show',compact('concursos','votos'));
 
   }
   public function edit($id){

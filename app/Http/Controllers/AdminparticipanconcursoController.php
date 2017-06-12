@@ -23,6 +23,10 @@ class AdminparticipanconcursoController extends Controller
     /*Retornanmos a la vista create*/
         return view('participanconcursos.create');
   }
+  public static function participantesconcurso($id){
+    $participanconcurso=DB::select('select * from participanconcurso where idcortoconcurso=:id', ['id' => $id]);
+    return view('participanconcursos.show',compact('participanconcurso'));
+  }
 
   public function store(ParticipanConcursoRequest $request){
     \moviexpert\participanconcurso::create([
@@ -38,8 +42,14 @@ class AdminparticipanconcursoController extends Controller
     return redirect('adminparticipanconcurso');
   }
   public function show($id){
-
-  }
+    $concursos=$concursos = \moviexpert\AdminConcurso::find($id);
+    $participanconcurso = DB::table('participanconcursos')
+          ->join('adminconcursos', 'adminconcursos.id', '=', 'participanconcursos.idconcurso')
+          ->select('participanconcursos.*' )
+          ->where('participanconcursos.idconcurso',$id)
+          ->get();
+          return view('participanconcursos.show',compact('concursos','participanconcurso'));
+        }
   public function edit($id){
     $participanconcurso = \moviexpert\participanconcurso::find($id);
     return view('participanconcursos.edit',['participanconcurso'=>$participanconcurso]);

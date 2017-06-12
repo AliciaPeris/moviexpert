@@ -4,11 +4,11 @@
 	@if($message=='store')
 	<div class="alert alert-success alert-dismissible" role="alert">
 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  <strong>Voto Registrado</strong>
+	  <strong>Concurso Registrado</strong>
 	</div>
 	@endif
   <div class="container-fluid blanco">
-  <h1 class="text-center">Todos los votos</h1><br>
+  <h1 class="text-center">Concursos</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
           <th class="text-center textoBlanco">ID</th>
@@ -18,13 +18,13 @@
           <th class="text-center textoBlanco">Fecha Voto</th>
 					<th class="text-center textoBlanco">Acciones</th>
         </thead>
-        @foreach($votosconcurso as $concursos)
+        @foreach($votos as $voto)
         <tbody>
-        <td>{{$concursos->id}}</td>
-        <td>{{$concursos->idcortoconcurso}}</td>
-        <td>{{$concursos->idusuario}}</td>
-        <td>{{$concursos->voto}}</td>
-        <td>{{$concursos->fechavoto}}</td>
+        <td>{{$voto->id}}</td>
+        <td>{{$voto->idcortoconcurso}} - {{$concursos->titulo}}</td>
+        <td>{{$voto->idusuario}}</td>
+        <td>{{$voto->voto}}</td>
+        <td>{{$voto->fechavoto}}</td>
 				<td class="fila">
         {!!link_to_route('adminvotosconcurso.edit', $title = "Editar", $parameters = $concursos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
         {!!Form::open(['route'=>['adminvotosconcurso.destroy',$concursos->id],'method'=>'DELETE'])!!}
@@ -33,12 +33,6 @@
       </td>
     </tbody>
     @endforeach
-    <tfoot>
-      <tr>
-        <td colspan="6">
-          {!!link_to_route('adminvotosconcurso.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
-      </tr>
-    </tfoot>
     </table>
     </div>
     @endsection

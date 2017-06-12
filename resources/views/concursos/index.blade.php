@@ -30,6 +30,7 @@
         <td>{{$concursos->fechafinconcurso}}</td>
 				<td class="fila">
         {!!link_to_route('adminconcurso.edit', $title = "Editar", $parameters = $concursos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
+				{!!link_to_route('adminparticipanconcurso.show', $title = "Ver Participantes", $parameters = $concursos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
         {!!Form::open(['route'=>['adminconcurso.destroy',$concursos->id],'method'=>'DELETE'])!!}
         {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
         {!!Form::close()!!}
