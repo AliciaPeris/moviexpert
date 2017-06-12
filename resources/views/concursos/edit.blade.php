@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 	@section('content')
   {!!Form::model($concurso,['route'=>['adminconcurso.update',$concurso->id],'method'=>'PUT'])!!}
+	@include('alerts.errorformulario')
 
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 cuadrado">
 		<h1 class="textoMarron text-center">Editar concurso</h1>

@@ -2,6 +2,7 @@
 @extends('layouts.frontend')
 	@section('content')
 	@include('chat.menuchat')
+	@include('alerts.errorformulario')
   @foreach($chats as $chat)
 <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-1 cuadrado margintop25">
 	<h1 class="col-xs-12 text-center">{{$chat->nombre}}</h1>

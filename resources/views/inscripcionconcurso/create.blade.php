@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 	@section('content')
   {!!Form::open(['route'=>'inscripcionconcurso.store','method'=>'POST'])!!}
+	@include('alerts.errorformulario')
 	<div class="col-xs-10 col-xs-offset-1 cuadrado container-fluid margintopbottom25">
 		<h1 class="col-xs-12 text-center">{{$concurso->nombre}}</h1>
 		<p class="textoMarron"><strong class="col-xs-12 col-sm-6">Plazo Inscripción: {{$concurso->fechainicioinscripcion}} al {{$concurso->fechafininscripcion}}</strong>

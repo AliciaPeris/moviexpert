@@ -13,7 +13,7 @@ class GeneroUpdateRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,8 +24,8 @@ class GeneroUpdateRequest extends Request
     public function rules()
     {
         return [
-          'genero' => 'genero',
-          
+          'genero' => 'required',
+
             //
         ];
     }

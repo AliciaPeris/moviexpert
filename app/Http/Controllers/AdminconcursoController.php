@@ -4,12 +4,15 @@ namespace moviexpert\Http\Controllers;
 
 use Illuminate\Http\Request;
 use moviexpert\Http\Requests;
+use moviexpert\Http\Requests\ConcursoCreateRequest;
+use moviexpert\Http\Requests\ConcursoUpdateRequest;
 use moviexpert\Http\Controllers\Controller;
 use Session;
 use Redirect;
 use Illuminate\Routing\Route;
-use moviexpert\Adminconcurso;
+use moviexpert\User;
 use DB;
+use Illuminate\Support\Facades\Validator;
 
 class AdminconcursoController extends Controller
 {
@@ -25,7 +28,7 @@ class AdminconcursoController extends Controller
           return view('concursos.create');
     }
 
-    public function store(Request $request){
+    public function store(ConcursoCreateRequest $request){
        \moviexpert\Adminconcurso::create([
         /*Nombre campo base datos => nombre del campo del formulario*/
         'nombre'=> $request['nombre'],
@@ -44,7 +47,7 @@ class AdminconcursoController extends Controller
       $concursos = Adminconcurso::find($id);
       return view('concursos.edit',['concurso'=>$concursos]);
     }
-    public function update(Request $request,$id){
+    public function update(ConcursoUpdateRequest $request,$id){
       $concursos = Adminconcurso::find($id);
       $concursos->fill($request->all());
       $concursos->save();

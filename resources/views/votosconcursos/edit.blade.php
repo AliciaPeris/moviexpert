@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 	@section('content')
   {!!Form::model($votosconcurso,['route'=>['adminvotosconcurso.update',$votosconcurso->id],'method'=>'PUT'])!!}
-
+@include('alerts.errorformulario')
 	<div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 blanco">
 		  <h1 class="textoMarron text-center">Editar Voto</h1>
       <div class="input-group input-group-lg margin10">

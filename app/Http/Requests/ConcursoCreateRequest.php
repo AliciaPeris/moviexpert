@@ -13,7 +13,7 @@ class ConcursoCreateRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,9 +26,9 @@ class ConcursoCreateRequest extends Request
       return [
           'nombre' => 'required',
           'descripcion' => 'required',
-          'fechainicioinscripcion' => 'required',
-          'fechafininscripcion' => 'required',
-          'fechafinconcurso' => 'required',
+          'fechainicioinscripcion' => 'required|date',
+          'fechafininscripcion' => 'required|date',
+          'fechafinconcurso' => 'required|date',
 
 
             //

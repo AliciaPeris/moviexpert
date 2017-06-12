@@ -13,7 +13,7 @@ class PeliculaCreateRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,14 +25,14 @@ class PeliculaCreateRequest extends Request
     {
         return [
           'titulo' => 'required',
-          'anio' => 'required',
+          'anio' => 'required|numeric',
           'pais' => 'required',
           'director' => 'required',
           'guion' => 'required',
           'reparto' => 'required',
           'sinopsis' => 'required',
-          'trailer' => 'required',
-          
+          'trailer' => 'required|url',
+
             //
         ];
     }

@@ -11,7 +11,8 @@ use Illuminate\Routing\Route;
 use moviexpert\Adminpelicula;
 use moviexpert\Admingenero;
 use DB;
-
+use moviexpert\Http\Requests\PeliculaCreateRequest;
+use moviexpert\Http\Requests\PeliculaUpdateRequest;
 
 
 class AdminpeliculaController extends Controller
@@ -32,7 +33,7 @@ class AdminpeliculaController extends Controller
       return view('peliculas.create',compact("generos"));
 
     }
-    public function store(Request $request){
+    public function store(PeliculaCreateRequest $request){
       $nombre="defecto.jpg";
       if($request->file('imagen')!=null){
       //obtenemos el campo file definido en el formulario
@@ -69,7 +70,7 @@ class AdminpeliculaController extends Controller
       return view('peliculas.edit',compact("generos"))->with('pelicula', $peliculas);
     }
 
-    public function update(Request $request, $id){
+    public function update(PeliculaUpdateRequest $request, $id){
       $peliculas= Adminpelicula::find($id);
       $request["trailer"]=(strpos($request["trailer"],"v=")) ? substr($request["trailer"],strpos($request["trailer"],"v=")+2) : $request["trailer"] ;
       $peliculas->fill($request->all());

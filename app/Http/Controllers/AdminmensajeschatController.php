@@ -15,7 +15,7 @@ class AdminmensajeschatController extends Controller
   /*Creamos una variable para almacenar todos los datos de la base de datos*/
      $mensajechat=DB::table('mensajechats')->paginate(6);
      /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
-      return view('adminmensajechat.index',compact('mensajechat'));
+     return view('adminmensajechat.index',compact('mensajechat'));
 }
 public function create(){
   /*Retornanmos a la vista create*/

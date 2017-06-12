@@ -3,9 +3,16 @@
 namespace moviexpert\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use moviexpert\Http\Requests;
+use moviexpert\Http\Requests\ChatCreateRequest;
+use moviexpert\Http\Requests\ChatUpdateRequest;
+use moviexpert\Http\Controllers\Controller;
+use Session;
+use Redirect;
+use Illuminate\Routing\Route;
+use moviexpert\User;
 use DB;
+use Illuminate\Support\Facades\Validator;
 class AdminchatController extends Controller
 {
     //
@@ -19,7 +26,7 @@ class AdminchatController extends Controller
       /*Retornanmos a la vista create*/
           return view('chats.create');
     }
-    public function store(Request $request){
+    public function store(ChatCreateRequest $request){
       \moviexpert\Adminchat::create([
        /*Nombre campo base datos => nombre del campo del formulario*/
        'nombre'=> $request['nombre'],

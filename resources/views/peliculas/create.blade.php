@@ -1,6 +1,7 @@
 @extends('layouts.admin')
-        @section('content')
+@section('content')
   {!!Form::open(['route'=>'adminpelicula.store','method'=>'POST','files' => true])!!}
+  @include('alerts.errorformulario')
   <div class="container-fluid cuadrado">
   <h1 class="textoMarron text-center">Formulario de registro de pelicula</h1>
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
@@ -50,4 +51,3 @@
       {!!Form::close()!!}
   </div>
 @endsection
-</div>

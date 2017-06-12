@@ -13,7 +13,7 @@ class ChatCreateRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,11 +26,11 @@ class ChatCreateRequest extends Request
         return [
           'nombre' => 'required',
           'descripcion' => 'required',
-          'numguionistas' => 'required',
-          'numactores' => 'required',
-          'numdirectores' => 'required',
-          'numcamaras' => 'required',
-          
+          'numguionistas' => 'required|numeric',
+          'numactores' => 'required|numeric',
+          'numdirectores' => 'required|numeric',
+          'numcamaras' => 'required|numeric',
+
         ];
     }
 }

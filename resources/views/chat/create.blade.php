@@ -2,6 +2,7 @@
 	@section('content')
   {!!Form::open(['route'=>'grupochat.store','method'=>'POST'])!!}
 	@include('chat.menuchat')
+	@include('alerts.errorformulario')
 
   <div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3 blanco">
 		<h1 class="textoMarron text-center">Introducir chat</h1>

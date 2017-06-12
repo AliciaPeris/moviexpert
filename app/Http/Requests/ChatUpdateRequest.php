@@ -13,7 +13,7 @@ class ChatUpdateRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,13 +24,13 @@ class ChatUpdateRequest extends Request
     public function rules()
     {
         return [
-            //'nombre' => 'required',
+            'nombre' => 'required',
             'descripcion' => 'required',
-            'numguionistas' => 'required',
-            'numactores' => 'required',
-            'numdirectores' => 'required',
-            'numcamaras' => 'required',
-            
+            'numguionistas' => 'required|numeric',
+            'numactores' => 'required|numeric',
+            'numdirectores' => 'required|numeric',
+            'numcamaras' => 'required|numeric',
+
         ];
     }
 }

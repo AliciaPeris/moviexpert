@@ -1,5 +1,6 @@
 @extends('layouts.frontend')
 	@section('content')
+
   {!!Form::model($user,['route'=>['perfilusuario.update',$user->id],'method'=>'PUT'])!!}
 
 	@include('alerts.errorformulario')

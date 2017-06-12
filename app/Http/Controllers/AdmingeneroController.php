@@ -11,7 +11,9 @@ use Illuminate\Routing\Route;
 use moviexpert\Admingenero;
 use Illuminate\Pagination\Paginator;
 use DB;
-
+use moviexpert\Http\Requests\GeneroCreateRequest;
+use moviexpert\Http\Requests\GeneroUpdateRequest;
+use Illuminate\Support\Facades\Validator;
 
 
 class AdmingeneroController extends Controller
@@ -29,7 +31,7 @@ class AdmingeneroController extends Controller
       /*Retornanmos a la vista create*/
           return view('generos.create');
     }
-    public function store(Request $request){
+    public function store(GeneroCreateRequest $request){
       \moviexpert\Admingenero::create([
         /*Nombre campo base datos => nombre del campo del formulario*/
         'genero'=> $request['genero'],
@@ -45,7 +47,7 @@ class AdmingeneroController extends Controller
       $generos = Admingenero::find($id);
       return view('generos.edit',['genero'=>$generos]);
     }
-    public function update(Request $request,$id){
+    public function update(GeneroUpdateRequest $request,$id){
       $generos = Admingenero::find($id);
       $generos->fill($request->all());
       $generos->save();
