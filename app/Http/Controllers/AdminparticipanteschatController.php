@@ -35,6 +35,13 @@ class AdminparticipanteschatController extends Controller
     return redirect('adminparticipanchat');
   }
   public function show($id){
+    $chat=  \moviexpert\AdminChat::find($id);
+    $participanchat = DB::table('miembrochats')
+          ->join('adminchats', 'adminchats.id', '=', 'miembrochats.idchat')
+          ->select('miembrochats.*' )
+          ->where('miembrochats.idchat',$id)
+          ->get();
+          return view('participanchat.show',compact('chat','participanchat'));
 
   }
   public function edit($id){

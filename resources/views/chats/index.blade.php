@@ -34,7 +34,8 @@
         <td>{{$chats->creadorchat}}</td>
         <td class="fila">
         {!!link_to_route('adminchat.edit', $title = "Editar", $parameters = $chats->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
-        {!!Form::open(['route'=>['adminchat.destroy',$chats->id],'method'=>'DELETE'])!!}
+				{!!link_to_route('adminparticipanchat.show', $title = "Ver Participantes", $parameters = $chats->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
+				{!!Form::open(['route'=>['adminchat.destroy',$chats->id],'method'=>'DELETE'])!!}
         {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
         {!!Form::close()!!}
       </td>
@@ -47,7 +48,6 @@
       </tr>
     </tfoot>
     </table>
-		{!! $chat->render() !!}
     </div>
 
     @endsection

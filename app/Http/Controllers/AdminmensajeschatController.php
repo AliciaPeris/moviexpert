@@ -33,7 +33,13 @@ public function store(MensajeChatRequest $request){
   return redirect('adminmensajechat');
 }
 public function show($id){
-
+  $chat=  \moviexpert\miembrochat::find($id);
+  $mensajes = DB::table('mensajechats')
+        ->join('miembrochats', 'miembrochats.id', '=', 'mensajechats.idmiembro')
+        ->select('mensajechats.*' )
+        ->where('mensajechats.idmiembro',$id)
+        ->get();
+        return view('adminmensajechat.show',compact('chat','mensajes'));
 }
 public function edit($id){
   $mensajechat = \moviexpert\mensajechat::find($id);

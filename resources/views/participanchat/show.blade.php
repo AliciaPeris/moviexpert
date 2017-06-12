@@ -17,29 +17,23 @@
           <th class="text-center textoBlanco">Tipo Miembro</th>
 					<th class="text-center textoBlanco">Acciones</th>
         </thead>
-        @foreach($participanchat as $pc)
+        @foreach($participanchat as $cp)
         <tbody>
-        <td>{{$pc->id}}</td>
-        <td>{{$pc->idchat}}</td>
-        <td>{{$pc->idusuario}}</td>
-        <td>{{$pc->tipomiembro}}</td>
+        <td>{{$cp->id}}</td>
+        <td>{{$cp->idchat}}  - {{$chat->nombre}}</td>
+        <td>{{$cp->idusuario}}</td>
+        <td>{{$cp->tipomiembro}}</td>
 				<td class="fila">
-        {!!link_to_route('adminparticipanchat.edit', $title = "Editar", $parameters = $pc->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
-{!!link_to_route('adminmensajechat.show', $title = "Ver Mensajes", $parameters = $pc->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
-				{!!Form::open(['route'=>['adminparticipanchat.destroy',$pc->id],'method'=>'DELETE'])!!}
+        {!!link_to_route('adminparticipanchat.edit', $title = "Editar", $parameters = $cp->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
+				{!!link_to_route('adminmensajechat.show', $title = "Ver Mensajes", $parameters = $cp->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
+        {!!Form::open(['route'=>['adminparticipanchat.destroy',$cp->id],'method'=>'DELETE'])!!}
         {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
         {!!Form::close()!!}
       </td>
     </tbody>
     @endforeach
-    <tfoot>
-      <tr>
-        <td colspan="5">
-          {!!link_to_route('adminparticipanchat.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
-      </tr>
-    </tfoot>
     </table>
-		{!! $participanchat->render() !!}
+
     </div>
 
     @endsection
