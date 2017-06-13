@@ -27,6 +27,8 @@ Route::post('buscarpeliculas','AdminpeliculaController@buscarPeliculas');
 Route::post('buscargeneros','AdmingeneroController@buscarGeneros');
 Route::post('buscarconcursos','AdminconcursoController@buscarConcursos');
 Route::post('buscarparticipan','AdminparticipanconcursoController@buscarparticipan');
+Route::post('buscarchat','AdminchatController@buscarChat');
+
 
 
 /*Rutas Frontend*/
