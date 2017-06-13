@@ -12,6 +12,7 @@ use Redirect;
 use Illuminate\Routing\Route;
 use moviexpert\User;
 use DB;
+use Auth;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -63,7 +64,7 @@ class UserController extends Controller
 
     }
     public static function nombreUser($id){
-      $nombre=BD::select('select nombre from users where id=:id',['id',$id]);
+      $nombre=DB::select('select * from users where id=:id',['id'=>$id]);
       return $nombre;
     }
     public function update(UserUpdateRequest $request,$id){
