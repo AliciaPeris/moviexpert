@@ -22,6 +22,7 @@
 </div>
 <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 margintop25">
   {!!Form::open(['route'=>'mensajechat.store','method'=>'POST'])!!}
+	 {{ csrf_field() }}
   {!!Form::textarea('mensaje',null,['class'=>'form-control','placeholder'=>'Escriba aqui su mensaje'])!!}
   {!!Form::text('idmiembro',$miembro,['class'=>'form-control novisible','placeholder'=>''])!!}
   {!!Form::submit('Enviar Mensaje',['class'=>'btn boton'])!!}

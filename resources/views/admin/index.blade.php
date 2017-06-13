@@ -1,3 +1,4 @@
+<?php use moviexpert\Http\Controllers\HomeadminController;?>
 @extends('layouts.admin')
 	@section('content')
 	  @if (!Auth::guest()&& Auth::user()->tipousuario=='admin')
@@ -11,4 +12,7 @@
 		      <a href="{!!URL::to('/')!!}" class="btn btn-danger"><h3>No tienes privilegios para acceder al backend</h3></a>
 		      </center></div>
 		    @endif
+				@if(Auth::guest())
+				 <?php HomeadminController::raiz(); ?>
+			 @endif
 	@endsection

@@ -16,4 +16,7 @@ class HomeadminController extends Controller
     public function index(){
       return view("admin.index");
     }
+    public static function raiz(){
+      return view("/");
+    }
 }

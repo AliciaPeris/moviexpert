@@ -31,6 +31,7 @@
         <td class="fila">
           {!!link_to_route('admingenero.edit', $title = "Editar", $parameters = $generos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
           {!!Form::open(['route'=>['admingenero.destroy',$generos->id],'method'=>'DELETE'])!!}
+					 {{ csrf_field() }}
           {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
           {!!Form::close()!!}
         </td>

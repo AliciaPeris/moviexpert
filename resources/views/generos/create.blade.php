@@ -3,6 +3,7 @@
 	@section('content')
 	<div class="container-fluid cuadrado">
   {!!Form::open(['route'=>'admingenero.store','method'=>'POST'])!!}
+	 {{ csrf_field() }}
 	@include('alerts.errorformulario')
 
   <h1 class="textoMarron text-center">Introducir género</h1>

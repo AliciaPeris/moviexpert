@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 	@section('content')
   {!!Form::open(['route'=>'grupochat.store','method'=>'POST'])!!}
+	 {{ csrf_field() }}
 	@include('chat.menuchat')
 	@include('alerts.errorformulario')
 

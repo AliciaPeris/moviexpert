@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
   {!!Form::open(['route'=>'adminpelicula.store','method'=>'POST','files' => true])!!}
+   {{ csrf_field() }}
   @include('alerts.errorformulario')
   <div class="container-fluid cuadrado">
   <h1 class="textoMarron text-center">Formulario de registro de pelicula</h1>

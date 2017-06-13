@@ -31,6 +31,7 @@
 				<td class="fila">
         {!!link_to_route('adminmensajechat.edit', $title = "Editar", $parameters = $chat->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
 			  {!!Form::open(['route'=>['adminmensajechat.destroy',$chat->id],'method'=>'DELETE'])!!}
+				 {{ csrf_field() }}
         {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
         {!!Form::close()!!}
       </td>

@@ -47,6 +47,7 @@
         <td class="fila">
           {!!link_to_route('adminusuarios.edit', $title = "Editar", $parameters = $user->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
           {!!Form::open(['route'=>['adminusuarios.destroy',$user->id],'method'=>'DELETE'])!!}
+					 {{ csrf_field() }}
           {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
           {!!Form::close()!!}
         </td>
