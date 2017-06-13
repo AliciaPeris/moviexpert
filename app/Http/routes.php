@@ -24,6 +24,8 @@ Route::resource('adminparticipanchat','AdminparticipanteschatController');
 Route::resource('adminmensajechat','AdminmensajeschatController');
 Route::post('buscarusuarios','UserController@buscarUsuarios');
 Route::post('buscarpeliculas','AdminpeliculaController@buscarPeliculas');
+Route::post('buscargeneros','AdmingeneroController@buscarGeneros');
+Route::post('buscarconcursos','AdminconcursoController@buscarConcursos');
 
 
 /*Rutas Frontend*/

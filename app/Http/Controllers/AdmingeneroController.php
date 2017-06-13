@@ -21,11 +21,17 @@ class AdmingeneroController extends Controller
     //
     public function index(){
       /*Creamos una variable para almacenar todos los datos de la base de datos*/
-
-         $genero=DB::table('admingeneros')->paginate(5);
+        $noRender=false;
+        $genero=DB::table('admingeneros')->paginate(5);
          /*Retornamos a la vista user carpeta index vista y le pasamos la variab                                                                                                                                  le con los datos*/
-          return view('generos.index',compact('genero'));
-
+          return view('generos.index',compact('genero'))->with('noRender',$noRender);
+    }
+    public function buscarGeneros(Request $request){
+      $nombre=$request['genero'];
+      $genero=\moviexpert\Admingenero::nombre($nombre);
+      $noRender=true;
+     /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
+     return view('generos.index',compact('genero'))->with('noRender',$noRender);
     }
     public function create(){
       /*Retornanmos a la vista create*/

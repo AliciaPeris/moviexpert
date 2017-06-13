@@ -23,7 +23,7 @@ class AdminpeliculaController extends Controller
         $pelicula=DB::table('adminpeliculas')->orderBy('titulo')->paginate(5);
          /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
          $generos=\moviexpert\Admingenero::lists('genero','id');
-         return view('peliculas.index',compact('pelicula'))->with("generos",$generos)->with('noRender',$noRender);;
+         return view('peliculas.index',compact('pelicula'))->with("generos",$generos)->with('noRender',$noRender);
        }
 
        public function buscarPeliculas(Request $request){
