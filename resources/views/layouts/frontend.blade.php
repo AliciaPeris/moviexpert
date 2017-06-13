@@ -19,8 +19,8 @@
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="navbar-header container col-xs-12 fondoCabecera heigth100">
-              <div class="col-xs-7 col-xs-offset-2 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
-                <a class="navbar-brand" href="/"><img class="width100" src="/imagenes/logo.png"></img></a>
+              <div class="col-xs-7 col-xs-offset-2 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 marginBotton">
+                <a class="navbar-brand marginBotton" href="/"><img class="width100" src="/imagenes/logo.png"></img></a>
               </div>
               <div class="margintop25 hidden-xs col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
                 <form class="navbar-form" action="/buscar" method="POST">
@@ -37,19 +37,19 @@
             </div>
             <div id="menuadmin" class="fondoMenu borderBottom container col-xs-12">
               <ul class="nav navbar-nav navbar-left">
-                <li class=""><a class="textoMenu" href="/">Inicio</a></li>
-                <li class=""><a class="textoMenu" href="/peliculas">Peliculas</a></li>
-                <li class=""><a class="textoMenu" href="/concursos">Concursos</a></li>
-                <li class=""><a class="textoMenu" href="/chat">Chats</a></li>
+                <li class=""><a class="textoMenu text-center" href="/">Inicio</a></li>
+                <li class=""><a class="textoMenu text-center" href="/peliculas">Peliculas</a></li>
+                <li class=""><a class="textoMenu text-center" href="/concursos">Concursos</a></li>
+                <li class=""><a class="textoMenu text-center" href="/chat">Chats</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                   <!-- Authentication Links -->
                   @if (Auth::guest())
-                      <li><a class="textoMenu" href="{{ url('/login') }}">Inicio Sesión</a></li>
-                      <li><a class="textoMenu" href="{{ url('/register') }}">Registro</a></li>
+                      <li><a class="textoMenu text-center" href="{{ url('/login') }}">Inicio Sesión</a></li>
+                      <li><a class="textoMenu text-center" href="{{ url('/register') }}">Registro</a></li>
                   @else
                     @if(Auth::user()->tipousuario=='admin')
-                    <li class=""><a class="textoMenu" href="/admin">Backend</a></li>
+                    <li class=""><a class="textoMenu text-center" href="/admin">Backend</a></li>
                     @endif
                       <li class="dropdown">
                           <a href="#" class="dropdown-toggle btn textoMenu" data-toggle="dropdown" role="button" aria-expanded="false">
