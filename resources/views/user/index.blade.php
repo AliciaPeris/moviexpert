@@ -61,7 +61,7 @@
 			</tfoot>
     </table>
 		@if (!$noRender)
-			{!! $users->render() !!}
+			{!! $pelicula->render() !!}
 		@endif
 	</div>
 

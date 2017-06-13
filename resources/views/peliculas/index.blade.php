@@ -9,8 +9,19 @@
 	  <strong>Película Registrada</strong>
 	</div>
 	@endif
+
+
 <div class="container-fluid cuadrado">
+
 <h1 class="text-center">Listado Peliculas</h1><br>
+<form class "navbar-form navbar-left col-xs-12" role="search" method="POST" action="/buscarpeliculas">
+		{{ csrf_field() }}
+		<div class="form-group col-xs-12 col-md-2">
+			<input type="text" name="titulo" class="form-control" placeholder="Buscar">
+		</div>
+		<button type="submit" class="btn btn-danger col-xs-3 col-md-1">Buscar</button>
+</form>
+<div class="table-responsive col-xs-12">
 	<table class="table table-hover text-center table-bordered">
 		<thead class="fondoMenu">
         <th class="text-center textoBlanco">ID</th>
@@ -48,16 +59,17 @@
 	    </tbody>
 
 	    @endforeach
+		</div>
 	    <tfoot>
-
 	      <tr>
 	        <td colspan="12">
 	          {!!link_to_route('adminpelicula.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
 	      </tr>
 	    </tfoot>
 	    </table>
-			{!! $pelicula->render() !!}
+			@if (!$noRender)
+				{!! $pelicula->render() !!}
+			@endif
+			
 	    </div>
-
-
 	    @endsection

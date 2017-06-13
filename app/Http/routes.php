@@ -23,6 +23,7 @@ Route::resource('adminvotosconcurso','AdminvotosconcursoController');
 Route::resource('adminparticipanchat','AdminparticipanteschatController');
 Route::resource('adminmensajechat','AdminmensajeschatController');
 Route::post('buscarusuarios','UserController@buscarUsuarios');
+Route::post('buscarpeliculas','AdminpeliculaController@buscarPeliculas');
 
 
 /*Rutas Frontend*/

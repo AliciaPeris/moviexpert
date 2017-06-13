@@ -19,15 +19,21 @@ class AdminpeliculaController extends Controller
 {
     public function index(){
       /*Creamos una variable para almacenar todos los datos de la base de datos*/
-
-        $pelicula=DB::table('adminpeliculas')->paginate(6);
+        $noRender=false;
+        $pelicula=DB::table('adminpeliculas')->orderBy('titulo')->paginate(5);
          /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
          $generos=\moviexpert\Admingenero::lists('genero','id');
-         return view('peliculas.index',compact('pelicula'))->with("generos",$generos);
-
-
+         return view('peliculas.index',compact('pelicula'))->with("generos",$generos)->with('noRender',$noRender);;
        }
 
+       public function buscarPeliculas(Request $request){
+         $titulo=$request['titulo'];
+         $pelicula=\moviexpert\Adminpelicula::titulo($titulo);
+         $generos=\moviexpert\Admingenero::lists('genero','id');
+         $noRender=true;
+        /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
+        return view('peliculas.index',compact('pelicula'))->with("generos",$generos)->with('noRender',$noRender);
+       }
     public function create(){
       $generos=\moviexpert\Admingenero::lists('genero','id');
       return view('peliculas.create',compact("generos"));

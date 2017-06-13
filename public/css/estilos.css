@@ -483,7 +483,9 @@ a{
     width: 100%;
 
   }
-  
+  .heigth100{
+    height: 75px;
+  }
   .fotoPelicula{
     float:none;
     margin: auto;
