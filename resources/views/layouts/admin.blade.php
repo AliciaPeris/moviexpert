@@ -16,8 +16,8 @@
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="navbar-header container col-xs-12 fondoCabecera heigth100">
-              <div class="col-xs-7 col-xs-offset-2 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
-                <a class="navbar-brand" href="/admin"><img class="width100" src="/imagenes/logo.png"></img></a>
+              <div class="col-xs-7 col-xs-offset-2 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 marginBotton">
+                <a class="navbar-brand marginBotton" href="/admin"><img class="width100" src="/imagenes/logo.png"></img></a>
               </div>
               <div class="margintop25 hidden-xs col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
                 <form class="navbar-form" action="/buscar" method="POST">
@@ -34,9 +34,9 @@
             </div>
             <div id="menuadmin" class="fondoMenu container col-xs-12">
               <ul class="nav navbar-nav navbar-left">
-                <li class=""><a class="textoMenu" href="/admin">Inicio</a></li>
-                <li class=""><a class="textoMenu" href="/adminpelicula">Peliculas</a></li>
-                <li class=""><a class="textoMenu" href="/admingenero">Géneros</a></li>
+                <li class=""><a class="textoMenu text-center" href="/admin">Inicio</a></li>
+                <li class=""><a class="textoMenu text-center" href="/adminpelicula">Peliculas</a></li>
+                <li class=""><a class="textoMenu text-center" href="/admingenero">Géneros</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle btn textoMenu" data-toggle="dropdown" role="button" aria-expanded="false">
                         Concursos<span class="caret"></span>
@@ -56,8 +56,8 @@
                         <li><a href="{{ url('/adminmensajechat') }}"><i class=""></i>Mensajes Chat</a></li>
                     </ul>
                 </li>
-                <li class=""><a class="textoMenu" href="/adminusuarios">Usuarios</a></li>
-                <li class=""><a class="textoMenu" href="/">Frontend</a></li>
+                <li class=""><a class="textoMenu text-center" href="/adminusuarios">Usuarios</a></li>
+                <li class=""><a class="textoMenu text-center" href="/">Frontend</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                   <!-- Authentication Links -->
