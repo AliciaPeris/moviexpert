@@ -7,7 +7,7 @@
 		<h1 class="textoMarron text-center">Incripcion a un Cocurso</h1>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        {!!Form::number('idconcurso',null,['class'=>'form-control','placeholder'=>'ID Concurso'])!!}
+        {!!Form::select('idconcurso',$concurso,null,['class'=>'form-control','placeholder'=>'Concurso'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>

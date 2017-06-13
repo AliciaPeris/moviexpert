@@ -34,8 +34,9 @@ class AdminparticipanconcursoController extends Controller
   }
   public function create(){
       $users=\moviexpert\User::lists('nombre','id');
+      $concurso=\moviexpert\participanconcurso::lists('titulo','id');
     /*Retornanmos a la vista create*/
-        return view('participanconcursos.create',compact('users'));
+        return view('participanconcursos.create',compact('users','concurso'));
   }
   public static function participantesconcurso($id){
     $participanconcurso=DB::select('select * from participanconcurso where idcortoconcurso=:id', ['id' => $id]);
