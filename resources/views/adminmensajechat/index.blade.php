@@ -1,3 +1,4 @@
+<?php use moviexpert\Http\Controllers\MiembrochatController;?>
 @extends('layouts.admin')
 	@section('content')
   <?php $message=Session::get('message')?>
@@ -17,9 +18,15 @@
 					<th class="text-center textoBlanco">Acciones</th>
         </thead>
         @foreach($mensajechat as $chat)
+				<?php
+							$id=$chat->idmiembro;
+							$nombreusuario=MiembrochatController::nombreuser($id);
+				?>
         <tbody>
         <td>{{$chat->id}}</td>
-        <td>{{$chat->idmiembro}}</td>
+        <td>{{$chat->idmiembro}} @foreach($nombreusuario as $user)
+        <?php  echo " - ".$user->nombre;?>
+        @endforeach</td>
         <td>{{$chat->mensaje}}</td>
 				<td class="fila">
         {!!link_to_route('adminmensajechat.edit', $title = "Editar", $parameters = $chat->id, $attributes = ['class'=>'btn boton2 margin5'])!!}

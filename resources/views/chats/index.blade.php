@@ -1,3 +1,4 @@
+<?php use moviexpert\Http\Controllers\UserController;?>
 @extends('layouts.admin')
 	@section('content')
 
@@ -31,6 +32,11 @@
 					<th class="text-center textoBlanco">Acciones</th>
         </thead>
         @foreach($chat as $chats)
+				<?php
+					$iduser=(integer)($chats->creadorchat);
+					$nombre=UserController::nombreUser($iduser);
+				?>
+				@foreach($nombre as $nom)
         <tbody>
         <td>{{$chats->id}}</td>
         <td>{{$chats->nombre}}</td>
@@ -39,7 +45,7 @@
         <td>{{$chats->numactores}}</td>
         <td>{{$chats->numdirectores}}</td>
         <td>{{$chats->numcamaras}}</td>
-        <td>{{$chats->creadorchat}}</td>
+        <td>{{$chats->creadorchat}} <?php echo " - ".$nom->nombre;?></td>
         <td class="fila">
         {!!link_to_route('adminchat.edit', $title = "Editar", $parameters = $chats->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
 				{!!link_to_route('adminparticipanchat.show', $title = "Ver Participantes", $parameters = $chats->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
@@ -48,6 +54,7 @@
         {!!Form::close()!!}
       </td>
     </tbody>
+		@endforeach
     @endforeach
 	</div>
     <tfoot>

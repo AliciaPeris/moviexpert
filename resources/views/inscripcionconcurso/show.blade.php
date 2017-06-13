@@ -1,4 +1,5 @@
 <?php use moviexpert\Http\Controllers\VotarcortoController;?>
+<?php use moviexpert\Http\Controllers\UserController;?>
 @extends('layouts.frontend')
 	@section('content')
 
@@ -18,12 +19,15 @@
         $now=new \Carbon\Carbon();
         $id=$ins->id;
         $user=Auth::user()->id;
-?>
+				$iduser=(integer)($user);
+				$nombre=UserController::nombreUser($iduser);
+				?>
+				@foreach($nombre as $nom)
   <div class="col-xs-12 cuadrado container-fluid margintop25">
     <h1 class="col-xs-12 text-center">{{$ins->titulo}}</h1>
     <div class="col-xs-8 container-fluid margintop25">
     <div class="col-xs-9 col-xs-offset-1 margintop25">
-      <p class="col-xs-12">Usuario: {{$ins->idusuario}}</p>
+      <p class="col-xs-12">Usuario: {{$ins->idusuario}} <?php echo " - ".$nom->nombre;?></p>
     </div>
     <div class="col-xs-10 col-xs-offset-1 margintop25">
       <p class="col-xs-12">Otros Participantes: {{$ins->otrosparticipantes}}</p>
@@ -63,6 +67,7 @@
 
   </div>
   @endforeach
+	@endforeach
 </div>
 
 

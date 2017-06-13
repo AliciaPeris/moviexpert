@@ -1,3 +1,4 @@
+<?php use moviexpert\Http\Controllers\UserController;?>
 @extends('layouts.admin')
 	@section('content')
   <?php $message=Session::get('message')?>
@@ -18,10 +19,15 @@
 					<th class="text-center textoBlanco">Acciones</th>
         </thead>
         @foreach($participanchat as $cp)
+				<?php
+					$iduser=(integer)($cp->idusuario);
+					$nombre=UserController::nombreUser($iduser);
+				?>
+				@foreach($nombre as $nom)
         <tbody>
         <td>{{$cp->id}}</td>
         <td>{{$cp->idchat}}  - {{$chat->nombre}}</td>
-        <td>{{$cp->idusuario}}</td>
+        <td>{{$cp->idusuario}} <?php echo " - ".$nom->nombre;?></td>
         <td>{{$cp->tipomiembro}}</td>
 				<td class="fila">
         {!!link_to_route('adminparticipanchat.edit', $title = "Editar", $parameters = $cp->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
@@ -31,6 +37,7 @@
         {!!Form::close()!!}
       </td>
     </tbody>
+		@endforeach
     @endforeach
     </table>
 
