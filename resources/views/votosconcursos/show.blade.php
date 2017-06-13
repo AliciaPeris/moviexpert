@@ -9,7 +9,7 @@
 	</div>
 	@endif
   <div class="container-fluid blanco">
-  <h1 class="text-center">Concursos</h1><br>
+  <h1 class="text-center">Votos del Corto</h1><br>
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
           <th class="text-center textoBlanco">ID</th>
@@ -24,11 +24,10 @@
 					$iduser=(integer)($concursos->idusuario);
 					$nombre=UserController::nombreUser($iduser);
 				?>
-				@foreach($nombre as $nom)
         <tbody>
         <td>{{$voto->id}}</td>
         <td>{{$voto->idcortoconcurso}} - {{$concursos->titulo}}</td>
-        <td>{{$voto->idusuario}} <?php echo " - ".$nom->nombre;?></td>
+        <td>{{$voto->idusuario}} @foreach($nombre as $nom) <?php echo " - ".$nom->nombre;?> @endforeach</td>
         <td>{{$voto->voto}}</td>
         <td>{{$voto->fechavoto}}</td>
 				<td class="fila">
@@ -39,7 +38,6 @@
         {!!Form::close()!!}
       </td>
     </tbody>
-		@endforeach
     @endforeach
     </table>
     </div>

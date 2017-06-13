@@ -28,6 +28,10 @@ class AdminparticipanconcursoController extends Controller
    /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
    return view('participanconcursos.index',compact('participanconcurso'))->with('noRender',$noRender);
   }
+  public static function nombreCorto($id){
+    $nombre=DB::select('select * from participanconcursos where id=:id',['id'=>$id]);
+    return $nombre;
+  }
   public function create(){
       $users=\moviexpert\User::lists('nombre','id');
     /*Retornanmos a la vista create*/

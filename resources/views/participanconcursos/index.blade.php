@@ -1,4 +1,5 @@
 <?php use moviexpert\Http\Controllers\UserController;?>
+<?php use moviexpert\Http\Controllers\AdminconcursoController;?>
 @extends('layouts.admin')
 	@section('content')
   <?php $message=Session::get('message')?>
@@ -31,26 +32,27 @@
         @foreach($participanconcurso as $concursos)
 				<?php
 					$iduser=(integer)($concursos->idusuario);
+					$idcon=(integer)($concursos->idconcurso);
+					$nombreconcurso=AdminconcursoController::nombreConcurso($idcon);
 					$nombre=UserController::nombreUser($iduser);
 				?>
-				@foreach($nombre as $nom)
         <tbody>
         <td>{{$concursos->id}}</td>
-        <td>{{$concursos->idconcurso}}</td>
-        <td>{{$concursos->idusuario}}<?php echo " - ".$nom->nombre;?></td>
+        <td>{{$concursos->idconcurso}}@foreach($nombreconcurso as $nom)<?php echo " - ".$nom->nombre;?>		@endforeach</td>
+        <td>{{$concursos->idusuario}} @foreach($nombre as $nom)<?php echo " - ".$nom->nombre;?>		@endforeach</td>
         <td>{{$concursos->titulo}}</td>
         <td>{{$concursos->descripcion}}</td>
 				<td>{{$concursos->corto}}</td>
 				<td class="fila">
         {!!link_to_route('adminparticipanconcurso.edit', $title = "Editar", $parameters = $concursos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
-				{!!link_to_route('adminvotosconcurso.show', $title = "Ver Votos", $parameters = $concursos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
+				{!!link_to_route('adminvotosconcurso.show', $title = "Ver Votos", $parameters = $concursos->idconcurso, $attributes = ['class'=>'btn boton2 margin5'])!!}
         {!!Form::open(['route'=>['adminparticipanconcurso.destroy',$concursos->id],'method'=>'DELETE'])!!}
  {{ csrf_field() }}
 				{!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
         {!!Form::close()!!}
       </td>
     </tbody>
-		@endforeach
+
     @endforeach
 	</div>
     <tfoot>

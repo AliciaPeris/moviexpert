@@ -24,6 +24,10 @@ class AdminconcursoController extends Controller
          /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
           return view('concursos.index',compact('concurso'))->with('noRender',$noRender);
     }
+    public static function nombreConcurso($id){
+      $nombre=DB::select('select * from adminconcursos where id=:id',['id'=>$id]);
+      return $nombre;
+    }
 
     public function buscarConcursos(Request $request){
       $nombre=$request['nombre'];
