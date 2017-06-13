@@ -9,6 +9,7 @@
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
         {!!Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Ingrese el nombre'])!!}
+				
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>

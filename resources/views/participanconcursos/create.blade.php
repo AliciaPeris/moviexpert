@@ -11,7 +11,7 @@
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        {!!Form::number('idusuario',null,['class'=>'form-control','placeholder'=>'ID Usuario'])!!}
+        {!!Form::select('idusuario',$users,null,['class'=>'form-control','placeholder'=>' Usuario'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-user"></span>

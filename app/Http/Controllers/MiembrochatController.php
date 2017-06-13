@@ -20,7 +20,7 @@ class MiembrochatController extends Controller
             ->select('miembrochats.id as participacion','adminchats.*' )
             ->where('miembrochats.idusuario',$id)
             ->get();
-            return view('miembrochat.index',compact('chats'))->with('noRender',$noRender);
+            return view('miembrochat.index',compact('chats'))->with('id','$id')->with('noRender',$noRender);
     }
     public function buscarMiembro(Request $request){
       $tipomiembro=$request['tipomiembro'];
