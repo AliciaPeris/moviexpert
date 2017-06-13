@@ -3,7 +3,7 @@
 namespace moviexpert\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 

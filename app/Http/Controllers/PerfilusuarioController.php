@@ -4,6 +4,7 @@ namespace moviexpert\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use DB;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
