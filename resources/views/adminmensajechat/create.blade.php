@@ -8,7 +8,7 @@
 		<h1 class="textoMarron text-center">Nuevo Mensaje</h1>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        {!!Form::number('idmiembro',null,['class'=>'form-control','placeholder'=>'ID Miembro'])!!}
+        {!!Form::select('idmiembro',$users,null,['class'=>'form-control','placeholder'=>'Miembro'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-user"></span>

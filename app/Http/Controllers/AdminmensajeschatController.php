@@ -20,7 +20,8 @@ class AdminmensajeschatController extends Controller
 }
 public function create(){
   /*Retornanmos a la vista create*/
-      return view('adminmensajechat.create');
+    $users=\moviexpert\miembrochat::lists('id','id');
+      return view('adminmensajechat.create',compact('users'));
 }
 
 public function store(MensajeChatRequest $request){
