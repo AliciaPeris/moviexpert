@@ -15,9 +15,17 @@ class AdminparticipanconcursoController extends Controller
 {
   public function index(){
     /*Creamos una variable para almacenar todos los datos de la base de datos*/
-       $participanconcurso=DB::table('participanconcursos')->paginate(6);
+      $noRender=false;
+       $participanconcurso=DB::table('participanconcursos')->paginate(5);
        /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
-        return view('participanconcursos.index',compact('participanconcurso'));
+        return view('participanconcursos.index',compact('participanconcurso'))->with('noRender',$noRender);
+  }
+  public function buscarParticipan(Request $request){
+    $nombre=$request['titulo'];
+    $participanconcurso=\moviexpert\participanconcurso::nombre($nombre);
+    $noRender=true;
+   /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
+   return view('participanconcursos.index',compact('participanconcurso'))->with('noRender',$noRender);
   }
   public function create(){
     /*Retornanmos a la vista create*/
