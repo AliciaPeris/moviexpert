@@ -44,7 +44,7 @@
       </div>
       <div class="form-group input-group margin10">
         <span class="input-group-addon glyphicon glyphicon-home"></span>
-          {!!Form::select('genero',$generos,["class"=>'form-control'])!!}
+          {!!Form::select('genero',$generos,null,["class"=>'form-control'])!!}
       </div>
 
       {!!Form::submit('Registrar',['class'=>'btn boton'])!!}
