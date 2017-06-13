@@ -246,6 +246,14 @@ width: calc(50% - 20px);
 margin:10px;
 padding: 10px;
 }
+.chats{
+  box-shadow:0 0 5px #EEE;
+  float:left;
+  height: 320px;
+  margin-top:10px;
+  padding: 10px;
+  box-shadow: 2px 4px;
+}
 .fichaRes3{
   box-shadow:0 0 5px #EEE;
   min-height: 220px;
