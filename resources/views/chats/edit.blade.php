@@ -15,23 +15,19 @@
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        {!!Form::text('numguionistas',null,['class'=>'form-control','placeholder'=>'Ingrese el número de guionistas'])!!}
+        {!!Form::number('numguionistas',null,['class'=>'form-control','placeholder'=>'Ingrese el número de guionistas'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        {!!Form::text('numactores',null,['class'=>'form-control','placeholder'=>'Ingrese el número de actores'])!!}
+        {!!Form::number('numactores',null,['class'=>'form-control','placeholder'=>'Ingrese el número de actores'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        {!!Form::text('numdirectores',null,['class'=>'form-control','placeholder'=>'Ingrese el número de directores'])!!}
+        {!!Form::number('numdirectores',null,['class'=>'form-control','placeholder'=>'Ingrese el número de directores'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        {!!Form::text('numcamaras',null,['class'=>'form-control','placeholder'=>'Ingrese el número de cámaras'])!!}
-      </div>
-      <div class="input-group input-group-lg margin10">
-        <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        {!!Form::text('numcamaras',null,['class'=>'form-control','placeholder'=>'Ingrese el número de cámaras'])!!}
+        {!!Form::number('numcamaras',null,['class'=>'form-control','placeholder'=>'Ingrese el número de cámaras'])!!}
       </div>
       {!!Form::submit('Actualizar',['class'=>'btn boton'])!!}
       {!!Form::close()!!}
