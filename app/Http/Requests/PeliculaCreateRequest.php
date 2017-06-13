@@ -25,7 +25,7 @@ class PeliculaCreateRequest extends Request
     {
         return [
           'titulo' => 'required',
-          'anio' => 'required|numeric',
+          'anio' => 'required',
           'pais' => 'required',
           'director' => 'required',
           'guion' => 'required',
