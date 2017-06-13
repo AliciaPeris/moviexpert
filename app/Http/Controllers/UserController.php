@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index(){
       /*Creamos una variable para almacenar todos los datos de la base de datos*/
         $noRender=false;
-        $users=DB::table('users')->orderBy('nombre')->paginate(6);
+        $users=DB::table('users')->orderBy('nombre')->paginate(5);
          /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
           return view('user.index',compact('users'))->with('noRender',$noRender);
     }

@@ -19,10 +19,20 @@ class AdminconcursoController extends Controller
     //
     public function index(){
       /*Creamos una variable para almacenar todos los datos de la base de datos*/
-         $concurso=DB::table('adminconcursos')->paginate(1);
+         $noRender=false;
+         $concurso=DB::table('adminconcursos')->paginate(5);
          /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
-          return view('concursos.index',compact('concurso'));
+          return view('concursos.index',compact('concurso'))->with('noRender',$noRender);
     }
+
+    public function buscarConcursos(Request $request){
+      $nombre=$request['nombre'];
+      $concurso=\moviexpert\Adminconcurso::nombre($nombre);
+      $noRender=true;
+     /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
+     return view('concursos.index',compact('concurso'))->with('noRender',$noRender);
+    }
+
     public function create(){
       /*Retornanmos a la vista create*/
           return view('concursos.create');

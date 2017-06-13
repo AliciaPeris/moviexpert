@@ -13,13 +13,22 @@ class MiembrochatController extends Controller
 {
     //
     public function index(){
+      $noRender=false;
       $id=Auth::user()->id;
       $chats = DB::table('adminchats')
             ->join('miembrochats', 'miembrochats.idchat', '=', 'adminchats.id')
             ->select('miembrochats.id as participacion','adminchats.*' )
             ->where('miembrochats.idusuario',$id)
-            ->get();
-            return view('miembrochat.index',compact('chats'));
+            ->get()->paginate(5);
+            return view('miembrochat.index',compact('chats'))->with('noRender',$noRender);
+    }
+    public function buscarMiembro(Request $request){
+      $tipomiembro=$request['tipomiembro'];
+      $noRender=true;
+      $participanchat=\moviexpert\miembrochat::tipomiembro($tipomiembro);
+
+     /*Retornamos a la vista user carpeta index vista y le pasamos la variable con los datos*/
+     return view('participanchat.index',compact('participanchat'))->with('noRender',$noRender);
     }
     public function show($id){
       $chat = DB::select('select * from mensajechats where idmiembro IN (select id from miembrochats where idchat=(select idchat from miembrochats where id=:id)) ORDER BY id ASC

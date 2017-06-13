@@ -11,7 +11,7 @@
 <h1 class="text-center">Listado Usuarios</h1><br>
 <form class "navbar-form navbar-left col-xs-12" role="search" method="POST" action="/buscarusuarios">
 	{{ csrf_field() }}
-	<div class="form-group col-xs-12 col-md-2">
+	<div class="form-group col-xs-6 col-md-2">
 		<input type="text" name="nombre" class="form-control" placeholder="Buscar">
 	</div>
 	<button type="submit" class="btn btn-danger col-xs-3 col-md-1">Buscar</button>

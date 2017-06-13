@@ -3,7 +3,7 @@
 namespace moviexpert;
 
 use Illuminate\Database\Eloquent\Model;
-
+use DB;
 class Miembrochat extends Model
 {
     //
@@ -12,4 +12,8 @@ class Miembrochat extends Model
         'idusuario',
         'tipomiembro',
     ];
+    static public function tipomiembro($tipomiembro){
+
+      return DB::select("SELECT * FROM miembrochats WHERE tipomiembro like '".$tipomiembro."%';");
+   }
 }

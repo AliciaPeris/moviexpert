@@ -9,6 +9,7 @@
 	@endif
   <div class="container-fluid blanco">
   <h1 class="text-center">Todos los votos</h1><br>
+	<div class="table-responsive col-xs-12">
   	<table class="table table-hover text-center table-bordered">
   		<thead class="fondoMenu">
           <th class="text-center textoBlanco">ID</th>
@@ -33,6 +34,7 @@
       </td>
     </tbody>
     @endforeach
+	</div>
     <tfoot>
       <tr>
         <td colspan="6">

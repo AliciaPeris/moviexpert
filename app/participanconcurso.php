@@ -3,7 +3,7 @@
 namespace moviexpert;
 
 use Illuminate\Database\Eloquent\Model;
-
+use DB;
 class participanconcurso extends Model
 {
     //
@@ -16,4 +16,8 @@ class participanconcurso extends Model
         'descripcion',
         'corto',
     ];
+    static public function nombre($nombre){
+
+      return DB::select("SELECT * FROM participanconcursos WHERE titulo like '".$nombre."%';");
+   }
 }

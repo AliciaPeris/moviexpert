@@ -3,7 +3,7 @@
 namespace moviexpert;
 
 use Illuminate\Database\Eloquent\Model;
-
+use DB;
 class Adminchat extends Model
 {
     //
@@ -17,4 +17,10 @@ class Adminchat extends Model
         'numcamaras',
         'creadorchat',
     ];
+    static public function nombre($nombre){
+
+      return DB::select("SELECT * FROM adminchats WHERE nombre like '".$nombre."%';");
+   }
+  
+
 }

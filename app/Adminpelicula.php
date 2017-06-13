@@ -3,7 +3,7 @@
 namespace moviexpert;
 
 use Illuminate\Database\Eloquent\Model;
-
+use DB;
 class Adminpelicula extends Model
 {
     //
@@ -21,7 +21,14 @@ class Adminpelicula extends Model
     }
 
     public function genero()
-   {
+    {
        return $this->belongsTo('\App\Http\Admingenero');
-}
+    }
+
+    static public function titulo($titulo){
+
+      return DB::select("SELECT * FROM adminpeliculas WHERE titulo like '".$titulo."%';");
+
+
+   }
 }
