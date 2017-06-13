@@ -58,11 +58,11 @@ class AdminconcursoController extends Controller
 
     }
     public function edit($id){
-      $concursos = Adminconcurso::find($id);
+      $concursos =\moviexpert\Adminconcurso::find($id);
       return view('concursos.edit',['concurso'=>$concursos]);
     }
     public function update(ConcursoUpdateRequest $request,$id){
-      $concursos = Adminconcurso::find($id);
+      $concursos = \moviexpert\Adminconcurso::find($id);
       $concursos->fill($request->all());
       $concursos->save();
       Session::flash('message','concursos Actualizado Correctamente');

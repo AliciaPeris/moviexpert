@@ -6,23 +6,23 @@
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 cuadrado">
 		  <h1 class="textoMarron text-center">Introducir concurso</h1>
       <div class="input-group input-group-lg margin10">
-        <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+        <span class="input-group-addon glyphicon glyphicon-film"></span>
         {!!Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Ingrese el nombre'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
-        <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+        <span class="input-group-addon glyphicon glyphicon-list-alt"></span>
         {!!Form::text('descripcion',null,['class'=>'form-control','placeholder'=>'Ingrese la descripcion'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
-        <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+        <span class="input-group-addon glyphicon glyphicon-calendar"></span>
         {!!Form::date('fechainicioinscripcion',null,['class'=>'form-control','placeholder'=>'Ingrese la fecha de inicio'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
-        <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+        <span class="input-group-addon glyphicon glyphicon-calendar"></span>
         {!!Form::date('fechafininscripcion',null,['class'=>'form-control','placeholder'=>'Ingrese la fecha fin de plazo'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
-        <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+        <span class="input-group-addon glyphicon glyphicon-calendar"></span>
         {!!Form::date('fechafinconcurso',null,['class'=>'form-control','placeholder'=>'Ingrese la fecha fin de concurso'])!!}
       </div>
       {!!Form::submit('Registrar',['class'=>'btn boton'])!!}

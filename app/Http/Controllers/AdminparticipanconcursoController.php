@@ -66,13 +66,14 @@ class AdminparticipanconcursoController extends Controller
           return view('participanconcursos.show',compact('concursos','participanconcurso'));
         }
   public function edit($id){
-    $participanconcurso = \moviexpert\participanconcurso::find($id);
-    return view('participanconcursos.edit',['participanconcurso'=>$participanconcurso]);
+    $concurso = \moviexpert\participanconcurso::find($id);
+    $users=\moviexpert\User::lists('nombre','id');
+    return view('participanconcursos.edit',['concurso'=>$concurso])->with('users',$users);
   }
   public function update(ParticipanConcursoRequest $request,$id){
-    $concursos = \moviexpert\participanconcurso::find($id);
-    $concursos->fill($request->all());
-    $concursos->save();
+    $concurso = \moviexpert\participanconcurso::find($id);
+    $concurso->fill($request->all());
+    $concurso->save();
     Session::flash('message','Incripcion Actualizada Correctamente');
     return Redirect::to('/adminparticipanconcurso');
   }
