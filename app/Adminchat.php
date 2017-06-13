@@ -21,6 +21,6 @@ class Adminchat extends Model
 
       return DB::select("SELECT * FROM adminchats WHERE nombre like '".$nombre."%';");
    }
-  
+
 
 }
