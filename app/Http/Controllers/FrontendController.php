@@ -7,6 +7,7 @@ use DB;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use moviexpert\Http\Requests\criticasPeliculasCreateRequest;
 
 
 
@@ -64,7 +65,7 @@ class FrontendController extends Controller
     $peliculas=\moviexpert\Adminpelicula::lists('titulo','id');
     return view("frontend.misCriticas",compact('criticas'))->with('peliculas',$peliculas);
   }
-  public function procesarCriticas(Request $request){
+  public function procesarCriticas(criticasPeliculasCreateRequest $request){
     \moviexpert\CriticaPeliculas::create([
     'idpelicula'=> $request['idpelicula'],
     'idusuario'=> $request['idusuario'],
