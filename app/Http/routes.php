@@ -28,6 +28,7 @@ Route::post('buscargeneros','AdmingeneroController@buscarGeneros');
 Route::post('buscarconcursos','AdminconcursoController@buscarConcursos');
 Route::post('buscarparticipan','AdminparticipanconcursoController@buscarparticipan');
 Route::post('buscarchat','AdminchatController@buscarChat');
+Route::post('buscartipomiembro','MiembrochatController@buscarMiembro');
 
 
 
