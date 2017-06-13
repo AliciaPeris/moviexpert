@@ -8,6 +8,7 @@ use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use moviexpert\Http\Requests\criticasPeliculasCreateRequest;
+use moviexpert\Http\Requests\VotosPeliculasRequest;
 
 
 
@@ -43,7 +44,7 @@ class FrontendController extends Controller
      $peliculas=\moviexpert\Votospeliculas::top10();
      return view("frontend.valoracion",compact('peliculas'));
    }
-   public function enviarVotos(Request $request){
+   public function enviarVotos(VotosPeliculasRequest $request){
      if(!\moviexpert\Votospeliculas::checkVotos($request['idpelicula'],$request['idusuario'])){
         DB::table('votospeliculas')->insert(['idpelicula'=>$request['idpelicula'],'idusuario'=>$request['idusuario'],'voto'=>$request['voto']]);
       }else{
