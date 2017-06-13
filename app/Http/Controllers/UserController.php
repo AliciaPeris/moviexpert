@@ -62,6 +62,10 @@ class UserController extends Controller
         return view('user.edit',['user'=>$users]);
 
     }
+    public static function nombreUser($id){
+      $nombre=BD::select('select nombre from users where id=:id',['id',$id]);
+      return $nombre;
+    }
     public function update(UserUpdateRequest $request,$id){
         $user = User::find($id);
         $user->fill($request->all());
