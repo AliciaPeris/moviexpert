@@ -1,4 +1,5 @@
 <?php use moviexpert\Http\Controllers\UserController;?>
+<?php use moviexpert\Http\Controllers\AdminparticipanconcursoController;?>
 @extends('layouts.admin')
 	@section('content')
   <?php $message=Session::get('message')?>
@@ -24,12 +25,14 @@
 				<?php
 					$iduser=(integer)($concursos->idusuario);
 					$nombre=UserController::nombreUser($iduser);
+					$idcon=(integer)($concursos->idcortoconcurso);
+					$nombrecorto=AdminparticipanconcursoController::nombreCorto($idcon);
 				?>
-				@foreach($nombre as $nom)
+
         <tbody>
         <td>{{$concursos->id}}</td>
-        <td>{{$concursos->idcortoconcurso}}</td>
-        <td>{{$concursos->idusuario}}<?php echo " - ".$nom->nombre;?></td>
+        <td>{{$concursos->idcortoconcurso}} @foreach($nombrecorto as $nom) <?php echo " - ".$nom->titulo;?> @endforeach</td>
+        <td>{{$concursos->idusuario}} @foreach($nombre as $nom) <?php echo " - ".$nom->nombre;?> @endforeach</td>
         <td>{{$concursos->voto}}</td>
         <td>{{$concursos->fechavoto}}</td>
 				<td class="fila">
@@ -40,7 +43,7 @@
         {!!Form::close()!!}
       </td>
     </tbody>
-		@endforeach
+
     @endforeach
 	</div>
     <tfoot>
