@@ -8,6 +8,7 @@ use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
 use DB;
 use Session;
+use moviexpert\Http\Requests\ParticipanConcursoRequest;
 
 
 class InscripcionconcursoController extends Controller
@@ -22,7 +23,7 @@ class InscripcionconcursoController extends Controller
       return view('inscripcionconcurso.create',['concurso'=>$concursos]);
     }
 
-    public function store(Request $request){
+    public function store(ParticipanConcursoRequest $request){
       \moviexpert\participanconcurso::create([
        /*Nombre campo base datos => nombre del campo del formulario*/
        'idconcurso'=> $request['idconcurso'],
