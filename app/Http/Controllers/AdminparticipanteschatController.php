@@ -22,7 +22,9 @@ class AdminparticipanteschatController extends Controller
   }
   public function create(){
     /*Retornanmos a la vista create*/
-        return view('participanchat.create');
+        $users=\moviexpert\User::lists('nombre','id');
+        $chat=\moviexpert\Adminchat::lists('nombre','id');
+        return view('participanchat.create',compact('users','chat'));
   }
 
   public function store(ParticipanChatRequest $request){

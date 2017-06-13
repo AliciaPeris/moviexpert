@@ -7,15 +7,15 @@
 		<h1 class="textoMarron text-center">Incripcion a un Grupo de Chat</h1>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        {!!Form::number('idchat',null,['class'=>'form-control','placeholder'=>'ID Chat'])!!}
+        {!!Form::select('idchat',$chat,null,['class'=>'form-control','placeholder'=>'Chat'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-        {!!Form::number('idusuario',null,['class'=>'form-control','placeholder'=>'ID Usuario'])!!}
+        {!!Form::select('idusuario',$users,null,['class'=>'form-control','placeholder'=>'Usuario'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
         <span class="input-group-addon glyphicon glyphicon-user"></span>
-        {!!Form::text('tipomiembro',null,['class'=>'form-control','placeholder'=>'Tipo Miembro'])!!}
+        {!!Form::select('tipomiembro',['Camara' => 'Camara', 'Director' => 'Director', 'Actor' => 'Actor', 'Guionista' => 'Guionista'],null,['class'=>'form-control','placeholder'=>'Tipo Miembro'])!!}
       </div>
       {!!Form::submit('Realizar Inscripcion',['class'=>'btn boton margintop25'])!!}
       {!!Form::close()!!}
