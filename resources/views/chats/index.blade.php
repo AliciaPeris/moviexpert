@@ -50,6 +50,7 @@
         {!!link_to_route('adminchat.edit', $title = "Editar", $parameters = $chats->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
 				{!!link_to_route('adminparticipanchat.show', $title = "Ver Participantes", $parameters = $chats->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
 				{!!Form::open(['route'=>['adminchat.destroy',$chats->id],'method'=>'DELETE'])!!}
+				 {{ csrf_field() }}
         {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
         {!!Form::close()!!}
       </td>

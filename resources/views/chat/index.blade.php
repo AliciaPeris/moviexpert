@@ -17,6 +17,7 @@
 	<h3 class="col-xs-6 col-md-6 text-center">0 / {{$chat->numactores}} <i class="glyphicon glyphicon-user"></i></h3></h3><h3 class="col-xs-6 col-md-6 text-center">0/ {{$chat->numguionistas}} <i class="glyphicon glyphicon-list-alt"></i></h3>
 	<h3 class="col-xs-6 col-md-6 text-center">0 / {{$chat->numdirectores}} <i class="glyphicon glyphicon-film"></i></h3></h3><h3 class="col-xs-6 col-md-6 text-center">0/ {{$chat->numcamaras}} <i class="glyphicon glyphicon-facetime-video"></i></h3>
   {!!Form::open(['route'=>['grupochat.destroy',$chat->id],'method'=>'DELETE'])!!}
+	 {{ csrf_field() }}
   {!!Form::submit('Borrar Chat',['class'=>'btn btn-danger col-xs-12 col-sm-6 col-sm-offset-3 margintop25'])!!}
 </div>
 	@endforeach

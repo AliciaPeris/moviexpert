@@ -2,7 +2,7 @@
 	@section('content')
 
   {!!Form::model($user,['route'=>['perfilusuario.update',$user->id],'method'=>'PUT'])!!}
-
+ {{ csrf_field() }}
 	@include('alerts.errorformulario')
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 cuadrado">
 		  <h1 class="textoMarron text-center">Mis datos</h1>
@@ -50,12 +50,13 @@
     {!!Form::close()!!}
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1" style="text-align:right;padding/-top:30px;">
     {!!Form::open(['route'=>['perfilusuario.destroy','destroy'],'method'=>'DELETE'])!!}
+		 {{ csrf_field() }}
     {!!Form::submit('Borrar cuenta',['class'=>'btn boton margin5'])!!}
     {!!Form::close()!!}
   </div>
     <script>
       document.forms[2][2].addEventListener("click", function(event){
-        if(!confirm("¿Realmente desea borrar su usario, si lo hace no hay vuelta atrás?")) event.preventDefault();
+        if(!confirm("¿Realmente desea borrar su usuario, si lo hace no hay vuelta atrás?")) event.preventDefault();
     });
     </script>
 @endsection

@@ -2,7 +2,7 @@
 	@section('content')
   {!!Form::model($participanconcurso,['route'=>['adminparticipanconcurso.update',$participanconcurso->id],'method'=>'PUT'])!!}
 	@include('alerts.errorformulario')
-
+ {{ csrf_field() }}
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 cuadrado">
 		<h1 class="textoMarron text-center">Editar Incripcion al Concurso</h1>
 		<div class="input-group input-group-lg margin10">

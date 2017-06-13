@@ -2,7 +2,7 @@
 	@section('content')
   {!!Form::open(['route'=>'adminparticipanchat.store','method'=>'POST'])!!}
 	@include('alerts.errorformulario')
-
+ {{ csrf_field() }}
 	<div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 cuadrado">
 		<h1 class="textoMarron text-center">Incripcion a un Grupo de Chat</h1>
       <div class="input-group input-group-lg margin10">

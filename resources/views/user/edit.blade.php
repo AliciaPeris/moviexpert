@@ -2,7 +2,7 @@
 	@section('content')
 		@include('alerts.errorformulario')
 	{!!Form::model($user,['route'=>['adminusuarios.update',$user->id],'method'=>'PUT'])!!}
-
+ {{ csrf_field() }}
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 cuadrado">
 		  <h1 class="textoMarron text-center">Editar un usuario </h1>
       <div class="input-group input-group-lg margin10">

@@ -50,6 +50,7 @@
       @if($usuarioavotado==0)
 			<div>
 			{!!Form::open(['route'=>'votarcorto.store','method'=>'POST'])!!}
+			 {{ csrf_field() }}
 			{!!Form::text('idconcurso',$idpart,['hidden'])!!}
 			{!!Form::text('idusuario',$user,['hidden'])!!}
 			{!!Form::date('fechavoto',$now,['hidden'])!!}

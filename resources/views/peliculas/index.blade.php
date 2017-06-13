@@ -53,6 +53,7 @@
         <td class="fila">
 					{!!link_to_route('adminpelicula.edit', $title = "Editar", $parameters = $peliculas->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
 	        {!!Form::open(['route'=>['adminpelicula.destroy',$peliculas->id],'method'=>'DELETE'])!!}
+					 {{ csrf_field() }}
 	        {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
 	        {!!Form::close()!!}
 	      </td>

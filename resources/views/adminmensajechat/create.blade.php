@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 	@section('content')
   {!!Form::open(['route'=>'adminmensajechat.store','method'=>'POST'])!!}
+	 {{ csrf_field() }}
 	@include('alerts.errorformulario')
 
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 cuadrado">

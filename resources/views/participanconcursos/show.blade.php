@@ -46,6 +46,7 @@
         {!!link_to_route('adminparticipanconcurso.edit', $title = "Editar", $parameters = $concursos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
 				{!!link_to_route('adminvotosconcurso.show', $title = "Ver Votos", $parameters = $concursos->id, $attributes = ['class'=>'btn boton2 margin5'])!!}
 			  {!!Form::open(['route'=>['adminparticipanconcurso.destroy',$concursos->id],'method'=>'DELETE'])!!}
+				 {{ csrf_field() }}
         {!!Form::submit('Eliminar',['class'=>'btn btn-danger margin5'])!!}
         {!!Form::close()!!}
       </td>
