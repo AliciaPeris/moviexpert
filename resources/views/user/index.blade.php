@@ -27,7 +27,6 @@
         <th class="text-center textoBlanco hidden-xs hidden-sm">Localidad</th>
         <th class="text-center textoBlanco hidden-xs">Genero</th>
         <th class="text-center textoBlanco hidden-xs">Fecha Nacimiento</th>
-        <th class="text-center textoBlanco hidden-xs hidden-sm">Imagen</th>
         <th class="text-center textoBlanco">Tipo Usuario</th>
         <th class="text-center textoBlanco">Acciones</th>
       </thead>
@@ -41,7 +40,6 @@
         <td class="hidden-xs hidden-sm">{{$user->localidad}}</td>
         <td class="hidden-xs">{{$user->genero}}</td>
         <td class="hidden-xs">{{$user->fechanacimiento}}</td>
-        <td class="hidden-xs hidden-sm">{{$user->foto}}</td>
         <td>{{$user->tipousuario}}</td>
 
         <td class="fila">
@@ -56,7 +54,7 @@
 		</div>
 			<tfoot>
 				<tr>
-					<td colspan="11">
+					<td colspan="10">
 						{!!link_to_route('adminusuarios.create', $title = "Añadir",$parameters= "" , $attributes = ['class'=>'btn boton col-xs-12'])!!}</td>
 				</tr>
 			</tfoot>

@@ -33,10 +33,6 @@
         <span class="input-group-addon glyphicon glyphicon-calendar"></span>
           {!!Form::date('fechanacimiento', \Carbon\Carbon::now(),['class'=>'form-control'])!!}
       </div>
-      <div class="input-group input-group-lg margin10">
-        <span class="input-group-addon glyphicon glyphicon-picture"></span>
-          {!!Form::file('imagen',['class'=>'form-control'])!!}
-      </div>
       <div class="form-group margin10">
         <span class="fa fa-male"> Hombre&nbsp</span>{!!Form::radio('genero', 'Hombre', true)!!}
         <span class="fa fa-female"> Mujer&nbsp </span>{!!Form::radio('genero', 'Mujer')!!}

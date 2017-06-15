@@ -24,14 +24,15 @@ class UserUpdateRequest extends Request
     public function rules()
     {
       return [
-          'nombre' => 'required',
-          'descripcion' => 'required',
-          'fechainicioinscripcion' => 'required',
-          'fechafininscripcion' => 'required',
-          'fechafinconcurso' => 'required',
-          'genero' => 'required',
-          'fechanacimiento' => 'required',
-          'tipousuario' => 'required',
+        'email' => 'required|email',
+        'password' => 'required',
+        'nombre' => 'required',
+        'apellidos' => 'required',
+        'direccion' => 'required',
+        'localidad' => 'required',
+        'genero' => 'required',
+        'fechanacimiento' => 'required',
+        'tipousuario' => 'required',
       ];
     }
 }

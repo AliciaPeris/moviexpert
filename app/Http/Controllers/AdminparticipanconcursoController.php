@@ -68,8 +68,9 @@ class AdminparticipanconcursoController extends Controller
         }
   public function edit($id){
     $concurso = \moviexpert\participanconcurso::find($id);
+    $nombreconcurso=\moviexpert\participanconcurso::lists('titulo','id');
     $users=\moviexpert\User::lists('nombre','id');
-    return view('participanconcursos.edit',['concurso'=>$concurso])->with('users',$users);
+    return view('participanconcursos.edit',['concurso'=>$concurso])->with('users',$users)->with('nombreconcurso',$nombreconcurso);
   }
   public function update(ParticipanConcursoRequest $request,$id){
     $concurso = \moviexpert\participanconcurso::find($id);

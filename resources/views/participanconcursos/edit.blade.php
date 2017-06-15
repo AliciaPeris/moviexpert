@@ -7,7 +7,7 @@
 		<h1 class="textoMarron text-center">Editar Incripcion al Concurso</h1>
 		<div class="input-group input-group-lg margin10">
 			<span class="input-group-addon glyphicon glyphicon-certificate"></span>
-			{!!Form::select('idconcurso',$concurso,null,['class'=>'form-control','placeholder'=>'Concurso'])!!}
+			{!!Form::select('idconcurso',$nombreconcurso,null,['class'=>'form-control','placeholder'=>'Concurso'])!!}
 		</div>
 		<div class="input-group input-group-lg margin10">
 			<span class="input-group-addon glyphicon glyphicon-user"></span>
