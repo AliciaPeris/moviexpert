@@ -26,7 +26,7 @@ class VotosConcursoRequest extends Request
         return [
           'idcortoconcurso' => 'required|numeric',
           'idusuario' => 'required|numeric',
-          'voto' => 'required|numeric',
+          'voto' => 'required|numeric|min:0',
           'fechavoto' => 'required|date',
 
         ];

@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use DB;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
-
+use moviexpert\Http\Requests\MensajeChatRequest;
 class MensajechatController extends Controller
 {
-    public function store(Request $request){
+    public function store(MensajeChatRequest $request){
         $id=$request['idmiembro'];
         \moviexpert\Mensajechat::create([
          /*Nombre campo base datos => nombre del campo del formulario*/

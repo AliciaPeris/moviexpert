@@ -13,7 +13,7 @@
         $id=$chat->idmiembro;
         $nombreusuario=MiembrochatController::nombreuser($id);
   ?>
-  <p class="col-xs-12">
+  <p class="col-xs-12 text-left">
         @foreach($nombreusuario as $user)
         <?php  echo $user->nombre." : ".$chat->mensaje;?>
         @endforeach

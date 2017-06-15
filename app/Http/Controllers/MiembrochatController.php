@@ -8,7 +8,7 @@ use Auth;
 use Session;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
-
+use moviexpert\Http\Requests\ParticipanChatRequest;
 class MiembrochatController extends Controller
 {
     //
@@ -56,7 +56,7 @@ class MiembrochatController extends Controller
       $chat = \moviexpert\AdminChat::find($id);
       return view('miembrochat.create',['chat'=>$chat]);
     }
-    public function store(Request $request){
+    public function store(ParticipanChatRequest $request){
       \moviexpert\miembrochat::create([
        /*Nombre campo base datos => nombre del campo del formulario*/
        'idchat'=> $request['idchat'],

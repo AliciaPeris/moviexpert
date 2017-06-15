@@ -8,6 +8,7 @@ use Auth;
 use Session;
 use moviexpert\Http\Requests;
 use moviexpert\Http\Controllers\Controller;
+use moviexpert\Http\Requests\ChatCreateRequest;
 
 class GrupochatController extends Controller
 {
@@ -28,7 +29,7 @@ class GrupochatController extends Controller
     }
 
 
-    public function store(Request $request){
+    public function store(ChatCreateRequest $request){
       \moviexpert\Adminchat::create([
        /*Nombre campo base datos => nombre del campo del formulario*/
        'nombre'=> $request['nombre'],
@@ -43,7 +44,7 @@ class GrupochatController extends Controller
      return redirect('/chat')->with('message','store');
     }
 
-    
+
     public function destroy($id){
       \moviexpert\Adminchat::destroy($id);
       Session::flash('message','Chat Eliminado Correctamente');
