@@ -60,7 +60,7 @@
 					<p class="col-xs-12">{!!Form::radio('voto', '4')!!}<strong><i class="glyphicon glyphicon-star textoSalmon"></i><i class="glyphicon glyphicon-star textoSalmon"></i></strong><i class="glyphicon glyphicon-star textoSalmon"></i><i class="glyphicon glyphicon-startextoSalmon"></i></strong></p>
 					<p class="col-xs-12">{!!Form::radio('voto', '3')!!}<strong><i class="glyphicon glyphicon-star textoSalmon"></i><i class="glyphicon glyphicon-star textoSalmon"></i></strong><i class="glyphicon glyphicon-star textoSalmon"></i></strong></p>
 					<p class="col-xs-12">{!!Form::radio('voto', '2')!!}<strong><i class="glyphicon glyphicon-star textoSalmon"></i><i class="glyphicon glyphicon-star textoSalmon"></i></strong></p>
-					<p class="col-xs-12">{!!Form::radio('voto', '1')!!}<strong><i class="glyphicon glyphicon-star textoSalmon"></i></p>
+					<p class="col-xs-12">{!!Form::radio('voto', '1',true)!!}<strong><i class="glyphicon glyphicon-star textoSalmon"></i></p>
 					{!!Form::submit('Votar',['class'=>'btn boton margin10'])!!}
         </div>
       @endif

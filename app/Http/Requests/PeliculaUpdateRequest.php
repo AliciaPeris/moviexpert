@@ -31,7 +31,7 @@ class PeliculaUpdateRequest extends Request
           'guion' => 'required',
           'reparto' => 'required',
           'sinopsis' => 'required',
-          'trailer' => 'required|url',
+          'trailer' => 'required',
 
             //
         ];

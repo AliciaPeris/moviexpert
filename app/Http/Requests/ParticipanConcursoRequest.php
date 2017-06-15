@@ -28,7 +28,7 @@ class ParticipanConcursoRequest extends Request
           'idusuario' => 'required|numeric',
           'titulo' => 'required',
           'descripcion' => 'required',
-          'corto' => 'required|url',
+          'corto' => 'required',
 
         ];
     }

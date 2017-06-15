@@ -74,8 +74,10 @@ class AdminparticipanconcursoController extends Controller
   }
   public function update(ParticipanConcursoRequest $request,$id){
     $concurso = \moviexpert\participanconcurso::find($id);
+    $request["corto"]=(strpos($request["corto"],"v=")) ? substr($request["corto"],strpos($request["corto"],"v=")+2) : $request["corto"];
     $concurso->fill($request->all());
     $concurso->save();
+
     Session::flash('message','Incripcion Actualizada Correctamente');
     return Redirect::to('/adminparticipanconcurso');
   }
