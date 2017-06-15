@@ -27,7 +27,7 @@
         {!!Form::textarea('otrosparticipantes',null,['class'=>'form-control','placeholder'=>'Ingrese otros participantes'])!!}
       </div>
 			<div class="input-group input-group-lg margin10">
-        <span class="input-group-addon"><i class="fa fa-text-width" aria-hidden="true"></i></span>
+        <span class="input-group-addon glyphicon glyphicon-film"></span>
         {!!Form::text('titulo',null,['class'=>'form-control','placeholder'=>'Titulo del Corto'])!!}
       </div>
       <div class="input-group input-group-lg margin10">

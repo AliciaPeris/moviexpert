@@ -14,7 +14,7 @@
         {!!Form::select('idusuario',$users,null,['class'=>'form-control','placeholder'=>' Usuario'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
-        <span class="input-group-addon glyphicon glyphicon-user"></span>
+        <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
         {!!Form::text('otrosparticipantes',null,['class'=>'form-control','placeholder'=>'Otros Participantes'])!!}
       </div>
       <div class="input-group input-group-lg margin10">
