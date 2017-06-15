@@ -51,7 +51,8 @@ class AdminparticipanconcursoController extends Controller
      'otrosparticipantes'=> $request['otrosparticipantes'],
      'titulo'=> $request['titulo'],
      'descripcion'=> $request['descripcion'],
-     'corto'=> $request['corto'],
+     'corto'=> (strpos($request["corto"],"v=")) ? substr($request["corto"],strpos($request["corto"],"v=")+2) : $request["corto"],
+
    ]);
     /* Redireccionamos a la ruta del index y indicamos que muestre un mensaje*/
     return redirect('adminparticipanconcurso');

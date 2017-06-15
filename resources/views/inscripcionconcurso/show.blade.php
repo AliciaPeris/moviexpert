@@ -36,7 +36,7 @@
       <p class="col-xs-12">{{$ins->descripcion}}</p>
     </div>
     <div class="col-xs-10 col-xs-offset-1 margintop25">
-      <p class="col-xs-12">Ruta Corto: {{$ins->corto}}</p>
+      <iframe id="corto"  src="https://www.youtube.com/embed/{{$ins->corto}}" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
   <div class="col-xs-3 cuadrado margintop25">

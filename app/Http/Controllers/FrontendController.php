@@ -29,16 +29,15 @@ class FrontendController extends Controller
   public function peliculas(){
     $peliculas=\moviexpert\Votospeliculas::mediaPeliculas();
     return view("frontend.peliculas",compact('peliculas'));
-
-
   }
+
   public function ficha($id){
     $pelicula=\moviexpert\Adminpelicula::find($id);
     $mediaVotos=\moviexpert\Votospeliculas::avgVotos($id);
     $mediaVotos=number_format($mediaVotos,1);
     $cuentaVotos=\moviexpert\Votospeliculas::countVotos($id);
     $generos=\moviexpert\Admingenero::lists('genero','id');
-     return view('frontend.ficha',compact('pelicula'))->with("generos",$generos)->with("mediaVotos",$mediaVotos)->with('cuentaVotos',$cuentaVotos);
+    return view('frontend.ficha',compact('pelicula'))->with("generos",$generos)->with("mediaVotos",$mediaVotos)->with('cuentaVotos',$cuentaVotos);
    }
    public function top10(){
      $peliculas=\moviexpert\Votospeliculas::top10();

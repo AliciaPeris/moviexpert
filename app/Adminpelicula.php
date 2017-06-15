@@ -26,9 +26,6 @@ class Adminpelicula extends Model
     }
 
     static public function titulo($titulo){
-
       return DB::select("SELECT * FROM adminpeliculas WHERE titulo like '".$titulo."%';");
-
-
    }
 }
