@@ -4,7 +4,7 @@ namespace moviexpert\Http\Requests;
 
 use moviexpert\Http\Requests\Request;
 
-class VotosConcursoRequest extends Request
+class MiembroChatRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class VotosConcursoRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,11 +24,7 @@ class VotosConcursoRequest extends Request
     public function rules()
     {
         return [
-          'idcortoconcurso' => 'required|numeric',
-          'idusuario' => 'required|numeric',
-          'voto' => 'required|numeric|min:0',
-          'fechavoto' => 'required|date',
-
+            //
         ];
     }
 }

@@ -4,9 +4,9 @@
 	 {{ csrf_field() }}
 	@include('chat.menuchat')
 	@include('alerts.errorformulario')
-
   <div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3 blanco">
 		<h1 class="textoMarron text-center">Introducir chat</h1>
+
       <div class="input-group input-group-lg margintop10">
         <span class="input-group-addon glyphicon glyphicon-comment"></span>
         {!!Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Nombre del Chat'])!!}

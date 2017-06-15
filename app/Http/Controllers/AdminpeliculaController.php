@@ -70,9 +70,11 @@ class AdminpeliculaController extends Controller
 
     }
     public function edit($id){
-
+      /*Buscamos la pelicula que queremos modificar para pasarle los datos a la vista*/
       $peliculas = Adminpelicula::find($id);
+      /*Recuperamos el nombre del genero para mostrar su nombre y no su identificador*/
       $generos=\moviexpert\Admingenero::lists('genero','id');
+      /*Retornamos al vista que contiene el formulario para editar la pelicula y le pasamos los datos*/
       return view('peliculas.edit',compact("generos"))->with('pelicula', $peliculas);
     }
 

@@ -19,6 +19,7 @@
   {!!Form::open(['route'=>['grupochat.destroy',$chat->id],'method'=>'DELETE'])!!}
 	 {{ csrf_field() }}
   {!!Form::submit('Borrar Chat',['class'=>'btn btn-danger col-xs-12 col-sm-6 col-sm-offset-3 margintop25'])!!}
+	{!!Form::close()!!}
 </div>
 	@endforeach
 	@endforeach

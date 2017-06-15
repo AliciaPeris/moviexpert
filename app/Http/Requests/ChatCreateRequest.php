@@ -26,10 +26,10 @@ class ChatCreateRequest extends Request
         return [
           'nombre' => 'required',
           'descripcion' => 'required',
-          'numguionistas' => 'required|numeric',
-          'numactores' => 'required|numeric',
-          'numdirectores' => 'required|numeric',
-          'numcamaras' => 'required|numeric',
+          'numguionistas' => 'required|numeric|min:0',
+          'numactores' => 'required|numeric|min:0',
+          'numdirectores' => 'required|numeric|min:0',
+          'numcamaras' => 'required|numeric|min:0',
 
         ];
     }

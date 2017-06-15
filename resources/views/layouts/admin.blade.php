@@ -73,9 +73,10 @@
             </div>
      </nav>
 
-        <div id="page-wrapper">
+    <div id="page-wrapper">
             @yield('content')
-        </div>
+    </div>
+
         <div class="col-xs-12 fondoCabecera margintop25">
           <div class="container margintop25">
             <p class="text-center"><a class="textoBlanco" href="">Preguntas más frecuentes</a> | <a class="textoBlanco" href="">Política de privacidad y Condiciones de uso</a></p>

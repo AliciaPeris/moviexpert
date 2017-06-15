@@ -25,14 +25,12 @@
 	?>
 	<h3 class="col-xs-6 col-md-6 text-center"><?php echo $numact; ?> / {{$chat->numactores}} <i class="glyphicon glyphicon-user"></i></h3><h3 class="col-xs-6 col-md-6 text-center"> <?php echo $numgui; ?> / {{$chat->numguionistas}} <i class="glyphicon glyphicon-list-alt"></i></h3>
 	<h3 class="col-xs-6 col-md-6 text-center"><?php echo $numdir; ?> / {{$chat->numdirectores}} <i class="glyphicon glyphicon-film"></i></h3><h3 class="col-xs-6 col-md-6 text-center"> <?php echo $numcam; ?> / {{$chat->numcamaras}} <i class="glyphicon glyphicon-facetime-video"></i></h3>
-{!!link_to_route('miembrochat.show', $title = "Chatear", $parameters = $idmiembro, $attributes = ['class'=>'btn boton2 margin5 col-sm-4'])!!}
+	{!!link_to_route('miembrochat.show', $title = "Chatear", $parameters = $idmiembro, $attributes = ['class'=>'btn boton2 margin5 col-sm-4'])!!}
   {!!Form::open(['route'=>['miembrochat.destroy',$idmiembro],'method'=>'DELETE'])!!}
 	 {{ csrf_field() }}
   {!!Form::submit('Salir del Grupo',['class'=>'btn btn-danger margin5 col-sm-4'])!!}
   {!!Form::close()!!}
-
 </div>
 @endforeach
 @endforeach
-
 @endsection
